@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class CheckController {
 	@RequestMapping("/creat")
     public ModelAndView getCreat(){
-        ModelAndView mv = new ModelAndView("CheckCreat");
+        ModelAndView mv = new ModelAndView("CheckCreat2");
         return mv;
 	}
 }
