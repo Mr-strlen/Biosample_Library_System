@@ -45,9 +45,9 @@
 	%>
 	<div class="container theme-showcase" role="main">
 	
-		<form action="<%=basePath%>check/sample_submit" method="get">
+		<form action="<%=basePath%>warehouse/store_submit" method="get">
 			<input name="type" id="type" type="hidden" value="">
-			<label for="basic-url">盘点样本信息</label>
+			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">入库时间</span>

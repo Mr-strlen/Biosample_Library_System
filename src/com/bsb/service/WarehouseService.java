@@ -2,25 +2,13 @@ package com.bsb.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.apache.ibatis.annotations.Param;
 
-@Controller
-@RequestMapping("/warehouse")
+import com.bsb.model.WarehouseAlter;
+import com.bsb.model.WarehouseControl;
 
-public class WarehouseService {
-	@RequestMapping("/store")
-    public ModelAndView getCreat(){
-        ModelAndView mv = new ModelAndView("Warehousestore");
-        return mv;
-    }
-	
-	@RequestMapping("/state")
-    public ModelAndView getCheck(){
-        ModelAndView mv = new ModelAndView("CheckIndex");
-        return mv;
-    }
+public interface WarehouseService {
+	public List<WarehouseAlter> FindAlter();
+	public List<WarehouseAlter> SampleStore(String code, String name,String Alter,String reason,int num, String time);
+	public List<WarehouseControl> FindControl();
 }
