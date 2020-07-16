@@ -22,13 +22,13 @@
           <ul class="nav navbar-nav">
             <li><a href="<%=basePath%>index">首页</a></li>
             <li id="dd1" class="dropdown">
-              <a href="<%=basePath%>warehouse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">样本出入库 <span class="caret"></span></a>
+              <a href="<%=basePath%>stockin" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">样本出入库 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">样本入库</li>
-                <li><a href="<%=basePath%>warehouse/warehouse_app">入库申请</a></li>
-                <li><a href="<%=basePath%>warehouse/warehouse_checking">待审核申请</a></li>
-                <li><a href="<%=basePath%>warehouse/warehouse_checked">已审核申请</a></li>
-                <li><a href="<%=basePath%>warehouse/warehouse_record">入库登记</a></li>
+                <li><a href="<%=basePath%>stockin/stockin_app">入库申请</a></li>
+                <li><a href="<%=basePath%>stockin/stockin_checking">待审核申请</a></li>
+                <li><a href="<%=basePath%>stockin/stockin_checked">已审核申请</a></li>
+                <li><a href="<%=basePath%>stockin/stockin_record">入库登记</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">样本出库</li>
                 <li><a href="<%=basePath%>dispatch/apply">出库申请</a></li>

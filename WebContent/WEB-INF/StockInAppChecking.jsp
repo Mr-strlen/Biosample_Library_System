@@ -48,19 +48,19 @@
 					<th>申请单位</th>	
 					<th>审核</th>				
 				</tr>
-				<c:forEach items="${warehouse_checking}" var="node">
+				<c:forEach items="${stockin_checking}" var="node">
 					<tr>
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td> <c:out value="${node.date}"></c:out> </td>
 						<td> <c:out value="${node.applicant}"></c:out> </td>
-						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>warehouse/warehouse_check?id=${node.id}';">开始审核</button> </td>
+						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_check?id=${node.id}';">开始审核</button> </td>
 						
 					</tr>
 	   			</c:forEach>
   			</table>
 		</div> 
 		<div class="panel-heading">申请单查询</div>
-		<form action="<%=basePath%>warehouse/warehouse_appdetail" method="get">
+		<form action="<%=basePath%>stockin/stockin_appdetail" method="get">
 		<div class="col-lg-6">
     		<div class="input-group">
       			<input type="text" name="id" class="form-control" placeholder="输入申请单号...">
