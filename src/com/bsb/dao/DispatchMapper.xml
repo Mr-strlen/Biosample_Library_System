@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.DispatchMapper">
+
+	<!-- 出库申请汇总表 -->
+    <resultMap id="AppSumMap" type="com.bsb.model.DispatchAppSum">
+        <id property="order" column="disappli_order"/>
+        <result property="applicant" column="dis_applicants"/>
+        <result property="time" column="disappli_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>      
+        <result property="result" column="disappli_result"/>
+        <result property="auditor" column="auditor"/>
+    </resultMap>
+    
+    <!-- 出库申请详情表 -->
+    <resultMap id="AppDetailMap" type="com.bsb.model.DispatchAppDetail">
+        <id property="order" column="disappli_orde"/>
+        <result property="type" column="disappli_sample_type" />
+        <result property="num" column="disappli_sample_amount"/>
+        <result property="condition" column="disappli_sample_condition"/>
+        <result property="result" column="disappli_sample_result"/>
+        <result property="reason_pos" column="disappli_sample_reasonorpos"/>
+    </resultMap>
+    
+    <!-- 出库记录表 -->
+    <resultMap id="RecordMap" type="com.bsb.model.DispatchRecord">
+        <id property="order" column="dispatch_order"/>      
+        <result property="time" column="disappli_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>      
+        <result property="manager" column="dispatch_manager"/>
+        <result property="application_order" column="disappli_orde"/>
+        <result property="state" column="dispatch_state"/>
+    </resultMap>
+    
+    
+    <!-- 1.显示出库申请 显示全部出库申请 -->
+	<select id="findAllApp" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary
+    </select>
+    <!-- 显示指定单号的出库申请 -->
+	<select id="findAppByOrder" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where disappli_order like #{order}
+    </select>
+    <!-- 时间 -->
+    <select id="findAppByTime" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where disappli_time like #{time}
+    </select>
+	<!-- 申请单位 -->
+	<select id="findAppByApplicant" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where dis_applicants like #{applicant}
+    </select>
+    <!-- 申请结果 -->
+	<select id="findAppByResult" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where disappli_result = #{result}
+    </select>
+    <!-- 审核员 -->
+    <select id="findAppByAuditor" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where auditor = #{auditor}
+    </select>
+    <!-- 更新状态 -->
+    <update id="appCheckFinal">
+        update g10_dispatch_application_summary set disappli_result = #{result}, auditor = #{auditor} where disappli_order = #{order}
+    </update>
+    <!-- 获取订单数 -->
+    <select id="getApplyNum" resultType="Integer">
+    	select count(*) from g10_dispatch_application_summary
+    </select>
+    
+    
+    <!-- 
+	// 出库样本(调用出库申请详情表)
+	public List<DispatchAppSum> findAppBySample(String type);
+
+	<select id="findAppBySample" parameterType="String" resultMap="AppSumMap">
+    	select * from g10_dispatch_application_summary where disappli_result = #{result}
+    </select>
+    -->
+    
+    <!--
+	// 2.显示出库申请详情
+	// 显示指定单号出库申请详情
+	public List<DispatchAppDetail> findAppDetailByOrder(String order);
+	-->
+	<select id="findAppDetailByOrder" parameterType="String" resultMap="AppDetailMap">
+    	select * from g10_dispatch_application where disappli_orde = #{order}
+    </select>
+    
+    <update id="appCheck">
+        update g10_dispatch_application set disappli_sample_result = #{result}, disappli_sample_reasonorpos = #{reason_pos} where disappli_orde = #{order} and disappli_sample_type = #{type}
+        <!-- update g10_dispatch_application_summary set disappli_result = "已通过" where  disappli_order = #{order};    -->   
+    </update>
+    
+    <!-- 
+    // 指定单显示出库位置详情
+	public List<String> getPosByOrder(String order);
+    -->
+    <select id="getPosByOrder" parameterType="String" resultType="String">
+    	select disappli_sample_reasonorpos from g10_dispatch_application where disappli_orde like #{order}
+    </select>
+	
+	<!-- 
+	// 3.显示出库记录
+	// 显示全部出库记录
+	public List<DispatchRecord> findAllRecord();
+	-->
+	<select id="findAllRecord" resultMap="RecordMap">
+    	select * from g10_dispatch_record
+    </select>
+	<!-- 
+	// 显示指定单号的出库申请
+	public List<DispatchRecord> findRecordByOrder(String order);
+	-->
+	<select id="findRecordByOrder" parameterType="String" resultMap="RecordMap">
+    	select * from g10_dispatch_record where dispatch_order like #{order}
+    </select>
+    
+    <select id="findRecordByTime" parameterType="String" resultMap="RecordMap">
+    	select * from g10_dispatch_record where disappli_time like #{time}
+    </select>
+    
+    <!--
+	// 出库人员
+	public List<DispatchRecord> findRecordByManager(String manager);
+	-->
+	<select id="findRecordByManager" parameterType="String" resultMap="RecordMap">
+    	select * from g10_dispatch_record where dispatch_manager like #{manager}
+    </select>
+    <!-- 
+    // 订单状态
+	public List<DispatchRecord> findRecordByState(String state);
+    -->
+    <select id="findRecordByState" parameterType="String" resultMap="RecordMap">
+    	select * from g10_dispatch_record where dispatch_state like #{state}
+    </select>
+    
+    <!-- 
+    // 获取当前订单数量用于订单编号
+	public 	int getRecordNum();
+    -->
+    <select id="getRecordNum" resultType="Integer">
+    	select count(*) from g10_dispatch_record
+    </select>
+ 
+    
+    <!-- 
+    // 获取出库申请单对应的出库单
+	public String getAppOrderByOrder(String application_order);
+    -->
+    <select id="getAppOrderByOrder" parameterType="String" resultType="String" >
+    	select dispatch_order from g10_dispatch_record where disappli_orde = #{order}
+    </select>
+    
+    <!-- 
+    // 新增一条出库订单
+	public void insertRecord(String order, String time, String da_order, String state);
+     -->
+    <insert id="insertRecord">
+    	insert into g10_dispatch_record(dispatch_order, disappli_orde, dispatch_state) values(#{order}, #{application_order}, #{state})
+    </insert>
+    
+    <insert id="insertApplyDe">
+    	insert into g10_dispatch_application(disappli_orde, disappli_sample_type, disappli_sample_amount, disappli_sample_condition, disappli_sample_result) values(#{order}, #{type}, #{num}, #{condition}, #{result})
+    </insert>
+    
+    <insert id="insertApplySum">
+    	insert into g10_dispatch_application_summary(disappli_order, dis_applicants, disappli_time, disappli_result) values(#{order}, #{applicant}, #{time}, #{result})
+    </insert>
+    
+    <!-- 
+    // 修改出库订单状态
+	public void updateRecord(@Param("order")String order, @Param("time")String time, @Param("manager")String manager, @Param("state")String state);
+    -->
+    <update id="updateRecord">
+    	update g10_dispatch_record set dispatch_manager = #{manager}, disappli_time = #{time}, dispatch_state = #{state} where dispatch_order = #{order}
+    </update>
+    
+	<!-- 
+	// 申请单位
+	public List<DispatchRecord> findRecordByApplicant(String applicant);
+	// 出库样本(调用出库申请详情表)
+	public List<DispatchRecord> findRecordBySample(String type);
+	-->
+   
+</mapper>
