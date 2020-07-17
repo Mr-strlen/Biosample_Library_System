@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bsb.service.DispatchService;
 import com.bsb.service.SampleInfoService;
 
+import com.bsb.controller.IndexController;
+
 @Controller
 @RequestMapping("/dispatch")
 public class DispatchController {
@@ -61,9 +63,9 @@ public class DispatchController {
 		dispatchService.insertApplySum(order, applicant, time, result);
         
         // 返回界面
-        return(new ModelAndView("redirect:app_checksum"));
+        return(new ModelAndView("index"));
     }
-	
+
 	// 待审核申请
 	@RequestMapping("/app_checksum")
 	public ModelAndView getCheckApp(){
