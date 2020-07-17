@@ -3,20 +3,23 @@ package com.bsb.service;
 
 import java.util.List;
 
-
+import org.apache.ibatis.annotations.Param;
 
 import com.bsb.model.StockInAppsum;
 import com.bsb.model.StockInRecord;
 import com.bsb.model.StockInAppdetail;
 
 public interface StockInService {
-	public List<StockInAppsum> ShowAppsum(int state);
-	public List<StockInAppdetail> ShowAppdetail(int id);
-	public List<StockInRecord> ShowRecord();
-	public void Appcheck(int id, String name, String result, String reason);
-	public void Recordsubmit(int id, int application_id, String sample_id, String sample_name, String position_id);
-	public List<StockInRecord> ShowRecordbySample_id(String sample_id);
-	public int GetNextRecordId();
-	public int GetNextAppId();
-	public void Appsubmit(int id, String applicant, String name,String size,String condition);
+	//1.入库申请表汇总
+	public List<StockInAppsum> ShowAppsum(int state);//展示所有申请表
+	public int GetNextAppId();//获取下一个申请表单号
+	//2.入库申请表详细
+	public List<StockInAppdetail> ShowAppdetail(int state);//显示申请表信息
+	public void Appsubmit(int id,String applicant,String name,String size,String condition);//插入一次申请记录
+	public void Appcheck(int id, String name, String result, String reason);//申请表审核
+	//3.入库记录表
+	public List<StockInRecord> ShowRecord();//显示入库记录表
+	public List<StockInRecord> ShowRecordbySample_id(String sample_id);//根据编码显示申请记录中具体样本
+	public int GetNextRecordId();//获取下一个入库记录号
+	public void Recordsubmit(int id,int application_id, String sample_id,String sample_name, String position_id);//提交一次样本记录
 }
