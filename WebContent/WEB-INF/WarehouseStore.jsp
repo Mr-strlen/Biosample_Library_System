@@ -50,12 +50,6 @@
 			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">入库时间</span>
-  					<input type="text" value="<%=now %>"class="form-control" name="time" aria-describedby="basic-addon2" readonly>
-  				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">样本编号</span>
   					<input type="text" class="form-control" name="code" aria-describedby="basic-addon2">
   				</div>
@@ -74,14 +68,20 @@
 			</div>
 			<div class="form-group">
 				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">原因</span>
+  					<input type="text" class="form-control" name="reason" aria-describedby="basic-addon2">
+  				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">数量</span>
   					<input type="text" class="form-control" name="num" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">原因</span>
-  					<input type="text" class="form-control" name="reason" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">入库时间</span>
+  					<input type="text" value="<%=now %>"class="form-control" name="time" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
@@ -105,7 +105,7 @@
     		document.forms[0].submit();
     	}
     	function quit(){
-    		document.getElementById("type").value='quit';
+    		<!--document.getElementById("type").value='quit';-->
     		document.forms[0].submit();
     	}
     </script>

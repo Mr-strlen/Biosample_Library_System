@@ -4,7 +4,7 @@
     <resultMap id="warehousealter" type="com.bsb.model.WarehouseAlter">
         <id property="Sample_code" column="Sample_code"/>
         <result property="Sample_name" column="Sample_name"/>
-        <result property="Alter" column="Alter"/>
+        <result property="Sample_alter" column="Sample_alter"/>
         <result property="Reason" column="Reason"/>
         <result property="Quantity" column="Quantity"/>
         <result property="Alter_date" column="Alter_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
@@ -20,7 +20,7 @@
     </resultMap>
     
     <select id="SampleStore">
-    	INSERT INTO 2020rg_group12_warehousealter (Sample_code,Sample_name,Alter,Reason,Quantity,Alter_date)
+    	INSERT INTO 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date)
 		VALUES (#{code},#{name},#{alter},#{reason},#{num},#{time});
     </select>
 </mapper>

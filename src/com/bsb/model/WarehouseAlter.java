@@ -6,7 +6,7 @@ import java.util.Date;
 public class WarehouseAlter {
 	private String Sample_code;
 	private String Sample_name;
-	private String Alter;
+	private String Sample_alter;
 	private String Reason;
 	private int Quantity;
 	private String Alter_date;
@@ -27,12 +27,12 @@ public class WarehouseAlter {
 		Sample_name = _Sample_name;
 	}
 	
-	public String getAlter() {
-		return Alter;
+	public String getSample_alter() {
+		return Sample_alter;
 	}
 	
-	public void setAlter(String _Alter) {
-		Alter = _Alter;
+	public void setSample_alter(String _Sample_alter) {
+		Sample_alter = _Sample_alter;
 	}
 	
 	public String getReason() {
