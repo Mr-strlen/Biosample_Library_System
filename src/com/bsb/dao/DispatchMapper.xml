@@ -8,7 +8,7 @@
         <result property="applicant" column="DispatchApplicants"/>
         <result property="time" column="DispatchApplicationTime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>      
         <result property="result" column="CheckDispatchApplicationResult"/>
-        <result property="DispatchAuditor" column="DispatchAuditor"/>
+        <result property="auditor" column="DispatchAuditor"/>
     </resultMap>
     
     <!-- 出库申请详情表 -->
