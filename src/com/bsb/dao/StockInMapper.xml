@@ -37,7 +37,7 @@
     	select * from 2020rg_group12_stockinapplication where application_id = #{id}
     </select>
     
-    <!-- 插入申请记录 -->
+    <!-- 插入一次申请记录 -->
     <insert id="Appsubmit">
     	insert ignore into 2020rg_group12_stockinapplicationsummary(application_id,application_date,applicant) values(#{id},now(),#{applicant});
     	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size,storage_condition) values (#{id},#{name},#{size},#{condition});
@@ -60,7 +60,7 @@
         <result property="position_id" column="position_id" />
     </resultMap>
     
-    <!-- 显示所有申请记录 -->
+    <!-- 显示入库记录表 -->
     <select id="ShowRecord" resultMap="Recordmap">
     	select * from 2020rg_group12_stockinrecord where record_id>0;
     </select>
