@@ -16,6 +16,7 @@ public class StockInController {
 //	@Autowired
 //	private SampleInfoService sampleinfoService;
 	
+	//审核申请界面
 	@RequestMapping("/StockIn_checking")
     public ModelAndView showappchecking(){
         ModelAndView mv = new ModelAndView("StockInAppChecking");
@@ -23,6 +24,7 @@ public class StockInController {
         return mv;
     }
 	
+	//已审核申请界面
 	@RequestMapping("/StockIn_checked")
     public ModelAndView showappchecked(){
         ModelAndView mv = new ModelAndView("StockInAppChecked");
@@ -30,6 +32,7 @@ public class StockInController {
         return mv;
     }
 	
+	//申请详情
 	@RequestMapping("/StockIn_appdetail")
     public ModelAndView showappdetail(String id){
         ModelAndView mv = new ModelAndView("StockInAppdetail");
@@ -37,6 +40,7 @@ public class StockInController {
         return mv;
     }
 	
+	//入库记录
 	@RequestMapping("/StockIn_record")
     public ModelAndView showrecord(){
         ModelAndView mv = new ModelAndView("StockInRecord");
@@ -44,6 +48,7 @@ public class StockInController {
         return mv;
     }
 	
+	//库存详细信息
 	@RequestMapping("/StockIn_check")
     public ModelAndView showcheck(String id){
         ModelAndView mv = new ModelAndView("StockInCheck");
@@ -59,6 +64,7 @@ public class StockInController {
         return mv;
     }
 	
+	//进行审核
 	@RequestMapping("/StockIn_checksubmit")
 	public ModelAndView submitcheck(int id, String name, String reason,  String result) {
 		System.out.println(id+" "+name+" "+result+" "+reason);
@@ -72,6 +78,7 @@ public class StockInController {
 		return(new ModelAndView("redirect:StockIn_checking"));
 	}
 	
+	//申请记录提交
 	@RequestMapping("/StockIn_recordsubmit")
 	public ModelAndView submitrecord( int application_id,  String sample_id, String sample_name, String type) {
 //		String position_id = sampleinfoService.GetUnusedPosition(type);
@@ -81,6 +88,7 @@ public class StockInController {
 		return(new ModelAndView("redirect:StockIn_record"));
 	}
 	
+	//申请记录查询
 	@RequestMapping("/StockIn_findrecord")
     public ModelAndView findrecord(String sample_id){
 		System.out.println(sample_id);
@@ -89,6 +97,7 @@ public class StockInController {
         return mv;
     }
 	
+	//入库申请填写
 	@RequestMapping("/StockIn_app")
     public ModelAndView app(){		
 		ModelAndView mv = new ModelAndView("StockInAppsubmit");
@@ -96,7 +105,7 @@ public class StockInController {
         return mv;
     }
 	
-	
+	//入库申请提交
 	@RequestMapping("/StockIn_appsubmit")
     public ModelAndView submitapp(int id, String applicant, String name,String size,String condition){				
         StockInService.Appsubmit(id, applicant, name, size, condition);
