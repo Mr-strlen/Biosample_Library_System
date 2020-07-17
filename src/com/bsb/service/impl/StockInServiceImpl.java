@@ -50,6 +50,29 @@ public class StockInServiceImpl implements StockInService{
 		 StockInMapper.Appcheck(id, name, result, reason);
 	}
 	
+	/*3.入库记录表*/
+	//显示入库记录表
+	@Override
+	public List<StockInRecord> ShowRecord(){
+		return StockInMapper.ShowRecord();
+	}
 	
+	//根据编码显示申请记录中具体样本
+	@Override
+	public List<StockInRecord> ShowRecordbySample_id(String sample_id){
+		return StockInMapper.ShowRecordbySample_id(sample_id);
+	}
+	
+	//获取下一个入库记录号
+	@Override
+	public int GetNextRecordId() {
+		return StockInMapper.GetNextRecordId();
+	}
+	
+	//提交一次样本记录
+	@Override
+	public void Recordsubmit(int id,int application_id, String sample_id, String sample_name, String position_id) {
+		 StockInMapper.Recordsubmit(id,  application_id, sample_id, sample_name, position_id);
+	}
 	
 }
