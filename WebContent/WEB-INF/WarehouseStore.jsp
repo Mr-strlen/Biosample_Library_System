@@ -51,25 +51,37 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">入库时间</span>
-  					<input type="text" value="<%=now %>"class="form-control" name="check_ctt" aria-describedby="basic-addon2" readonly>
+  					<input type="text" value="<%=now %>"class="form-control" name="time" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">样本编码</span>
-  					<input type="text" class="form-control" name="sample_id" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">样本编号</span>
+  					<input type="text" class="form-control" name="code" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">存储位置</span>
-  					<input type="text" class="form-control" name="position_id" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">样本名称</span>
+  					<input type="text" class="form-control" name="name" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">存储条件</span>
-  					<input type="text" class="form-control" name="check_id" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">变动方式</span>
+  					<input type="text" class="form-control" name="alter" aria-describedby="basic-addon2">
+  				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">数量</span>
+  					<input type="text" class="form-control" name="num" aria-describedby="basic-addon2">
+  				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">原因</span>
+  					<input type="text" class="form-control" name="reason" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
