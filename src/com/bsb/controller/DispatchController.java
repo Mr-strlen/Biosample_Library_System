@@ -68,4 +68,11 @@ public class DispatchController {
         }
         return mv;
     }
+	// 审核申请
+	@RequestMapping("/app_checkdetail")
+    public ModelAndView setCheckDetail(String type){
+        ModelAndView mv = new ModelAndView("DispatchAppCheckDetail");
+        mv.addObject("app_checkdetail",dispatchService.findAppDetailByOrder(type));
+        return mv;
+    }
 }
