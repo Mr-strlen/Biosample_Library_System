@@ -50,7 +50,7 @@
 					<th>数量</th>
 					<th>变动时间</th>
 				</tr>
-				<c:forEach items="${warehouse}" var="node">
+				<c:forEach items="${query}" var="node">
 					<tr>
 						<td> <c:out value="${node.Sample_code}"></c:out> </td>
 						<td> <c:out value="${node.Sample_name}"></c:out> </td>

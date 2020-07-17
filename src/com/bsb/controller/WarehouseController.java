@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bsb.service.WarehouseService;
+import javax.swing.JOptionPane;
 
 @Controller
 @RequestMapping("/warehouse")
@@ -19,7 +20,7 @@ public class WarehouseController {
 	@RequestMapping("/query")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        mv.addObject("warehouse",warehouseService.FindControl());
+        mv.addObject("query",warehouseService.FindAlter());
         return mv;
     }
 	
@@ -48,6 +49,7 @@ public class WarehouseController {
     public ModelAndView creatNewStore2(String code, String name, String date,String con,String area, int nums, RedirectAttributes attributes){
 		warehouseService.SampleStore2(code, name, date,con,area,nums);
 		ModelAndView mv = new ModelAndView("index");
+		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦£¡");
         return mv;	
     }
 }
