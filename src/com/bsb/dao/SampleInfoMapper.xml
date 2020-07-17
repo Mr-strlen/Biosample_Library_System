@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.SampleInfoMapper">
+    <resultMap id="sampleinfomap" type="com.bsb.model.SampleInfoTable">
+        <id property="position" column="position_id"/>
+        <result property="id" column="sample_id"/>
+        <result property="name" column="sample_name"/>
+        <result property="time" column="warehouse_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="size" column="sample_size"/>
+        <result property="source" column="source"/>
+        <result property="auditor" column="auditor"/>
+        <result property="evnm" column="storage_condition"/>
+        <result property="type" column="storage_type"/>
+        <result property="state" column="state"/>
+    </resultMap>
+    <select id="getAllInfoTables" resultMap="sampleinfomap">
+        select * from g10_sample_information where state=1
+    </select> 
+    
+    
+    <select id="GetUnusedNumByType" parameterType="String" resultType="String">
+        select count(*) from g10_sample_information where state=0 and storage_type=#{type}
+    </select>
+    <select id="GetNumByName" parameterType="String" resultType="String">
+        select count(*) from g10_sample_information where state=1 and sample_name=#{name}
+    </select>
+    <select id="GetNumBySource" parameterType="String" resultType="String">
+        select count(*) from g10_sample_information where state=1 and source =#{source}
+    </select>
+    <select id="GetUnusedPosition" parameterType="String" resultType="String">
+        select position_id from g10_sample_information where storage_type =#{type} and state=0 limit 1
+    </select>
+    
+    
+    <select id="NameQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and sample_name like #{name}
+    </select>
+    <select id="TypeQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and storage_type=#{type}
+    </select>
+    <select id="AuditorQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and auditor like #{auditor}
+    </select>
+    <select id="SourceQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and source like #{source}
+    </select>
+    <select id="TimeQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and warehouse_date like #{time}
+    </select>
+    <select id="PositionQueryTables" parameterType="String" resultMap="sampleinfomap">
+        select * from g10_sample_information where state =1 and position_id like #{position}
+    </select>
+    
+    <update id="DeletRecordByName">
+  		update g10_sample_information set
+    		state=0
+  			where sample_name = #{name}
+	</update>
+	<update id="DeletRecordByPosition">
+  		update g10_sample_information set
+    		state=0
+  			where position_id = #{position}
+	</update>
+	<update id="DeletRecordById">
+  		update g10_sample_information set
+    		state=0
+  			where sample_id = #{id}
+	</update>
+    
+    
+    <resultMap id="samplestatistics" type="com.bsb.model.SampleStatisticsTable">
+        <id property="taxonomy" column="taxonomy"/>
+        <result property="count" column="count"/>
+    </resultMap>
+    <select id="GroupByName"  resultMap="samplestatistics">
+        select sample_name as taxonomy,count(*) as count from g10_sample_information where state=1 group by sample_name order by taxonomy asc
+    </select>
+    <select id="GroupByType"  resultMap="samplestatistics">
+        select storage_type as taxonomy,count(*) as count from g10_sample_information where state=1 group by storage_type order by taxonomy asc
+    </select>
+    <select id="GroupByAuditor"  resultMap="samplestatistics">
+        select auditor as taxonomy,count(*) as count from g10_sample_information where state=1 group by auditor order by taxonomy asc
+    </select>
+    <select id="GroupBySource"  resultMap="samplestatistics">
+        select source as taxonomy,count(*) as count from g10_sample_information where state=1 group by source order by taxonomy asc
+    </select>
+</mapper>
