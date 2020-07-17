@@ -45,49 +45,48 @@
 	%>
 	<div class="container theme-showcase" role="main">
 	
-		<form action="<%=basePath%>warehouse/store_submit2" method="get">
+		<form action="<%=basePath%>warehouse/store2_submit" method="get">
 			<input name="type" id="type" type="hidden" value="">
 			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">样本编号</span>
-  					<input type="text" class="form-control" name="code" aria-describedby="basic-addon2">
+  					<input type="text" class="form-control" name="code" value="${forfun1}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">样本名称</span>
-  					<input type="text" class="form-control" name="name" aria-describedby="basic-addon2">
+  					<input type="text" class="form-control" name="name" value="${forfun2}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">变动方式</span>
-  					<input type="text" class="form-control" name="alter" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">入库日期</span>
+  					<input type="text" class="form-control" name="date" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">原因</span>
-  					<input type="text" class="form-control" name="reason" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">储存条件</span>
+  					<input type="text" class="form-control" name="con" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">数量</span>
-  					<input type="text" class="form-control" name="num" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="basic-addon2">储存区域</span>
+  					<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">变动时间</span>
-  					<input type="text" value="<%=now %>"class="form-control" name="time" aria-describedby="basic-addon2" readonly>
+					<span class="input-group-addon" id="basic-addon2">现有数量</span>
+  					<input type="text" value="<%=now %>"class="form-control" name="nums" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
 				<span class="input-group-btn">
-					<button id="btn1" onclick="next()" class="btn btn-default" type="button">下一个样本</button>
-        			<button id="btn2" onclick="quit()" class="btn btn-success" type="button">结束存储</button>
+        			<button class="btn btn-success" type="submit">结束盘点</button>
         			<button class="btn btn-default" type="reset">清空输入</button>
       			</span>
 			</div>
@@ -99,15 +98,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script>
-    	function next(){
-    		document.getElementById("type").value='next';
-    		document.forms[0].submit();
-    	}
-    	function quit(){
-    		document.getElementById("type").value='quit';
-    		document.forms[0].submit();
-    	}
-    </script>
 </body>
 </html>

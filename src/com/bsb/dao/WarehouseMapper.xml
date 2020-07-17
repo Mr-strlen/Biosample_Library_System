@@ -23,6 +23,10 @@
     	select * from 2020rg_group12_warehousealter;
     </select>
     
+    <select id="FindControl" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol;
+    </select>
+    
     <select id="SampleStore">
     	INSERT INTO 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date)
 		VALUES (#{code},#{name},#{alter},#{reason},#{num},#{time});

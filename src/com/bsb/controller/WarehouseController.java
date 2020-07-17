@@ -19,7 +19,7 @@ public class WarehouseController {
 	@RequestMapping("/query")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        mv.addObject("warehouse",warehouseService.FindAlter());
+        mv.addObject("warehouse",warehouseService.FindControl());
         return mv;
     }
 	
@@ -45,13 +45,9 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store2_submit")
-    public ModelAndView creatNewStore2(String type,String code, String name, String date,String con,String area, int nums, RedirectAttributes attributes){
-		if(type.equals("quit")) {
-			warehouseService.SampleStore2(code, name, date,con,area,nums);
-			ModelAndView mv = new ModelAndView("redirect:index");
-			return mv;
-		}
-		ModelAndView mv = new ModelAndView("WarehouseStore");
+    public ModelAndView creatNewStore2(String code, String name, String date,String con,String area, int nums, RedirectAttributes attributes){
+		warehouseService.SampleStore2(code, name, date,con,area,nums);
+		ModelAndView mv = new ModelAndView("index");
         return mv;	
     }
 }
