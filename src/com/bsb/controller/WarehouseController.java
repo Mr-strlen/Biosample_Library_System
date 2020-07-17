@@ -30,16 +30,28 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store_submit") 
-    public void creatNewStore(String code, String name,String alter,String reason,int num, String time,RedirectAttributes attributes){
+    public ModelAndView creatNewStore(String code, String name,String alter,String reason,int num, String time,RedirectAttributes attributes){
 		warehouseService.SampleStore(code,name,alter,reason,num,time);
 		ModelAndView mv = new ModelAndView("redirect:store2");
 		attributes.addFlashAttribute("forfun1", code);
 		attributes.addFlashAttribute("forfun2", name);
+		return mv;
     }
 	
 	@RequestMapping("/store2")
     public ModelAndView getStore2(){
         ModelAndView mv = new ModelAndView("WarehouseStore2");
         return mv;
+    }
+	
+	@RequestMapping("/store2_submit")
+    public ModelAndView creatNewStore2(String type,String code, String name, String date,String con,String area, int nums, RedirectAttributes attributes){
+		if(type.equals("quit")) {
+			warehouseService.SampleStore2(code, name, date,con,area,nums);
+			ModelAndView mv = new ModelAndView("redirect:index");
+			return mv;
+		}
+		ModelAndView mv = new ModelAndView("WarehouseStore");
+        return mv;	
     }
 }

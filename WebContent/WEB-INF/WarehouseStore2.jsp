@@ -45,7 +45,7 @@
 	%>
 	<div class="container theme-showcase" role="main">
 	
-		<form action="<%=basePath%>warehouse/store_submit" method="get">
+		<form action="<%=basePath%>warehouse/store_submit2" method="get">
 			<input name="type" id="type" type="hidden" value="">
 			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
