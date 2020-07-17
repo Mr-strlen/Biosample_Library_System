@@ -3,7 +3,7 @@ package com.bsb.model;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class  {
+public class StockInRecord {
 	private int id;
 	private String date;
 	private int application_id;
