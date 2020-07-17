@@ -80,7 +80,7 @@
 			</div>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">入库时间</span>
+					<span class="input-group-addon" id="basic-addon2">变动时间</span>
   					<input type="text" value="<%=now %>"class="form-control" name="time" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>

@@ -15,6 +15,14 @@ import com.bsb.service.WarehouseService;
 public class WarehouseController {
 	@Autowired
     private WarehouseService warehouseService;
+	
+	@RequestMapping("/query")
+    public ModelAndView getCheck(){
+        ModelAndView mv = new ModelAndView("CheckIndex");
+        mv.addObject("warehouse",warehouseService.FindAlter());
+        return mv;
+    }
+	
 	@RequestMapping("/store")
     public ModelAndView getCreat(){
         ModelAndView mv = new ModelAndView("WarehouseStore");
