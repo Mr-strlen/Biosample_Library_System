@@ -99,7 +99,7 @@ public class StockInController {
 	
 	//入库申请填写
 	@RequestMapping("/StockIn_app")
-    public ModelAndView app(){		
+    public ModelAndView app(){
 		ModelAndView mv = new ModelAndView("StockInAppsubmit");
         mv.addObject("StockIn_nextappid",StockInService.GetNextAppId());        
         return mv;
