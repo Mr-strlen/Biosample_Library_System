@@ -77,5 +77,11 @@
 		</form>
 	</div>
     
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
+    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
