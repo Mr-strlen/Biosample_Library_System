@@ -5,61 +5,61 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-//import com.bsb.service.stockinService;
+import com.bsb.service.StockInService;
 //import com.bsb.service.SampleInfoService;
 
 @Controller
-@RequestMapping("/stockin")
+@RequestMapping("/StockIn")
 public class StockInController {
-//	@Autowired
-//    private stockinService stockinService;
+	@Autowired
+    private StockInService StockInService;
 //	@Autowired
 //	private SampleInfoService sampleinfoService;
 	
-	@RequestMapping("/stockin_checking")
+	@RequestMapping("/StockIn_checking")
     public ModelAndView showappchecking(){
         ModelAndView mv = new ModelAndView("StockInAppChecking");
-//        mv.addObject("stockin_checking",stockinService.ShowAppsum(Integer.valueOf("0")));
+        mv.addObject("StockIn_checking",StockInService.ShowAppsum(Integer.valueOf("0")));
         return mv;
     }
 	
-	@RequestMapping("/stockin_checked")
+	@RequestMapping("/StockIn_checked")
     public ModelAndView showappchecked(){
         ModelAndView mv = new ModelAndView("StockInAppChecked");
-//        mv.addObject("stockin_checked",stockinService.ShowAppsum(Integer.valueOf("1")));
+        mv.addObject("StockIn_checked",StockInService.ShowAppsum(Integer.valueOf("1")));
         return mv;
     }
 	
-	@RequestMapping("/stockin_appdetail")
+	@RequestMapping("/StockIn_appdetail")
     public ModelAndView showappdetail(String id){
         ModelAndView mv = new ModelAndView("StockInAppdetail");
-//        mv.addObject("stockin_appdetail",stockinService.ShowAppdetail(Integer.valueOf(id)));
+        mv.addObject("StockIn_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
         return mv;
     }
 	
-	@RequestMapping("/stockin_record")
+	@RequestMapping("/StockIn_record")
     public ModelAndView showrecord(){
         ModelAndView mv = new ModelAndView("StockInRecord");
-//        mv.addObject("stockin_record",stockinService.ShowRecord());
+        mv.addObject("StockIn_record",StockInService.ShowRecord());
         return mv;
     }
 	
-	@RequestMapping("/stockin_check")
+	@RequestMapping("/StockIn_check")
     public ModelAndView showcheck(String id){
         ModelAndView mv = new ModelAndView("StockInCheck");
-//        mv.addObject("stockin_appdetail",stockinService.ShowAppdetail(Integer.valueOf(id)));
+        mv.addObject("StockIn_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
         String[] storage = {"1","2","3"};
 //        storage[0]=sampleinfoService.GetUnusedNumByType("1");
 //        storage[1]=sampleinfoService.GetUnusedNumByType("2");
 //        storage[2]=sampleinfoService.GetUnusedNumByType("3");
-        mv.addObject("stockin_storagedetail",storage);
+        mv.addObject("StockIn_storagedetail",storage);
         for(String i:storage) {
         	System.out.println(i);
         }
         return mv;
     }
 	
-	@RequestMapping("/stockin_checksubmit")
+	@RequestMapping("/StockIn_checksubmit")
 	public ModelAndView submitcheck(int id, String name, String reason,  String result) {
 		System.out.println(id+" "+name+" "+result+" "+reason);
 		String[] names = name.split(",");
@@ -67,40 +67,40 @@ public class StockInController {
 		String[] reasons = reason.split(",");
 		for(int i = 0; i < names.length; i++) {
 			
-//			stockinService.Appcheck(Integer.valueOf(id), names[i], results[i], reasons[i]);
+			StockInService.Appcheck(Integer.valueOf(id), names[i], results[i], reasons[i]);
 		}
-		return(new ModelAndView("redirect:stockin_checking"));
+		return(new ModelAndView("redirect:StockIn_checking"));
 	}
 	
-	@RequestMapping("/stockin_recordsubmit")
+	@RequestMapping("/StockIn_recordsubmit")
 	public ModelAndView submitrecord( int application_id,  String sample_id, String sample_name, String type) {
 //		String position_id = sampleinfoService.GetUnusedPosition(type);
-//		int id = stockinService.GetNextRecordId();
-//		stockinService.Recordsubmit(id, application_id, sample_id, sample_name, position_id);
+		int id = StockInService.GetNextRecordId();
+//		StockInService.Recordsubmit(id, application_id, sample_id, sample_name, position_id);
 		
-		return(new ModelAndView("redirect:stockin_record"));
+		return(new ModelAndView("redirect:StockIn_record"));
 	}
 	
-	@RequestMapping("/stockin_findrecord")
+	@RequestMapping("/StockIn_findrecord")
     public ModelAndView findrecord(String sample_id){
 		System.out.println(sample_id);
 		ModelAndView mv = new ModelAndView("StockInRecord");
-//        mv.addObject("stockin_record",stockinService.ShowRecordbySample_id(sample_id));
+        mv.addObject("StockIn_record",StockInService.ShowRecordbySample_id(sample_id));
         return mv;
     }
 	
-	@RequestMapping("/stockin_app")
+	@RequestMapping("/StockIn_app")
     public ModelAndView app(){		
 		ModelAndView mv = new ModelAndView("StockInAppsubmit");
-//        mv.addObject("stockin_nextappid",stockinService.GetNextAppId());        
+        mv.addObject("StockIn_nextappid",StockInService.GetNextAppId());        
         return mv;
     }
 	
 	
-	@RequestMapping("/stockin_appsubmit")
+	@RequestMapping("/StockIn_appsubmit")
     public ModelAndView submitapp(int id, String applicant, String name,String size,String condition){				
-//        stockinService.Appsubmit(id, applicant, name, size, condition);
-        return(new ModelAndView("redirect:stockin_app"));
+        StockInService.Appsubmit(id, applicant, name, size, condition);
+        return(new ModelAndView("redirect:StockIn_app"));
     }
 	
 }
