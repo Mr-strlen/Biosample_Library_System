@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bsb.dao.StockInMapper">
     
-    <!--定义applycationsummy表的返回数据类型 -->
+    <!--定义stockinapplycationsummy表的返回数据类型 -->
     <resultMap id="Appsummap" type="com.bsb.model.StockInAppsum">
         <id property="id" column="application_id"/>
         <result property="date" column="application_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
@@ -21,7 +21,7 @@
     	select max(application_id)+1 from 2020rg_group12_stockinapplicationsummary
     </select>
     
-    <!--定义applycation表的返回数据类型 -->
+    <!--定义stockinapplycation表的返回数据类型 -->
     <resultMap id="Appdetailmap" type="com.bsb.model.StockInAppdetail">
         <id property="id" column="application_id"/>
         <result property="name" column="sample_name" />
