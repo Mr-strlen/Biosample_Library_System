@@ -27,4 +27,9 @@
     	INSERT INTO 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date)
 		VALUES (#{code},#{name},#{alter},#{reason},#{num},#{time});
     </select>
+    
+    <select id="SampleStore2">
+    	INSERT INTO 2020rg_group12_warehousecontrol (Sample_code,Sample_name,Warehousing_date,Storage_conditions,Storage_area,Quantity)
+		VALUES (#{code},#{name},#{date},#{con},#{area},#{nums});
+    </select>
 </mapper>

@@ -30,4 +30,9 @@ public class WarehouseServiceImpl implements WarehouseService{
 	public List<WarehouseControl> FindControl() {
 		return warehouseMapper.FindControl();
 	}
+	
+	@Override
+	public List<WarehouseControl> SampleStore2(String code, String name, String date,String con,String area, int nums){
+		return warehouseMapper.SampleStore2(code, name, date, con, area, nums);
+	}
 }

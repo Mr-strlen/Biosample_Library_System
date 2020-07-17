@@ -20,7 +20,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>样本变动创建</title>
+    <title>样本存储创建</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
