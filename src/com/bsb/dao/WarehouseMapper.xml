@@ -19,7 +19,7 @@
         <result property="Quantity" column="Quantity"/>
     </resultMap>
     
-    <select id="FindAlter">
+    <select id="FindAlter" resultMap="warehousealter">
     	select * from 2020rg_group12_warehousealter;
     </select>
     

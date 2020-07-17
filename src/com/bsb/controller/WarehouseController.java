@@ -18,7 +18,7 @@ public class WarehouseController {
 	
 	@RequestMapping("/query")
     public ModelAndView getCheck(){
-        ModelAndView mv = new ModelAndView("CheckIndex");
+        ModelAndView mv = new ModelAndView("WarehouseQuery");
         mv.addObject("warehouse",warehouseService.FindAlter());
         return mv;
     }
