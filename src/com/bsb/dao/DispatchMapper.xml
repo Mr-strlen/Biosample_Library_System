@@ -18,7 +18,7 @@
         <result property="num" column="DispatchSampleNum"/>
         <result property="condition" column="DispatchSampleCondition"/>
         <result property="result" column="DispatchResult"/>
-        <result property="reason_pos" column="DispatchReason/Position"/>
+        <result property="reason_pos" column="DispatchReasonorPosition"/>
     </resultMap>
     
     <!-- 出库记录表 -->
@@ -57,7 +57,7 @@
     </select>
     <!-- 更新状态 -->
     <update id="appCheckFinal">
-        update 2020rg_group12_dispatchapplicationsummary set CheckDispatchApplicationResult = #{result}, DispatchAuditor = #{DispatchAuditor} where DispatchApplicationOrder_sum = #{order}
+        update 2020rg_group12_dispatchapplicationsummary set CheckDispatchApplicationResult = #{result}, DispatchAuditor = #{auditor} where DispatchApplicationOrder_sum = #{order}
     </update>
     <!-- 获取订单数 -->
     <select id="getApplyNum" resultType="Integer">
@@ -84,7 +84,7 @@
     </select>
     
     <update id="appCheck">
-        update 2020rg_group12_dispatchappdetail set DispatchResult = #{result}, DispatchReason/Position = #{reason_pos} where DispatchApplicationOrder_de = #{order} and DispatchSampleType = #{type}
+        update 2020rg_group12_dispatchappdetail set DispatchResult = #{result}, DispatchReasonorPosition = #{reason_pos} where DispatchApplicationOrder_de = #{order} and DispatchSampleType = #{type}
         <!-- update 2020rg_group12_dispatchapplicationsummary set CheckDispatchApplicationResult = "已通过" where  DispatchApplicationOrder_sum = #{order};    -->   
     </update>
     
@@ -93,7 +93,7 @@
 	public List<String> getPosByOrder(String order);
     -->
     <select id="getPosByOrder" parameterType="String" resultType="String">
-    	select DispatchReason/Position from 2020rg_group12_dispatchappdetail where DispatchApplicationOrder_de like #{order}
+    	select DispatchReasonorPosition from 2020rg_group12_dispatchappdetail where DispatchApplicationOrder_de like #{order}
     </select>
 	
 	<!-- 
