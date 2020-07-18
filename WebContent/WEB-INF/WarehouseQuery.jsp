@@ -39,7 +39,7 @@
 	<div class="container theme-showcase" role="main">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">变动表</div>
+  			<div class="panel-heading">仓库变动表</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>

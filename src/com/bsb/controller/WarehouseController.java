@@ -16,11 +16,11 @@ import javax.swing.JOptionPane;
 public class WarehouseController {
 	@Autowired
     private WarehouseService warehouseService;
-	
+
 	@RequestMapping("/query")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        mv.addObject("query",warehouseService.FindAlter());
+        
         return mv;
     }
 	

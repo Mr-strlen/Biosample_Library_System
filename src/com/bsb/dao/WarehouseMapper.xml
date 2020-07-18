@@ -7,13 +7,13 @@
         <result property="Sample_alter" column="Sample_alter"/>
         <result property="Reason" column="Reason"/>
         <result property="Quantity" column="Quantity"/>
-        <result property="Alter_date" column="Alter_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="Alter_date" column="Alter_date" javaType="String" jdbcType="TIMESTAMP"/>
     </resultMap>
     
     <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
         <id property="Sample_code" column="Sample_code"/>
         <result property="Sample_name" column="Sample_name"/>
-        <result property="Warehousing_date" column="Warehousing_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="Warehousing_date" column="Warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
         <result property="Storage_conditions" column="Storage_conditions"/>
         <result property="Storage_area" column="Storage_area"/>
         <result property="Quantity" column="Quantity"/>
