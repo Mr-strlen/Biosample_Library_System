@@ -55,13 +55,13 @@
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">仓库管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">库位信息管理</li>
-                <li><a href="<%=basePath%>warehouse/query">库位状态</a></li>
+                <li><a href="<%=basePath%>warehouse/state">库位状态</a></li>
                 <li><a href="<%=basePath%>warehouse/statistics">信息统计</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">仓库存储管理</li>
                 <li><a href="<%=basePath%>warehouse/create">待存储样本查询</a></li>
                 <li><a href="<%=basePath%>warehouse/store">样本存储</a></li>
-                <li><a href="<%=basePath%>warehouse/findbyid?id=">存储信息查询</a></li>
+                <li><a href="<%=basePath%>warehouse/query">存储信息查询</a></li>
               </ul>
             </li>
             <li id="dd4" class="dropdown">
