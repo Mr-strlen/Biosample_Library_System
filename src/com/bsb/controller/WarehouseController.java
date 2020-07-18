@@ -17,10 +17,17 @@ public class WarehouseController {
 	@Autowired
     private WarehouseService warehouseService;
 
-	@RequestMapping("/query")
+	@RequestMapping("/alterquery")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        mv.addObject("query",warehouseService.FindAlter());	
+        mv.addObject("alterquery",warehouseService.FindAlter());	
+        return mv;
+    }
+	
+	@RequestMapping("/controlquery")
+    public ModelAndView ControlQuery(){
+        ModelAndView mv = new ModelAndView("WarehouseQuery2");
+        mv.addObject("controlquery",warehouseService.FindControl());	
         return mv;
     }
 	

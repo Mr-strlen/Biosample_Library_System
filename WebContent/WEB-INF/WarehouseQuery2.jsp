@@ -44,8 +44,8 @@
 		<!-- Default panel contents -->
 		<div class="col-xs-2" id="myScrollspy">
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="70">
-              <li class="active"><a href="<%=basePath%>dispatch/app_checksum">仓库变动表</a></li>
-              <li><a href="<%=basePath%>dispatch/app_select">仓库控制表</a></li>
+              <li ><a href="<%=basePath%>dispatch/app_checksum">仓库变动表</a></li>
+              <li class="active"><a href="<%=basePath%>dispatch/app_select">仓库控制表</a></li>
           </ul>
         </div>
            
@@ -56,21 +56,19 @@
   			<!-- Table -->
   			<table class="table">
   				<tr>
-					<th>样本编号</th>
 					<th>样本名称</th>
-					<th>变动方式</th>
-					<th>原因</th>
-					<th>数量</th>
-					<th>变动时间</th>
+					<th>最近变动日期</th>
+					<th>存储条件</th>
+					<th>存储区域</th>
+					<th>现存数量</th>
 				</tr>
 				<c:forEach items="${query}" var="node">
 					<tr>
-						<td> <c:out value="${node.sample_code}"></c:out> </td>
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
-						<td> <c:out value="${node.sample_alter}"></c:out> </td>
-						<td> <c:out value="${node.reason}"></c:out> </td>
+						<td> <c:out value="${node.warehousing_date}"></c:out> </td>
+						<td> <c:out value="${node.storage_conditions}"></c:out> </td>
+						<td> <c:out value="${node.storage_area}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td> <c:out value="${node.alter_date)}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>
