@@ -3,7 +3,6 @@ package com.bsb.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,7 +60,6 @@ public class DispatchController {
 		String time = sFormat.format(new Date());
 		
 		dispatchService.insertApplySum(order, applicant, time, result);
-		JOptionPane.showMessageDialog(null,"申请成功！");
         // 返回界面
         return(new ModelAndView("index"));
     }
