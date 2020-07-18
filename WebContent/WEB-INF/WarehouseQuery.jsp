@@ -52,12 +52,12 @@
 				</tr>
 				<c:forEach items="${query}" var="node">
 					<tr>
-						<td> <c:out value="${node.Sample_code}"></c:out> </td>
-						<td> <c:out value="${node.Sample_name}"></c:out> </td>
-						<td> <c:out value="${node.Sample_alter}"></c:out> </td>
-						<td> <c:out value="${node.Reason}"></c:out> </td>
-						<td> <c:out value="${node.Quantity}"></c:out> </td>
-						<td> <c:out value="${node.Alter_date}"></c:out> </td>
+						<td> <c:out value="${node.sample_code}"></c:out> </td>
+						<td> <c:out value="${node.sample_name}"></c:out> </td>
+						<td> <c:out value="${node.sample_alter}"></c:out> </td>
+						<td> <c:out value="${node.reason}"></c:out> </td>
+						<td> <c:out value="${node.quantity}"></c:out> </td>
+						<td> <c:out value="${node.alter_date}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>

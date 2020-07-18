@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bsb.dao.WarehouseMapper">
     <resultMap id="warehousealter" type="com.bsb.model.WarehouseAlter">
-        <id property="Sample_code" column="Sample_code"/>
-        <result property="Sample_name" column="Sample_name"/>
-        <result property="Sample_alter" column="Sample_alter"/>
-        <result property="Reason" column="Reason"/>
-        <result property="Quantity" column="Quantity"/>
-        <result property="Alter_date" column="Alter_date" javaType="String" jdbcType="TIMESTAMP"/>
+        <id property="Sample_code" column="sample_code"/>
+        <result property="Sample_name" column="sample_name"/>
+        <result property="Sample_alter" column="sample_alter"/>
+        <result property="Reason" column="reason"/>
+        <result property="Quantity" column="quantity"/>
+        <result property="Alter_date" column="alter_date" javaType="String" jdbcType="TIMESTAMP"/>
     </resultMap>
     
     <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
