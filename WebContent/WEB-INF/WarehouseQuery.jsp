@@ -20,7 +20,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>库存变动表</title>
+    <title>库存存储表</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,13 +37,20 @@
     <![endif]-->
 </head>
 <body>
-	<jsp:include page="navbar.jsp" flush="true"/>
-	<%
-		Date d;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	%>
+	<!-- Fixed navbar -->
+    <jsp:include page="navbar.jsp" flush="true"/>
+	
 	<div class="container theme-showcase" role="main">
-		<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="col-xs-2" id="myScrollspy">
+			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="70">
+              <li class="active"><a href="<%=basePath%>dispatch/app_checksum">变动</a></li>
+              <li><a href="<%=basePath%>dispatch/app_select">控制</a></li>
+          </ul>
+        </div>
+           
+  		<div id="tables" class="col-xs-10">
+  			<div class="panel panel-default">
   			<!-- Default panel contents -->
   			<div class="panel-heading">仓库变动表</div>
   			<!-- Table -->
@@ -63,11 +70,13 @@
 						<td> <c:out value="${node.sample_alter}"></c:out> </td>
 						<td> <c:out value="${node.reason}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td> <c:out value="${node.alter_date}"></c:out> </td>
+						<td> <c:out value="${node.alter_date)}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>
 		</div> 
+		
+		</div>
 	</div>
 	
 	

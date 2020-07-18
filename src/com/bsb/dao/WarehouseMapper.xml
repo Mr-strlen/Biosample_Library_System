@@ -35,14 +35,11 @@
     
     <select id="SampleStore">
     	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
-		if not exists(select * from 2020rg_group12_warehousecontrol while Sample_name=#{name})
-		   insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date) VALUES (#{name},#{time})
-		else 
-		   update 2020rg_group12_warehousecontrol set Warehousing_date=#{time}
+		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
     </select>
     
     <select id="SampleStore2">
-    	INSERT INTO 2020rg_group12_warehousecontrol (Sample_code,Sample_name,Warehousing_date,Storage_conditions,Storage_area)
-		VALUES (#{code},#{name},#{date},#{con},#{area});
+    	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area} where Sample_name=#{name};
     </select>
+    
 </mapper>

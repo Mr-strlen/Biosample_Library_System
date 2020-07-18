@@ -46,8 +46,8 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store2_submit")
-    public ModelAndView creatNewStore2(String name, String date,String con,String area, int nums, RedirectAttributes attributes){
-		warehouseService.SampleStore2(name, date,con,area);
+    public ModelAndView creatNewStore2(String name, String con, String area, RedirectAttributes attributes){
+		warehouseService.SampleStore2(name, con,area);
 		ModelAndView mv = new ModelAndView("index");
 		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦£¡");
         return mv;	
