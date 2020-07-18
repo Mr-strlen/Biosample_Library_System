@@ -52,6 +52,19 @@
               </ul>
             </li>
             <li id="dd3" class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">仓库管理 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">库位信息管理</li>
+                <li><a href="<%=basePath%>warehouse/state">库位状态</a></li>
+                <li><a href="<%=basePath%>warehouse/statistics">信息统计</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">仓库存储管理</li>
+                <li><a href="<%=basePath%>warehouse/create">待存储样本查询</a></li>
+                <li><a href="<%=basePath%>warehouse/store">样本存储</a></li>
+                <li><a href="<%=basePath%>warehouse/query">存储信息查询</a></li>
+              </ul>
+            </li>
+            <li id="dd4" class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">样本管理 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">样本信息管理</li>
@@ -61,10 +74,10 @@
                 <li class="dropdown-header">仓库信息盘点</li>
                 <li><a href="<%=basePath%>check/index">历次盘点总览</a></li>
                 <li><a href="<%=basePath%>check/findbyid?id=">盘点详情查询</a></li>
-                <li><a href="<%=basePath%>check/creat">开始盘点</a></li>
+                <li><a href="<%=basePath%>check/create">开始盘点</a></li>
               </ul>
             </li>
-            <li id="dd4" class="dropdown">
+            <li id="dd5" class="dropdown">
               <a href="<%=basePath%>tech" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">技术信息 <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="<%=basePath%>tech/check" id="appid">审核入库样本</a></li>
