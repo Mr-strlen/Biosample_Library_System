@@ -170,31 +170,31 @@ public class DispatchController {
     }
 	
 	// 出库提交
-//	@RequestMapping("/record_checksubmit")
-//	public ModelAndView recordSubmitcheck(String application_order, String manager) {
-//		// 更新记录表
-//		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		String time = sFormat.format(new Date());
-//		
-//		String order = dispatchService.getAppOrderByOrder(application_order);
-//		//System.out.println(order+" "+ time+" "+manager+" "+application_order);
-//		
-//		dispatchService.updateRecord(order, time, manager, "已完成");
-//		
-//		List<String> ls = dispatchService.getPosByOrder(application_order);
-//		for(String pos : ls) {
-//			  
-//			String[] reason_poss = pos.split(",");
-//			for(int i = 0; i < reason_poss.length; i++) {
-//				// 总表中删除
-//				String position = reason_poss[i];
-//				System.out.println(position);
+	@RequestMapping("/record_checksubmit")
+	public ModelAndView recordSubmitcheck(String application_order, String manager) {
+		// 更新记录表
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = sFormat.format(new Date());
+		
+		String order = dispatchService.getAppOrderByOrder(application_order);
+		//System.out.println(order+" "+ time+" "+manager+" "+application_order);
+		
+		dispatchService.updateRecord(order, time, manager, "已完成");
+		
+		List<String> ls = dispatchService.getPosByOrder(application_order);
+		for(String pos : ls) {
+			  
+			String[] reason_poss = pos.split(",");
+			for(int i = 0; i < reason_poss.length; i++) {
+				// 总表中删除
+				String position = reason_poss[i];
+				System.out.println(position);
 //				sampleinfoService.DeletRecordByPosition(position);
-//			}
-//		}
-//		
-//		return(new ModelAndView("redirect:record_opsum"));
-//	}
+			}
+		}
+		
+		return(new ModelAndView("redirect:record_opsum"));
+	}
 	
 	// 订单（申请）详情
 	@RequestMapping("/record_detail")
