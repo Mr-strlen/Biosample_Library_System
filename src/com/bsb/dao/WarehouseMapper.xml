@@ -41,6 +41,9 @@
     <select id="SampleStore2">
     	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area} where Sample_name=#{name};
     	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area};
+    	update 2020rg_group12_warehousestate set Warehouse_state="充足" where Warehouse_balance<![CDATA[ >= ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="拥挤" where Warehouse_balance<![CDATA[ >= ]]>5 and Warehouse_balance<![CDATA[ < ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
     </select>
     
 </mapper>
