@@ -34,5 +34,22 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp" flush="true"/>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h2>
+					申请成功!
+				</h2>
+				<p>
+					点击下方按钮或5秒钟后自动返回首页……
+				</p>
+				<p>
+					<a class="btn btn-primary btn-large" href="#">返回首页</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

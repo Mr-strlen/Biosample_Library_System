@@ -63,7 +63,12 @@ public class DispatchController {
         // 返回界面
         return(new ModelAndView("index"));
     }
-
+	//申请成功界面
+	@RequestMapping("/app_success")
+	public ModelAndView applysuccess()
+	{
+		return new ModelAndView("DispatchApplySuccess");
+	}
 	// 待审核申请
 	@RequestMapping("/app_checksum")
 	public ModelAndView getCheckApp(){
