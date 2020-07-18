@@ -54,7 +54,8 @@
 		    		<div style="width:100%;" class="input-group">
 		      			<input type="text" name="word" class="form-control" placeholder="Search for ...">
 		      			<input type="hidden" name="type" id="type" value="1">
-		      			<div class="input-group-btn">		        				<button id="searchbutton" class="btn btn-default" type="submit">申请单号查询</button>	
+		      			<div class="input-group-btn">		        				
+		      				<button id="searchbutton" class="btn btn-default" type="submit">申请单号查询</button>	
 	      					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        				<span class="caret"></span>
 	    						<span class="sr-only">Toggle Dropdown</span>
