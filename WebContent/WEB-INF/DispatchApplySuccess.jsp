@@ -45,7 +45,7 @@
 					点击下方按钮或5秒钟后自动返回首页……
 				</p>
 				<p>
-					<a class="btn btn-primary btn-large" href="#">返回首页</a>
+					<button class="btn btn-primary btn-large" onclick="javascript:window.location.href='<%=basePath%>index';">返回首页</button>
 				</p>
 			</div>
 		</div>
