@@ -61,7 +61,7 @@ public class DispatchController {
 		
 		dispatchService.insertApplySum(order, applicant, time, result);
         // 返回界面
-        return(new ModelAndView("index"));
+        return(new ModelAndView("redirect:app_success"));
     }
 	//申请成功界面
 	@RequestMapping("/app_success")
