@@ -4,20 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class WarehouseControl {
-	private String Sample_code;
 	private String Sample_name;
 	private String Warehousing_date;
 	private String Storage_conditions;
 	private String Storage_area;
 	private int Quantity;
-	
-	public String getSample_code() {
-		return Sample_code;
-	}
-	
-	public void setSample_code(String _Sample_code) {
-		Sample_code = _Sample_code;
-	}
 	
 	public String getSample_name() {
 		return Sample_name;

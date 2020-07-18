@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -36,6 +38,10 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp" flush="true"/>
+	<%
+		Date d;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	%>
 	<div class="container theme-showcase" role="main">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->

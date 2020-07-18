@@ -11,12 +11,18 @@
     </resultMap>
     
     <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
-        <id property="Sample_code" column="sample_code"/>
-        <result property="Sample_name" column="sample_name"/>
+        <id property="Sample_name" column="sample_name"/>
         <result property="Warehousing_date" column="warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
         <result property="Storage_conditions" column="storage_conditions"/>
         <result property="Storage_area" column="storage_area"/>
         <result property="Quantity" column="quantity"/>
+    </resultMap>
+    
+    <resultMap id="warehousestate" type="com.bsb.model.WarehouseState">
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_state" column="warehouse_state"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
+        <result property="State_duration" column="state_duration" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
     </resultMap>
     
     <select id="FindAlter" resultMap="warehousealter">
@@ -28,12 +34,15 @@
     </select>
     
     <select id="SampleStore">
-    	INSERT INTO 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date)
-		VALUES (#{code},#{name},#{alter},#{reason},#{num},#{time});
+    	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
+		if not exists(select * from 2020rg_group12_warehousecontrol while Sample_name=#{name})
+		   insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date) VALUES (#{name},#{time})
+		else 
+		   update 2020rg_group12_warehousecontrol set Warehousing_date=#{time}
     </select>
     
     <select id="SampleStore2">
-    	INSERT INTO 2020rg_group12_warehousecontrol (Sample_code,Sample_name,Warehousing_date,Storage_conditions,Storage_area,Quantity)
-		VALUES (#{code},#{name},#{date},#{con},#{area},#{nums});
+    	INSERT INTO 2020rg_group12_warehousecontrol (Sample_code,Sample_name,Warehousing_date,Storage_conditions,Storage_area)
+		VALUES (#{code},#{name},#{date},#{con},#{area});
     </select>
 </mapper>

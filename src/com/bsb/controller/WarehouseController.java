@@ -20,7 +20,7 @@ public class WarehouseController {
 	@RequestMapping("/query")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        mv.addObject("query",warehouseService.FindAlter());
+        mv.addObject("query",warehouseService.FindAlter());	
         return mv;
     }
 	
@@ -34,8 +34,8 @@ public class WarehouseController {
     public ModelAndView creatNewStore(String code, String name,String alter,String reason,int num, String time,RedirectAttributes attributes){
 		warehouseService.SampleStore(code,name,alter,reason,num,time);
 		ModelAndView mv = new ModelAndView("redirect:store2");
-		attributes.addFlashAttribute("forfun1", code);
-		attributes.addFlashAttribute("forfun2", name);
+		attributes.addFlashAttribute("forfun1", name);
+		attributes.addFlashAttribute("forfun2", time);
 		return mv;
     }
 	
@@ -46,8 +46,8 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store2_submit")
-    public ModelAndView creatNewStore2(String code, String name, String date,String con,String area, int nums, RedirectAttributes attributes){
-		warehouseService.SampleStore2(code, name, date,con,area,nums);
+    public ModelAndView creatNewStore2(String name, String date,String con,String area, int nums, RedirectAttributes attributes){
+		warehouseService.SampleStore2(name, date,con,area);
 		ModelAndView mv = new ModelAndView("index");
 		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦£¡");
         return mv;	

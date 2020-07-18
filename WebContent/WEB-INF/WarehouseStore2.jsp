@@ -50,20 +50,14 @@
 			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
 				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">样本编号</span>
-  					<input type="text" class="form-control" name="code" value="${forfun1}" aria-describedby="basic-addon2" readonly>
-  				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">样本名称</span>
-  					<input type="text" class="form-control" name="name" value="${forfun2}" aria-describedby="basic-addon2" readonly>
+  					<input type="text" class="form-control" name="name" value="${forfun1}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">入库日期</span>
-  					<input type="text" class="form-control" name="date" aria-describedby="basic-addon2">
+  					<input type="text" class="form-control" name="date" value="${forfun2}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
@@ -76,12 +70,6 @@
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">储存区域</span>
   					<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">
-  				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon2">现有数量</span>
-  					<input type="text" value="<%=now %>"class="form-control" name="nums" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">

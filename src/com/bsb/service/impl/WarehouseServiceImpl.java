@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bsb.dao.WarehouseMapper;
-import com.bsb.model.Samplestate;
+import com.bsb.model.WarehouseState;
 import com.bsb.model.WarehouseAlter;
 import com.bsb.model.WarehouseControl;
 
@@ -33,12 +33,17 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public List<WarehouseControl> SampleStore2(String code, String name, String date,String con,String area, int nums){
-		return warehouseMapper.SampleStore2(code, name, date, con, area, nums);
+	public List<WarehouseControl> SampleStore2(String name, String date,String con,String area){
+		return warehouseMapper.SampleStore2(name, date, con, area);
 	}
 	
 	@Override
-	public void setSamplestate(String date,String area, int nums){
-		warehouseMapper.setSamplestate(date,area, nums);
+	public void setWarehouseState(String date,String area, int nums){
+		warehouseMapper.setWarehouseState(date,area, nums);
+	}
+	
+	@Override
+	public List<WarehouseState> FindState(){
+		return warehouseMapper.FindState();
 	}
 }
