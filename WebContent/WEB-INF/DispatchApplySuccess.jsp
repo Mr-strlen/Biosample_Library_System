@@ -31,19 +31,11 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- 控制五秒跳转 -->
     <meta http-equiv="refresh" content='5; url=<%=basePath%>index'>
-    <script type="text/javascript">
-	    var time = 5;
-	    function  aaa()
-		{
-			window.setTimeout('aaa()', 1000);
-			time=time-1;
-			document.getElementById("bb").innerHTML=time;
-		}    
-    </script>
 </head>
 
-<body οnlοad="aaa()">
+<body>
 	<jsp:include page="navbar.jsp" flush="true"/>
 	<div class="container-fluid">
 	<div class="row">
@@ -53,7 +45,7 @@
 					申请成功!
 				</h2>
 				<p>
-					点击下方按钮或<span id="bb" style="color:red;">time </span>秒后将自动跳转到登陆页面。
+					点击下方按钮或<span id="ss" style="color:red;">5</span>秒后将自动跳转到登陆页面。
 				</p>
 				<p>
 					<button class="btn btn-primary btn-large" onclick="javascript:window.location.href='<%=basePath%>index';">返回首页</button>
@@ -62,5 +54,18 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+                //先声明一个时间变量
+                var count = 6;
+                //声明时间递减的方法
+                var time = function(){
+                    count = count - 1;
+                    //将时间显示到页面上
+                    $("#ss").text(count);
+                    //设置一个定时器，每隔一秒自动递归调用自己一次
+                    setTimeout(time, 1000);
+                };
+                time();
+</script>
 </body>
 </html>
