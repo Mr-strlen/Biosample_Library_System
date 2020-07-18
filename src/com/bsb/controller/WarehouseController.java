@@ -20,7 +20,7 @@ public class WarehouseController {
 	@RequestMapping("/query")
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
-        
+        mv.addObject("query",warehouseService.FindAlter());
         return mv;
     }
 	
