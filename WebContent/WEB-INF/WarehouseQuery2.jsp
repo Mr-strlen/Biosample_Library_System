@@ -44,15 +44,15 @@
 		<!-- Default panel contents -->
 		<div class="col-xs-2" id="myScrollspy">
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="70">
-              <li ><a href="<%=basePath%>dispatch/app_checksum">仓库变动表</a></li>
-              <li class="active"><a href="<%=basePath%>dispatch/app_select">仓库控制表</a></li>
+              <li class="active"><a href="<%=basePath%>warehouse/controlquery">仓库控制表</a></li>
+              <li ><a href="<%=basePath%>warehouse/alterquery">仓库变动表</a></li>
           </ul>
         </div>
            
   		<div id="tables" class="col-xs-10">
   			<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">仓库变动表</div>
+  			<div class="panel-heading">仓库存储表</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>
@@ -62,7 +62,7 @@
 					<th>存储区域</th>
 					<th>现存数量</th>
 				</tr>
-				<c:forEach items="${query}" var="node">
+				<c:forEach items="${controlquery}" var="node">
 					<tr>
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
 						<td> <c:out value="${node.warehousing_date}"></c:out> </td>
