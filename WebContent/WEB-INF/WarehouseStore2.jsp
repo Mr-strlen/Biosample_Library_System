@@ -62,19 +62,39 @@
 			</div>
 			<div class="form-group">
 				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">变化数量</span>
+  					<input type="text" class="form-control" name="num" value="${forfun3}" aria-describedby="basic-addon2" readonly>
+  				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">储存条件</span>
-  					<input type="text" class="form-control" name="con" aria-describedby="basic-addon2">
+					<select class="form-control"name="con" aria-describedby="basic-addon2">
+                       <option>常温</option>
+                       <option>冷藏</option>
+                       <option>冷冻</option>
+                    </select>
+                    <!--<input type="text" class="form-control" name="con" aria-describedby="basic-addon2">-->
   				</div>
 			</div>
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">储存区域</span>
-  					<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">
+					<select class="form-control"name="area" aria-describedby="basic-addon2">
+                       <option>A</option>
+                       <option>B</option>
+                       <option>C</option>
+                       <option>D</option>
+                       <option>E</option>
+                       <option>F</option>
+                       <option>G</option>
+                    </select>
+  					 <!--<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">-->
   				</div>
 			</div>
 			<div class="form-group">
 				<span class="input-group-btn">
-        			<button class="btn btn-success" type="submit">结束盘点</button>
+        			<button class="btn btn-success" type="submit">结束存储</button>
         			<button class="btn btn-default" type="reset">清空输入</button>
       			</span>
 			</div>

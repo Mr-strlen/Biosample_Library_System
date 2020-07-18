@@ -40,6 +40,7 @@
     
     <select id="SampleStore2">
     	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area} where Sample_name=#{name};
+    	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area};
     </select>
     
 </mapper>

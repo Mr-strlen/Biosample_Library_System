@@ -43,6 +43,7 @@ public class WarehouseController {
 		ModelAndView mv = new ModelAndView("redirect:store2");
 		attributes.addFlashAttribute("forfun1", name);
 		attributes.addFlashAttribute("forfun2", time);
+		attributes.addFlashAttribute("forfun3", num);
 		return mv;
     }
 	
@@ -53,8 +54,8 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store2_submit")
-    public ModelAndView creatNewStore2(String name, String con, String area, RedirectAttributes attributes){
-		warehouseService.SampleStore2(name, con,area);
+    public ModelAndView creatNewStore2(String name, int num, String con, String area, RedirectAttributes attributes){
+		warehouseService.SampleStore2(name, num, con, area);
 		ModelAndView mv = new ModelAndView("index");
 		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦£¡");
         return mv;	

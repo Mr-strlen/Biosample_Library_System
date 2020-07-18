@@ -63,7 +63,12 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">变动方式</span>
-  					<input type="text" class="form-control" name="alter" aria-describedby="basic-addon2">
+					<select class="form-control"name="alter" aria-describedby="basic-addon2">
+                       <option>增加</option>
+                       <option>减少</option>
+                       <option>转移</option>
+                    </select>
+  					<!--<input type="text" class="form-control" name="alter" aria-describedby="basic-addon2">-->
   				</div>
 			</div>
 			<div class="form-group">

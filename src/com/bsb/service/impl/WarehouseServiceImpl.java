@@ -33,8 +33,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public List<WarehouseControl> SampleStore2(String name,String con,String area){
-		return warehouseMapper.SampleStore2(name, con, area);
+	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area){
+		return warehouseMapper.SampleStore2(name, num, con, area);
 	}
 	
 	@Override
