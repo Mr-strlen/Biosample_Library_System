@@ -49,7 +49,27 @@
   			<div class="panel panel-default">
   			<div class="panel-heading">查询出库申请信息</div>
   			
-  			
+  			<form style="width:100%; margin-top:10px; margin-bottom:10px;" action="<%=basePath%>dispatch/app_select" method="get">
+					<div style="width:100%;" class="col-lg-6">
+		    			<div style="width:100%;" class="input-group">
+		      				<input type="text" name="word" class="form-control" placeholder="Search for ...">
+		      				<input type="hidden" name="type" id="type" value="1">
+		      				<div class="input-group-btn">
+		        				<button id="searchbutton" class="btn btn-default" type="submit">申请单号查询</button>	
+		      					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			        				<span class="caret"></span>
+	    							<span class="sr-only">Toggle Dropdown</span>
+	  							</button>
+	  							<ul class="dropdown-menu">
+	    							<li><a href="#table-5">申请单号查询</a></li>
+	    							<li><a href="#table-5">申请单位查询</a></li>
+	    							<li><a href="#table-5">申请时间查询</a></li>
+	    							<li><a href="#table-5">审核结果查询</a></li>
+	  							</ul>
+		      				</div>
+		    			</div><!-- /input-group -->
+		  			</div><!-- /.col-lg-6 -->
+		  	</form>
   			<!-- Table -->
   			<table class="table">
   				<tr>
@@ -76,28 +96,6 @@
 	   			</c:forEach>
   			</table>
   			</div>
-  			
-  			<form style="width:100%; margin-top:10px; margin-bottom:10px;" action="<%=basePath%>dispatch/app_select" method="get">
-					<div style="width:100%;" class="col-lg-6">
-		    			<div style="width:100%;" class="input-group">
-		      				<input type="text" name="word" class="form-control" placeholder="Search for ...">
-		      				<input type="hidden" name="type" id="type" value="1">
-		      				<div class="input-group-btn">
-		        				<button id="searchbutton" class="btn btn-default" type="submit">申请单号查询</button>	
-		      					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			        				<span class="caret"></span>
-	    							<span class="sr-only">Toggle Dropdown</span>
-	  							</button>
-	  							<ul class="dropdown-menu">
-	    							<li><a href="#table-5">申请单号查询</a></li>
-	    							<li><a href="#table-5">申请单位查询</a></li>
-	    							<li><a href="#table-5">申请时间查询</a></li>
-	    							<li><a href="#table-5">审核结果查询</a></li>
-	  							</ul>
-		      				</div>
-		    			</div><!-- /input-group -->
-		  			</div><!-- /.col-lg-6 -->
-		  	</form>
   		
 		</div>
 	</div>
