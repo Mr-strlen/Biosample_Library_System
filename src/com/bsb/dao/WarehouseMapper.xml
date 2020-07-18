@@ -11,12 +11,12 @@
     </resultMap>
     
     <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
-        <id property="Sample_code" column="Sample_code"/>
-        <result property="Sample_name" column="Sample_name"/>
-        <result property="Warehousing_date" column="Warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
-        <result property="Storage_conditions" column="Storage_conditions"/>
-        <result property="Storage_area" column="Storage_area"/>
-        <result property="Quantity" column="Quantity"/>
+        <id property="Sample_code" column="sample_code"/>
+        <result property="Sample_name" column="sample_name"/>
+        <result property="Warehousing_date" column="warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
+        <result property="Storage_conditions" column="storage_conditions"/>
+        <result property="Storage_area" column="storage_area"/>
+        <result property="Quantity" column="quantity"/>
     </resultMap>
     
     <select id="FindAlter" resultMap="warehousealter">

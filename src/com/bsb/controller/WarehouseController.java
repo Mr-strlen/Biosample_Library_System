@@ -21,7 +21,6 @@ public class WarehouseController {
     public ModelAndView AlterQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery");
         mv.addObject("query",warehouseService.FindAlter());
-        System.out.println(warehouseService.FindAlter());
         return mv;
     }
 	
