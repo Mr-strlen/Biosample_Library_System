@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bsb.service.DispatchService;
 //import com.bsb.service.SampleInfoService;
 
-import com.bsb.controller.IndexController;
 
 @Controller
 @RequestMapping("/dispatch")
