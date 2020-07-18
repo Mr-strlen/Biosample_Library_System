@@ -46,7 +46,6 @@
 					<th>申请单编号</th>
 					<th>样本名称</th>
 					<th>样本规格</th>
-					<th>储存条件</th>
 					<th>技术部门入库意见</th>
 					<th>审核结果</th>
 					<th>驳回原因</th>
@@ -57,7 +56,6 @@
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td> <c:out value="${node.name}"></c:out> </td>
 						<td> <c:out value="${node.size}"></c:out> </td>
-						<td> <c:out value="${node.condition}"></c:out> </td>
 						<td> <c:out value="${node.suggestion}"></c:out> </td>
 						<td> <c:out value="${node.result}"></c:out> </td>
 						<td> <c:out value="${node.reason}"></c:out> </td>
