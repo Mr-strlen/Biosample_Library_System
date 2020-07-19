@@ -110,6 +110,7 @@
         	document.getElementById("searchbutton").innerHTML = text;
         	if(text == "出库单号查询"){
         		type.value = "1";
+        		document.getElementById("wordinput").type = "text";
         		document.getElementById("wordinput").value = "D";
         	}
         	else if(text == "出库时间查询"){
@@ -118,9 +119,13 @@
         	}
         	else if(text == "出库员查询"){
         		type.value = "3";
+        		document.getElementById("wordinput").type = "text";
+        		document.getElementById("wordinput").value = "";
         	}
         	else if(text == "出库状态查询"){
         		type.value = "4";
+        		document.getElementById("wordinput").type = "text";
+        		document.getElementById("wordinput").value = "";
         	}
         });
     </script>
