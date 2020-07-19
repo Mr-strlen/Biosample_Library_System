@@ -54,9 +54,8 @@
 					<th>样本数量</th>
 					<th>样本状态</th>
 					<th>审核结果</th>
-					<th>其他</th>
+					<th><span id="posorreason">样本位置</span></th>
 					<th>查询样本库</th>
-					
 				</tr>
 				<c:forEach items="${app_checkdetail}" var="node">
 					<tr>
@@ -71,7 +70,7 @@
 						<td> <c:out value="${node.num}"></c:out> </td>
 						<td> <c:out value="${node.condition}"></c:out> </td>
 						<td> 							
-							<select name="result" class="form-control">
+							<select id="resultse" name="result" class="form-control" onchange="change()">
                                <option value ="已通过">通过</option>
                                <option value ="未通过">不通过</option> 
                             </select>
@@ -100,7 +99,19 @@
         </form>
 		
 	</div>
-	
+	<script type="text/javascript">
+	function change()
+	{
+		if(document.getElementById("resultse").value=="已通过")
+		{
+			$("#posorreason").text("样本位置");
+		}
+		if(document.getElementById("resultse").value=="未通过")
+		{
+			$("#posorreason").text("未通过原因");
+		}
+	}
+	</script>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
