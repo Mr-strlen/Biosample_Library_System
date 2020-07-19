@@ -11,6 +11,7 @@ import com.bsb.model.WarehouseSamplestate;
 
 public interface WarehouseService {
 	public List<WarehouseAlter> FindAlter();
+	public List<WarehouseAlter> FindAlterByName(String name);
 	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time);
 	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area);
 	public List<WarehouseControl> FindControl();

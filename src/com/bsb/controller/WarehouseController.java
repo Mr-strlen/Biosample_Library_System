@@ -24,6 +24,13 @@ public class WarehouseController {
         return mv;
     }
 	
+	@RequestMapping("/alter_namequery")
+    public ModelAndView Alter_NameQuery(String type){
+        ModelAndView mv = new ModelAndView("WarehouseQuery");
+        mv.addObject("alter_namequery",warehouseService.FindAlterByName(type));	
+        return mv;
+    }
+	
 	@RequestMapping("/controlquery")
     public ModelAndView ControlQuery(){
         ModelAndView mv = new ModelAndView("WarehouseQuery2");

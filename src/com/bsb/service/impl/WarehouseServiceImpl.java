@@ -23,6 +23,11 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
+	public List<WarehouseAlter> FindAlterByName(String name){
+		return warehouseMapper.FindAlterByName(name);
+	}
+	
+	@Override
 	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time){
 		return warehouseMapper.SampleStore(code, name, alter, reason, num, time);
 	}

@@ -36,6 +36,10 @@
     	select * from 2020rg_group12_warehousealter;
     </select>
     
+    <select id="FindAlterByName" parameterType="String" resultMap="warehousealter">
+    	select * from 2020rg_group12_warehousealter where Sample_name=#{name};
+    </select>
+    
     <select id="FindControl" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol;
     </select>
