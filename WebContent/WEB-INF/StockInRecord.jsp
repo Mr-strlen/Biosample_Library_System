@@ -62,7 +62,7 @@
 		</div> --%>
 		
 		
-		<form action="<%=basePath%>warehouse/warehouse_checksubmit" method="get">
+		<form action="<%=basePath%>stockin/stockin_checksubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
   			<div class="panel-heading">入库审核</div>
@@ -77,7 +77,7 @@
 					<th>驳回原因</th>
 					
 				</tr>
-				<c:forEach items="${warehouse_appdetail}" var="node">
+				<c:forEach items="${stockin_appdetail}" var="node">
 					<tr>
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td>
@@ -102,7 +102,7 @@
 		</div> 
 		
 		<!-- attention to fix -->
-		<input type="hidden" name="id" value="${warehouse_appdetail[0].id}">		
+		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		
         <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button>
         </form>
 		
