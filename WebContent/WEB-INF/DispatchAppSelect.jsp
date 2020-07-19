@@ -118,6 +118,7 @@
         	}
         	else if(text == "申请时间查询"){
         		type.value = "3";
+        		document.getElementById("wordinput").type = "date";
         	}
         	else if(text == "审核结果查询"){
         		type.value = "4";
