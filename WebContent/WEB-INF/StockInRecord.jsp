@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>生物样本库管理系统-入库审核</title>
+    <title>生物样本库管理系统-入库记录</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,70 +36,77 @@
 	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
 
-	<%-- <div class="container theme-showcase" role="main">
-				<div class="panel panel-default">
-  			<!-- Default panel contents -->
-  			<div class="panel-heading">库存剩余空间</div>
-  			<!-- Table -->
-  			<table class="table">
-  				<tr>
-					<th>库存类型</th>
-					<th>剩余空间</th>					
-				</tr>
-				<tr>
-                  <td>常温</td>
-                  <td>${warehouse_storagedetail[0]}</td>
-                </tr>
-                <tr>
-                  <td>冷藏</td>
-                  <td>${warehouse_storagedetail[1]}</td>
-                </tr>
-                <tr>
-                  <td>冷冻</td>
-                  <td>${warehouse_storagedetail[2]}</td>
-                </tr>
-  			</table>
-		</div> --%>
-		
-		
-		<form action="<%=basePath%>stockin/stockin_checksubmit" method="get">
+	<div class="container theme-showcase" role="main">
+			<form action="<%=basePath%>stockin/stockin_recordsubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">入库审核</div>
+  			<div class="panel-heading">入库登记</div>
+  			<!-- Table -->
+  			<table class="table">
+  				<tr>					
+					<th>申请单编号</th>
+					<th>样本名称</th>
+					<th>样本编码</th>
+					<th>库存类型</th>															
+				</tr>
+					<tr>						
+						<td> <input type="text" name="application_id" class="form-control" > </td>						
+						<td> <input type="text" name="sample_name" class="form-control" > </td>
+						<td> <input type="text" name="sample_id" class="form-control" > </td>
+						<td> 
+							<select name="type" class="form-control">
+								<option value ="1">常温</option>
+                               	<option value ="2">冷藏</option> 
+                               	<option value ="3">冷冻</option> 
+							</select>
+						</td>											
+					</tr>
+	   			
+  			</table>
+		</div> 
+		<button style="width:100px; display:block;margin:0 auto" class="btn btn-primary" type="submit">提交</button>
+		</form>
+		
+		<div class="panel panel-default" style="margin-top:20px;">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading">入库记录</div>
+  			<form style="margin-top:10px; margin-bottom:10px;" action="<%=basePath%>stockin/stockin_findrecord" method="get">
+			<div style="width:100%;" class="col-lg-6">
+	    		<div class="input-group">
+	      			<input type="text" name="sample_id" class="form-control" placeholder="输入样本编码...">
+	      			<span class="input-group-btn">
+	        			<button style="width:100px;" class="btn btn-default" type="submit">查询</button>
+	      			</span>
+	    		</div><!-- /input-group -->
+	  		</div><!-- /.col-lg-6 -->
+	  		</form>
   			<!-- Table -->
   			<table class="table">
   				<tr>
+					<th>记录编号</th>
+					<th>入库日期</th>
 					<th>申请单编号</th>
 					<th>样本名称</th>
-					<th>样本规格</th>
-					<th>技术部门入库意见</th>
-					<th>审核结果</th>
-					<th>驳回原因</th>
-					
+					<th>样本编码</th>
+					<th>库存位置</th>
+					<th>申请详情</th>															
 				</tr>
-				<c:forEach items="${stockin_appdetail}" var="node">
+				<c:forEach items="${warehouse_record}" var="node">
 					<tr>
 						<td> <c:out value="${node.id}"></c:out> </td>
-						<td>
-						 <c:out value="${node.name}"></c:out> 
-						 <input type="hidden" name="name" value="${node.name}">						     
-						 </td>
-						<td> <c:out value="${node.size}"></c:out> </td>
-						<td> <c:out value="${node.suggestion}"></c:out> </td>
-						<td> 							
-							<select name="result" class="form-control">
-                               <option value ="通过">通过</option>
-                               <option value ="驳回">驳回</option> 
-                            </select>
-						</td>
-						<td> 
-							<input type="text" name="reason" class="form-control" placeholder="填写驳回原因..." value="无" onfocus="if(value=='无'){value=''}"   
-                onblur="if(value==''){value='无'}">
-						</td>
+						<td> <c:out value="${node.date}"></c:out> </td>
+						<td> <c:out value="${node.application_id}"></c:out> </td>
+						<td> <c:out value="${node.sample_name}"></c:out> </td>
+						<td> <c:out value="${node.sample_id}"></c:out> </td>
+						<td> <c:out value="${node.position_id}"></c:out> </td>
+						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>warehouse/warehouse_appdetail?id=${node.application_id}';">查看</button> </td>
+						
 					</tr>
 	   			</c:forEach>
   			</table>
-		</div> 
+		</div>
+						
+	</div>
 		
 		<!-- attention to fix -->
 		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		

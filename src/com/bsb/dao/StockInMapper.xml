@@ -46,7 +46,7 @@
     
     <!-- 申请表审核 -->
     <update id="Appcheck">
-        update 2020rg_group12_stockinapplication set check_result = #{result}, reject_reason = #{reason} where application_id = #{id} and sample_name = #{name};
+        update 2020rg_group12_stockinapplication set stockin_suggestion =#{suggestion}, check_result = #{result}, reject_reason = #{reason} where application_id = #{id} and sample_name = #{name};
         update 2020rg_group12_stockinapplicationsummary set application_check_state=1, auditor='董玉博' where  application_id = #{id};      
     </update>
     
