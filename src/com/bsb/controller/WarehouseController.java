@@ -60,4 +60,11 @@ public class WarehouseController {
 		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦£¡");
         return mv;	
     }
+	
+	@RequestMapping("/areastate")
+    public ModelAndView AreaState(){
+        ModelAndView mv = new ModelAndView("WarehouseState_area");
+        mv.addObject("areastate",warehouseService.FindState());	
+        return mv;
+    }
 }

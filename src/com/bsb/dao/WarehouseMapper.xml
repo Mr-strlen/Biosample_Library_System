@@ -33,6 +33,10 @@
     	select * from 2020rg_group12_warehousecontrol;
     </select>
     
+    <select id="FindState" resultMap="warehousestate">
+    	select * from 2020rg_group12_warehousestate;
+    </select>
+    
     <select id="SampleStore">
     	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
 		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
