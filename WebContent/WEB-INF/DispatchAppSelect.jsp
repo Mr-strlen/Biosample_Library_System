@@ -113,7 +113,7 @@
         	if(text == "申请单号查询"){
         		type.value = "1";
         		document.getElementById("wordinput").type = "text";
-        		document.getElementById("wordinput").value = "D";
+        		document.getElementById("wordinput").value = "DA";
         	}
         	else if(text == "申请单位查询"){
         		type.value = "2";
