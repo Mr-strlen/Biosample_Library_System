@@ -120,6 +120,12 @@ public class DispatchController {
         mv.addObject("app_checkdetail",dispatchService.findAppDetailByOrder(type));
         return mv;
     }
+	@RequestMapping("/app_checkdetail2")
+    public ModelAndView setCheckDetail2(String type){
+        ModelAndView mv = new ModelAndView("DispatchAppCheckDetail2");
+        mv.addObject("app_checkdetail2",dispatchService.findAppDetailByOrder(type));
+        return mv;
+    }
 	// 申请审核提交
 	@RequestMapping("/app_checksubmit")
 	public ModelAndView submitcheck(String order, String type, String result,  String reason_pos, String auditor) {
