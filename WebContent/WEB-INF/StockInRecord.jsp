@@ -58,9 +58,8 @@
                   <td>冷冻</td>
                   <td>${warehouse_storagedetail[2]}</td>
                 </tr>
-								
   			</table>
-		</div>  --%>
+		</div> --%>
 		
 		
 		<form action="<%=basePath%>warehouse/warehouse_checksubmit" method="get">
