@@ -17,8 +17,7 @@ public interface StockInMapper {
 	//2.入库申请表详细
 	public List<StockInAppdetail> ShowAppdetail(int state);//显示申请表信息
 	public void Appsubmit(@Param("id")int id, //插入一次申请记录
-			@Param("applicant")String applicant,@Param("name")String name,@Param("size")String size,
-			@Param("condition")String condition);
+			@Param("applicant")String applicant,@Param("name")String name,@Param("size")String size);
 	public void Appcheck(@Param("id")int id, //申请表审核
 			@Param("name")String name, @Param("result")String result, @Param("reason")String reason);
 	//3.入库记录表

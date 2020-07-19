@@ -40,8 +40,8 @@ public class StockInServiceImpl implements StockInService{
 	
 	//插入一次申请记录
 	@Override
-	public void Appsubmit(int id, String applicant, String name,String size,String condition) {
-		StockInMapper.Appsubmit(id, applicant, name, size, condition);
+	public void Appsubmit(int id, String applicant, String name,String size) {
+		StockInMapper.Appsubmit(id, applicant, name, size);
 	}
 	
 	//申请表审核

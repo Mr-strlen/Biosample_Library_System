@@ -40,7 +40,7 @@
     <!-- 插入一次申请记录 -->
     <insert id="Appsubmit">
     	insert ignore into 2020rg_group12_stockinapplicationsummary(application_id,application_date,applicant) values(#{id},now(),#{applicant});
-    	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size,storage_condition) values (#{id},#{name},#{size},#{condition});
+    	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size) values (#{id},#{name},#{size});
     
     </insert>
     
