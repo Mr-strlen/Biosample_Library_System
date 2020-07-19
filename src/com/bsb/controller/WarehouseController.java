@@ -70,8 +70,8 @@ public class WarehouseController {
 	
 	@RequestMapping("/conditionstate")
     public ModelAndView ConditionState(){
-        ModelAndView mv = new ModelAndView("WarehouseState_area");
-        mv.addObject("areastate",warehouseService.FindState());	
+        ModelAndView mv = new ModelAndView("WarehouseState_condition");
+        mv.addObject("conditionstate",warehouseService.FindState2());	
         return mv;
     }
 }

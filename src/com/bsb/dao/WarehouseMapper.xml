@@ -28,7 +28,7 @@
     <resultMap id="warehousesamplestate" type="com.bsb.model.WarehouseSamplestate">
         <id property="Storage_conditions" column="storage_conditions"/>
         <id property="Warehouse_area" column="warehouse_area"/>
-        <result property="Warehouse_total" column="Warehouse_total"/>
+        <result property="Warehouse_total" column="warehouse_total"/>
         <result property="Warehouse_balance" column="warehouse_balance"/>
     </resultMap>
     
@@ -44,6 +44,10 @@
     	select * from 2020rg_group12_warehousestate;
     </select>
     
+     <select id="FindState2" resultMap="warehousesamplestate">
+    	select * from 2020rg_group12_warehousesamplestate;
+    </select>
+    
     <select id="SampleStore">
     	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
 		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
@@ -55,6 +59,7 @@
     	update 2020rg_group12_warehousestate set Warehouse_state="充足" where Warehouse_balance<![CDATA[ >= ]]>20;
     	update 2020rg_group12_warehousestate set Warehouse_state="拥挤" where Warehouse_balance<![CDATA[ >= ]]>5 and Warehouse_balance<![CDATA[ < ]]>20;
     	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area} and Storage_conditions=#{con};
     </select>
     
 </mapper>

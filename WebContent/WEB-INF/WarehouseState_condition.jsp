@@ -54,12 +54,12 @@
 				<th>剩余库存</th>
 				<th>总库存</th>
 			</tr>
-			<c:forEach items="${areastate}" var="node">
+			<c:forEach items="${conditionstate}" var="node">
 				<tr>
 					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
+					<td> <c:out value="${node.storage_conditions}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
-					<td> <c:out value="${node.state_duration}"></c:out> </td>
+					<td> <c:out value="${node.warehouse_total}"></c:out> </td>
 				</tr>
 	   		</c:forEach>
   		</table>
