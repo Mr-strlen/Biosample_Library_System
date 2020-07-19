@@ -26,7 +26,7 @@ public class DispatchServiceImpl implements DispatchService{
 	
 	@Override
 	public List<DispatchAppSum> findAppByOrder(String order){
-//		order = '%' + order + '%';
+		order = '%' + order + '%';
 		return dispatchMapper.findAppByOrder(order);
 	}
 	
@@ -98,7 +98,7 @@ public class DispatchServiceImpl implements DispatchService{
 	// 显示指定单号的出库申请
 	@Override
 	public List<DispatchRecord> findRecordByOrder(String order){
-//		order = '%' + order + '%';
+		order = '%' + order + '%';
 		return dispatchMapper.findRecordByOrder(order);
 	}
 	// 时间
