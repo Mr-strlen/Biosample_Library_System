@@ -113,6 +113,7 @@
         	}
         	else if(text == "出库时间查询"){
         		type.value = "2";
+        		document.getElementById("wordinput").type = "date";
         	}
         	else if(text == "出库员查询"){
         		type.value = "3";
