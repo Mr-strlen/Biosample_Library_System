@@ -36,7 +36,44 @@
 	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
 
-	
+	<div class="container theme-showcase" role="main">
+		<div class="panel panel-default">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading">已审核申请</div>
+  			<!-- Table -->
+  			<table class="table">
+  				<tr>
+					<th>申请单编号</th>
+					<th>申请日期</th>
+					<th>申请单位</th>
+					<th>审核人</th>
+					<th>申请内容</th>
+					
+				</tr>
+				<c:forEach items="${warehouse_checked}" var="node">
+					<tr>
+						<td> <c:out value="${node.id}"></c:out> </td>
+						<td> <c:out value="${node.date}"></c:out> </td>
+						<td> <c:out value="${node.applicant}"></c:out> </td>
+						<td> <c:out value="${node.auditor}"></c:out> </td>
+						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>warehouse/warehouse_appdetail?id=${node.id}';">查看</button> </td>	     			         											
+					</tr>
+	   			</c:forEach>
+  			</table>
+		</div> 
+		<div class="panel-heading">申请单查询</div>
+		<form action="<%=basePath%>warehouse/warehouse_appdetail" method="get">
+		<div class="col-lg-6">
+    		<div class="input-group">
+      			<input type="text" name="id" class="form-control" placeholder="输入申请单号...">
+      			<span class="input-group-btn">
+        			<button class="btn btn-default" type="submit">查询</button>
+      			</span>
+    		</div><!-- /input-group -->
+  		</div><!-- /.col-lg-6 -->
+  		</form>
+		
+	</div>
 	
 	<!-- Bootstrap core JavaScript
     ================================================== -->
