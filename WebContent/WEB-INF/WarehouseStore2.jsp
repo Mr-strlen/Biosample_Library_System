@@ -87,7 +87,6 @@
                        <option>D</option>
                        <option>E</option>
                        <option>F</option>
-                       <option>G</option>
                     </select>
   					 <!--<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">-->
   				</div>

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.bsb.model.WarehouseAlter;
 import com.bsb.model.WarehouseControl;
 import com.bsb.model.WarehouseState;
+import com.bsb.model.WarehouseSamplestate;
 
 @Mapper
 public interface WarehouseMapper {
@@ -18,5 +19,6 @@ public interface WarehouseMapper {
 	public List<WarehouseControl> FindControl();
 	public void setWarehouseState(@Param("date")String date,@Param("area")String area, @Param("nums")int nums);
 	public List<WarehouseState> FindState();
+	public List<WarehouseSamplestate> FindState2();
 }
 

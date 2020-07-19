@@ -9,7 +9,7 @@ import com.bsb.dao.WarehouseMapper;
 import com.bsb.model.WarehouseState;
 import com.bsb.model.WarehouseAlter;
 import com.bsb.model.WarehouseControl;
-
+import com.bsb.model.WarehouseSamplestate;
 import com.bsb.service.WarehouseService;
 
 @Service("WarehouseService")
@@ -45,5 +45,10 @@ public class WarehouseServiceImpl implements WarehouseService{
 	@Override
 	public List<WarehouseState> FindState(){
 		return warehouseMapper.FindState();
+	}
+	
+	@Override
+	public List<WarehouseSamplestate> FindState2(){
+		return warehouseMapper.FindState2();
 	}
 }

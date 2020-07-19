@@ -22,7 +22,14 @@
         <id property="Warehouse_area" column="warehouse_area"/>
         <result property="Warehouse_state" column="warehouse_state"/>
         <result property="Warehouse_balance" column="warehouse_balance"/>
-        <result property="State_duration" column="state_duration" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="State_duration" column="state_duration" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <resultMap id="warehousesamplestate" type="com.bsb.model.WarehouseSamplestate">
+        <id property="Storage_conditions" column="storage_conditions"/>
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_total" column="Warehouse_total"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
     </resultMap>
     
     <select id="FindAlter" resultMap="warehousealter">

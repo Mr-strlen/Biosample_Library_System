@@ -40,19 +40,19 @@
 	
 	<div class="container theme-showcase" role="main">
 		<ul class="nav nav-pills">
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
-		  <li role="presentation"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
+		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
+		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
 		</ul>
   		<div class="panel panel-default">
   		<!-- Default panel contents -->
-  		<div class="panel-heading">库位状态表</div>
+  		<div class="panel-heading">样本存储条件状态表</div>
   		<!-- Table -->
   		<table class="table">
   			<tr>
-				<th>存储区域</th>
-				<th>库存余量</th>
-				<th>库存状态</th>
-				<th>最近修改日期</th>
+  			    <th>所属仓库</th>
+				<th>存储条件</th>
+				<th>剩余库存</th>
+				<th>总库存</th>
 			</tr>
 			<c:forEach items="${areastate}" var="node">
 				<tr>
