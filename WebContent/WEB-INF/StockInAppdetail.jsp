@@ -51,7 +51,7 @@
 					<th>驳回原因</th>
 					
 				</tr>
-				<c:forEach items="${warehouse_appdetail}" var="node">
+				<c:forEach items="${stockin_appdetail}" var="node">
 					<tr>
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td> <c:out value="${node.name}"></c:out> </td>
