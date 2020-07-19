@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bsb.service.StockInService;
 //import com.bsb.service.SampleInfoService;
+import com.bsb.service.WarehouseService;
 
 @Controller
 @RequestMapping("/stockin")
@@ -15,6 +16,8 @@ public class StockInController {
     private StockInService StockInService;
 //	@Autowired
 //	private SampleInfoService sampleinfoService;
+	@Autowired
+    private WarehouseService warehouseService;
 	
 	//审核申请界面
 	@RequestMapping("/stockin_checking")
@@ -53,14 +56,15 @@ public class StockInController {
     public ModelAndView showcheck(String id){
         ModelAndView mv = new ModelAndView("StockInCheck");
         mv.addObject("stockin_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
-        String[] storage = {"1","2","3"};
+//        String[] storage = {"1","2","3"};
 //        storage[0]=sampleinfoService.GetUnusedNumByType("1");
 //        storage[1]=sampleinfoService.GetUnusedNumByType("2");
 //        storage[2]=sampleinfoService.GetUnusedNumByType("3");
-        mv.addObject("stockin_storagedetail",storage);
-        for(String i:storage) {
-        	System.out.println(i);
-        }
+//        mv.addObject("stockin_storagedetail",storage);
+//        for(String i:storage) {
+//        	System.out.println(i);
+//        }
+        mv.addObject("areastate",warehouseService.FindState());
         return mv;
     }
 	
@@ -77,6 +81,7 @@ public class StockInController {
 		}
 		return(new ModelAndView("redirect:stockin_checking"));
 	}
+	
 	
 	//申请记录提交
 	@RequestMapping("/stockin_recordsubmit")
