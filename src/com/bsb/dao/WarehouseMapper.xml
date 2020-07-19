@@ -44,6 +44,22 @@
     	select * from 2020rg_group12_warehousecontrol;
     </select>
     
+    <select id="findControlByName" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Sample_name like #{name};
+    </select>
+    
+    <select id="findControlByCondition" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Storage_conditions like #{condition};
+    </select>
+    
+    <select id="findControlByArea" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Storage_area like #{area};
+    </select>
+    
+    <select id="findControlByTime" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Warehousing_date like #{time};
+    </select>
+    
     <select id="FindState" resultMap="warehousestate">
     	select * from 2020rg_group12_warehousestate;
     </select>

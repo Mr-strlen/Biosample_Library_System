@@ -16,6 +16,10 @@ public interface WarehouseService {
 	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time);
 	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area);
 	public List<WarehouseControl> FindControl();
+	public List<WarehouseControl> findControlByName(String name);
+	public List<WarehouseControl> findControlByCondition(String condition);
+	public List<WarehouseControl> findControlByArea(String area);
+	public List<WarehouseControl> findControlByTime(String time);
 	public List<WarehouseState> FindState();
 	public void setWarehouseState(String date,String area, int nums);
 	public List<WarehouseSamplestate> FindState2();	

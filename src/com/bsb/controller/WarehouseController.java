@@ -32,9 +32,29 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/controlquery")
-    public ModelAndView ControlQuery(){
+    public ModelAndView ControlQuery(String type, String word){
         ModelAndView mv = new ModelAndView("WarehouseQuery2");
-        mv.addObject("controlquery",warehouseService.FindControl());	
+        if(word == "") {
+        	mv.addObject("controlquery",warehouseService.FindControl());
+        }
+        else {
+        	if(type == null) {
+        		mv.addObject("controlquery",warehouseService.FindControl());
+				return mv;
+			}
+			if(Integer.valueOf(type) == 1) {
+				mv.addObject("app_select", warehouseService.findControlByName(word));
+			}
+			else if(Integer.valueOf(type) == 2) {
+				mv.addObject("app_select", warehouseService.findControlByCondition(word));
+			}
+			else if(Integer.valueOf(type) == 3) {
+				mv.addObject("app_select", warehouseService.findControlByArea(word));
+			}
+			else if(Integer.valueOf(type) == 4) {
+				mv.addObject("app_select", warehouseService.findControlByTime(word));
+			}
+        }	
         return mv;
     }
 	

@@ -18,6 +18,10 @@ public interface WarehouseMapper {
 	public List<WarehouseAlter> SampleStore(@Param("code")String code, @Param("name")String name, @Param("alter")String alter,@Param("reason")String reason,@Param("num")int num, @Param("time")String time);
 	public List<WarehouseControl> SampleStore2(@Param("name")String name,@Param("num")int num,@Param("con")String con,@Param("area")String area);
 	public List<WarehouseControl> FindControl();
+	public List<WarehouseControl> findControlByName(String name);
+	public List<WarehouseControl> findControlByCondition(String condition);
+	public List<WarehouseControl> findControlByArea(String area);
+	public List<WarehouseControl> findControlByTime(String time);
 	public void setWarehouseState(@Param("date")String date,@Param("area")String area, @Param("nums")int nums);
 	public List<WarehouseState> FindState();
 	public List<WarehouseSamplestate> FindState2();

@@ -43,6 +43,30 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
+	public List<WarehouseControl> findControlByName(String name){
+		name = '%' + name + '%';
+		return warehouseMapper.findControlByName(name);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByCondition(String condition){
+		condition = '%' + condition + '%';
+		return warehouseMapper.findControlByCondition(condition);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByArea(String area){
+		area = '%' + area + '%';
+		return warehouseMapper.findControlByArea(area);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByTime(String time){
+		time = '%' + time + '%';
+		return warehouseMapper.findControlByTime(time);
+	}
+	
+	@Override
 	public void setWarehouseState(String date,String area, int nums){
 		warehouseMapper.setWarehouseState(date,area, nums);
 	}
