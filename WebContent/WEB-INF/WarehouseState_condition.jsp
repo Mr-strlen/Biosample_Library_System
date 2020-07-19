@@ -49,15 +49,15 @@
   		<!-- Table -->
   		<table class="table">
   			<tr>
+  			    <th>存储条件</th>
   			    <th>所属仓库</th>
-				<th>存储条件</th>
 				<th>剩余库存</th>
 				<th>总库存</th>
 			</tr>
 			<c:forEach items="${conditionstate}" var="node">
 				<tr>
+				    <td> <c:out value="${node.storage_conditions}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
-					<td> <c:out value="${node.storage_conditions}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_total}"></c:out> </td>
 				</tr>
