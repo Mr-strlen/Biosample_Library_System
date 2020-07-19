@@ -79,7 +79,7 @@
 							<input id="inputreason" style="width: 300px;" type="text" name="reason_pos" class="form-control" placeholder = "位置">
 						</td>
 						<td>
-						<button type="button" class="btn btn-default btn-sm" onclick="javascript:window.location.href='<%=basePath%>sampleinfo/query'">
+						<button type="button" class="btn btn-default btn-sm" onclick="javascript:window.location.href='<%=basePath%>warehouse/controlquery'">
   							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查询
 						</button>
 					</tr>
