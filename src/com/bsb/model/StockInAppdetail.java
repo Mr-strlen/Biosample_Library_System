@@ -4,7 +4,7 @@ public class StockInAppdetail {
 	private int id;
 	private String name;
 	private String size;
-	private String condition;
+	private String request;
 	private String suggestion;
 	private String result;
 	private String reason;
@@ -30,11 +30,11 @@ public class StockInAppdetail {
 		size = _size;
 	}
 	
-	public String getcondition() {
-		return condition;
+	public String getrequest() {
+		return request;
 	}
-	public void setcondition(String _condition) {
-		condition = _condition;
+	public void setrequest(String _request) {
+		request = _request;
 	}
 	
 	public String getsuggestion() {

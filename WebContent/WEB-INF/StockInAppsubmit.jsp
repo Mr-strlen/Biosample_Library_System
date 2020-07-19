@@ -62,13 +62,15 @@
 					<th>申请单编号</th>
 					<th>样本名称</th>
 					<th>样本规格</th>
-					<th>申请单位</th>															
+					<th>申请单位</th>
+					<th>需求建议/注意事项</th>																
 				</tr>
 					<tr>						
 						<td> <input type="text" name="id" class="form-control" > </td>						
 						<td> <input type="text" name="name" class="form-control" > </td>
 						<td> <input type="text" name="size" class="form-control" > </td>	
-						<td> <input type="text" name="applicant" class="form-control" ></td>															
+						<td> <input type="text" name="applicant" class="form-control" ></td>
+						<td> <input type="text" name="request" class="form-control" ></td>															
 					</tr>
 	   			
   			</table>

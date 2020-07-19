@@ -26,8 +26,8 @@
         <id property="id" column="application_id"/>
         <result property="name" column="sample_name" />
         <result property="size" column="sample_size"/>
-        <result property="condition" column="storage_condition"/>
-        <result property="suggestion" column="StockIn_suggestion" />
+        <result property="request" column="application_request"/>
+        <result property="suggestion" column="stockIn_suggestion" />
         <result property="result" column="check_result" />
         <result property="reason" column="reject_reason" />
     </resultMap>
@@ -40,7 +40,7 @@
     <!-- 插入一次申请记录 -->
     <insert id="Appsubmit">
     	insert ignore into 2020rg_group12_stockinapplicationsummary(application_id,application_date,applicant) values(#{id},now(),#{applicant});
-    	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size) values (#{id},#{name},#{size});
+    	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size,application_request) values (#{id},#{name},#{size},#{request});
     
     </insert>
     
