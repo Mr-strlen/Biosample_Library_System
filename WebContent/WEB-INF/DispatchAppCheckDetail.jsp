@@ -69,11 +69,11 @@
 						 <input type="hidden" name="type" value="${node.type}">						     
 						 </td>
 						<td> <c:out value="${node.num}"></c:out> </td>
-						<td> </td>
+						<td> <c:out value="${node.condition}"></c:out> </td>
 						<td> 							
-							<select οnchange="window.location=this.value;" class="form-control">
-                               <option value ="<%=basePath%>dispatch/app_checkdetail">通过</option>
-                               <option value ="<%=basePath%>dispatch/app_checkdetail2">不通过</option> 
+							<select name="result" class="form-control">
+                               <option value ="已通过">通过</option>
+                               <option value ="未通过">不通过</option> 
                             </select>
 						</td>
 						<td> 
@@ -96,7 +96,7 @@
 		<button style = "vertical-align:middle" type="submit" class="btn btn-success btn-sm float-right">
  				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;提交
 		</button>
-		<input type="hidden" name="result" value="通过">
+		
         </form>
 		
 	</div>
