@@ -22,7 +22,7 @@ public interface WarehouseMapper {
 	public List<WarehouseControl> findControlByCondition(String condition);
 	public List<WarehouseControl> findControlByArea(String area);
 	public List<WarehouseControl> findControlByTime(String time);
-	public void setWarehouseState(@Param("date")String date,@Param("area")String area, @Param("nums")int nums);
+	public void setWarehousetotal();
 	public List<WarehouseState> FindState();
 	public List<WarehouseSamplestate> FindState2();
 	public Integer getAlterNum();

@@ -67,8 +67,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public void setWarehouseState(String date,String area, int nums){
-		warehouseMapper.setWarehouseState(date,area, nums);
+	public void setWarehousetotal(){
+		warehouseMapper.setWarehousetotal();
 	}
 	
 	@Override

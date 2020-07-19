@@ -40,10 +40,17 @@
     <jsp:include page="navbar.jsp" flush="true"/>
 	
 	<div class="container theme-showcase" role="main">
+	    <button type="button" onclick="javascript:window.location.href='<%=basePath%>index'" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回主页
+	  	</button>
+	  	<br></br>
+	  	<br/>
 		<ul class="nav nav-pills">
 		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
 		  <li role="presentation"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
 		</ul>
+		<br></br>
+	  	<br/>
   		<div class="panel panel-default">
   		<!-- Default panel contents -->
   		<div class="panel-heading">库位状态表</div>
