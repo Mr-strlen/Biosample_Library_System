@@ -76,7 +76,7 @@
                             </select>
 						</td>
 						<td> 
-							<input style="width: 300px;" type="text" name="reason_pos" class="form-control" placeholder = "通过请填写样本位置，未通过请填写原因">
+							<input id="inputreason" style="width: 300px;" type="text" name="reason_pos" class="form-control" placeholder = "位置">
 						</td>
 						<td>
 						<button type="button" class="btn btn-default btn-sm" onclick="javascript:window.location.href='<%=basePath%>sampleinfo/query'">
@@ -105,10 +105,12 @@
 		if(document.getElementById("resultse").value=="已通过")
 		{
 			$("#posorreason").text("样本位置");
+			document.getElementById("inputreason").placeholder = "位置";
 		}
 		if(document.getElementById("resultse").value=="未通过")
 		{
 			$("#posorreason").text("未通过原因");
+			document.getElementById("inputreason").placeholder = "原因";
 		}
 	}
 	</script>
