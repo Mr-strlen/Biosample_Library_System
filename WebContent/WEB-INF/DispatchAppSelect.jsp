@@ -52,7 +52,7 @@
   			<form style="width:100%; margin-top:10px; margin-bottom:10px;" action="<%=basePath%>dispatch/app_select" method="get">
 				<div style="width:100%;" class="col-lg-6">
 		    		<div style="width:100%;" class="input-group">
-		      			<input id="wordinput" type="text" name="word" class="form-control" placeholder="Search for ...">
+		      			<input id="wordinput" type="text" name="word" class="form-control" value="D" placeholder="Search for ...">
 		      			<input type="hidden" name="type" id="type" value="1">
 		      			<div class="input-group-btn">		        				
 		      				<button id="searchbutton" class="btn btn-default" type="submit">申请单号查询</button>	
@@ -112,9 +112,13 @@
         	document.getElementById("searchbutton").innerHTML = text;
         	if(text == "申请单号查询"){
         		type.value = "1";
+        		document.getElementById("wordinput").type = "text";
+        		document.getElementById("wordinput").value = "D";
         	}
         	else if(text == "申请单位查询"){
         		type.value = "2";
+        		document.getElementById("wordinput").type = "text";
+        		document.getElementById("wordinput").value = "";
         	}
         	else if(text == "申请时间查询"){
         		type.value = "3";
@@ -122,6 +126,8 @@
         	}
         	else if(text == "审核结果查询"){
         		type.value = "4";
+        		document.getElementById("wordinput").type = "text";
+        		document.getElementById("wordinput").value = "";
         	}
         });
     </script>
