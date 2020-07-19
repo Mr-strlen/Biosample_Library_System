@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,33 +37,33 @@
 	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
 
-	<%-- <div class="container theme-showcase" role="main">
-				<div class="panel panel-default">
-  			<!-- Default panel contents -->
-  			<div class="panel-heading">库存剩余空间</div>
-  			<!-- Table -->
-  			<table class="table">
-  				<tr>
-					<th>库存类型</th>
-					<th>剩余空间</th>					
-				</tr>
+	<div class="container theme-showcase" role="main">
+	<%-- <form action="<%=basePath%>stockin/stockin_check" method="get"> --%>
+  		<div class="panel panel-default">
+  		<!-- Default panel contents -->
+  		<div class="panel-heading">库位状态表</div>
+  		<!-- Table -->
+  		<table class="table">
+  			<tr>
+				<th>存储区域</th>
+				<th>库存余量</th>
+				<th>库存状态</th>
+				<th>最近修改日期</th>
+			</tr>
+			<c:forEach items="${areastate}" var="node">
 				<tr>
-                  <td>常温</td>
-                  <td>${warehouse_storagedetail[0]}</td>
-                </tr>
-                <tr>
-                  <td>冷藏</td>
-                  <td>${warehouse_storagedetail[1]}</td>
-                </tr>
-                <tr>
-                  <td>冷冻</td>
-                  <td>${warehouse_storagedetail[2]}</td>
-                </tr>
-								
-  			</table>
-		</div>  --%>
+					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
+					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
+					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
+					<td> <c:out value="${fn:substring(node.state_duration,0,19)}"></c:out> </td>
+				</tr>
+	   		</c:forEach>
+  		</table>
+	    </div> 
+	    <!-- </form> -->
+	</div>
 		
-		
+	<div class="container theme-showcase" role="main">
 		<form action="<%=basePath%>stockin/stockin_checksubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
@@ -106,7 +107,6 @@
 		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		
         <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button>
         </form>
-		
 	</div>
 	
 	<!-- Bootstrap core JavaScript
