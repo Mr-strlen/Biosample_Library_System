@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.WarehouseMapper">
+    <resultMap id="warehousealter" type="com.bsb.model.WarehouseAlter">
+        <id property="Sample_code" column="sample_code"/>
+        <result property="Sample_name" column="sample_name"/>
+        <result property="Sample_alter" column="sample_alter"/>
+        <result property="Reason" column="reason"/>
+        <result property="Quantity" column="quantity"/>
+        <result property="Alter_date" column="alter_date" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
+        <id property="Sample_name" column="sample_name"/>
+        <result property="Warehousing_date" column="warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
+        <result property="Storage_conditions" column="storage_conditions"/>
+        <result property="Storage_area" column="storage_area"/>
+        <result property="Quantity" column="quantity"/>
+    </resultMap>
+    
+    <resultMap id="warehousestate" type="com.bsb.model.WarehouseState">
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_state" column="warehouse_state"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
+        <result property="State_duration" column="state_duration" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <resultMap id="warehousesamplestate" type="com.bsb.model.WarehouseSamplestate">
+        <id property="Storage_conditions" column="storage_conditions"/>
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_total" column="warehouse_total"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
+    </resultMap>
+    
+    <select id="FindAlter" resultMap="warehousealter">
+    	select * from 2020rg_group12_warehousealter;
+    </select>
+    
+    <select id="FindAlterByName" parameterType="String" resultMap="warehousealter">
+    	select * from 2020rg_group12_warehousealter where Sample_name=#{name};
+    </select>
+    
+    <select id="FindControl" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol;
+    </select>
+    
+    <select id="FindState" resultMap="warehousestate">
+    	select * from 2020rg_group12_warehousestate;
+    </select>
+    
+     <select id="FindState2" resultMap="warehousesamplestate">
+    	select * from 2020rg_group12_warehousesamplestate;
+    </select>
+    
+    <select id="SampleStore">
+    	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
+		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
+    </select>
+    
+    <select id="SampleStore2">
+    	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area} where Sample_name=#{name};
+    	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area};
+    	update 2020rg_group12_warehousestate set Warehouse_state="充足" where Warehouse_balance<![CDATA[ >= ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="拥挤" where Warehouse_balance<![CDATA[ >= ]]>5 and Warehouse_balance<![CDATA[ < ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area} and Storage_conditions=#{con};
+    </select>
+    
+</mapper>
