@@ -47,12 +47,12 @@
 				</tr>
 				
 				<tr>
-					<td>${warehouse_nextappid}</td>
+					<td>${stockin_nextappid}</td>
 				</tr>
   			</table>
 		</div>
 		
-		<form action="<%=basePath%>warehouse//warehouse_appsubmit" method="get">
+		<form action="<%=basePath%>stockin//stockin_appsubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
   			<div class="panel-heading">入库申请</div>
