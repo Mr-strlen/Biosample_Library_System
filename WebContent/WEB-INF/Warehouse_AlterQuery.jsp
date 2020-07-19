@@ -20,7 +20,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>库存存储表</title>
+    <title>样本近期变动记录</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,38 +42,33 @@
 	
 	<div class="container theme-showcase" role="main">
 		<!-- Default panel contents -->
-		<div class="col-xs-2" id="myScrollspy">
-			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="70">
-              <li class="active"><a href="<%=basePath%>warehouse/controlquery">仓库控制表</a></li>
-              <li ><a href="<%=basePath%>warehouse/alterquery">仓库变动表</a></li>
-          </ul>
-        </div>
-           
+		<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
+	  	</button>
+	  	<br></br>
+	  	<br/>
   		<div id="tables" class="col-xs-10">
   			<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">仓库存储表</div>
+  			<div class="panel-heading">样本近期变动记录</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>
+					<th>变动编号</th>
 					<th>样本名称</th>
-					<th>最近变动日期</th>
-					<th>存储条件</th>
-					<th>存储区域</th>
-					<th>现存数量</th>
+					<th>变动方式</th>
+					<th>原因</th>
+					<th>数量</th>
+					<th>变动时间</th>
 				</tr>
-				<c:forEach items="${controlquery}" var="node">
+				<c:forEach items="${alter_namequery}" var="node">
 					<tr>
+						<td> <c:out value="${node.sample_code}"></c:out> </td>
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
-						<td> <c:out value="${node.warehousing_date}"></c:out> </td>
-						<td> <c:out value="${node.storage_conditions}"></c:out> </td>
-						<td> <c:out value="${node.storage_area}"></c:out> </td>
+						<td> <c:out value="${node.sample_alter}"></c:out> </td>
+						<td> <c:out value="${node.reason}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/alter_namequery?type=${node.sample_name}';" data-toggle="modal" data-target="#checkModal">
-	  						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查看变动信息
-							</button>
-						</td>
+						<td> <c:out value="${node.alter_date}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>

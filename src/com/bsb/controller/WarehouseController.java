@@ -26,7 +26,7 @@ public class WarehouseController {
 	
 	@RequestMapping("/alter_namequery")
     public ModelAndView Alter_NameQuery(String type){
-        ModelAndView mv = new ModelAndView("WarehouseQuery");
+        ModelAndView mv = new ModelAndView("Warehouse_AlterQuery");
         mv.addObject("alter_namequery",warehouseService.FindAlterByName(type));	
         return mv;
     }
