@@ -43,16 +43,16 @@ public class WarehouseController {
 				return mv;
 			}
 			if(Integer.valueOf(type) == 1) {
-				mv.addObject("app_select", warehouseService.findControlByName(word));
+				mv.addObject("controlquery", warehouseService.findControlByName(word));
 			}
 			else if(Integer.valueOf(type) == 2) {
-				mv.addObject("app_select", warehouseService.findControlByCondition(word));
+				mv.addObject("controlquery", warehouseService.findControlByCondition(word));
 			}
 			else if(Integer.valueOf(type) == 3) {
-				mv.addObject("app_select", warehouseService.findControlByArea(word));
+				mv.addObject("controlquery", warehouseService.findControlByArea(word));
 			}
 			else if(Integer.valueOf(type) == 4) {
-				mv.addObject("app_select", warehouseService.findControlByTime(word));
+				mv.addObject("controlquery", warehouseService.findControlByTime(word));
 			}
         }	
         return mv;

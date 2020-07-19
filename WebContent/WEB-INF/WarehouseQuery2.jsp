@@ -54,7 +54,7 @@
   		    <form style="width:100%; margin-top:10px; margin-bottom:10px;" action="<%=basePath%>warehouse/controlquery" method="get">
 					<div style="width:100%;" class="col-lg-6">
 		    			<div style="width:100%;" class="input-group">
-		      				<input type="text" name="words" class="form-control" placeholder="Please enter keywords ...">
+		      				<input type="text" name="word" class="form-control" placeholder="Please enter keywords ...">
 		      				<input type="hidden" name="type" id="type" value="1">
 		      				<div class="input-group-btn">
 		        				<button id="searchbutton" class="btn btn-default" type="submit">样本名称查询</button>	
