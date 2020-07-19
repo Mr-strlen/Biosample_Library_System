@@ -66,4 +66,8 @@
     	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area} and Storage_conditions=#{con};
     </select>
     
+    <select id="getAlterNum" resultType="Integer">
+    	select count(*) from 2020rg_group12_warehousealter
+    </select>
+    
 </mapper>

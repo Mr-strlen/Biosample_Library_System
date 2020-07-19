@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -65,7 +66,7 @@
 				<c:forEach items="${controlquery}" var="node">
 					<tr>
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
-						<td> <c:out value="${node.warehousing_date}"></c:out> </td>
+						<td> <c:out value="${fn:substring(node.warehousing_date,0,19)}"></c:out> </td>
 						<td> <c:out value="${node.storage_conditions}"></c:out> </td>
 						<td> <c:out value="${node.storage_area}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>

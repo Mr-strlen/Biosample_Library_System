@@ -39,15 +39,19 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/store")
-    public ModelAndView getStore(){
+    public ModelAndView getStore(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseStore");
         return mv;
     }
 	
 	@RequestMapping("/store_submit") 
-    public ModelAndView creatNewStore(String code, String name,String alter,String reason,int num, String time,RedirectAttributes attributes){
-		warehouseService.SampleStore(code,name,alter,reason,num,time);
+    public ModelAndView creatNewStore(String name,String alter,String reason,int num, String time,RedirectAttributes attributes){
 		ModelAndView mv = new ModelAndView("redirect:store2");
+		int anum = warehouseService.getAlterNum();
+		anum = anum + 1;
+		String code = "AN" + String.valueOf(anum);
+		attributes.addFlashAttribute("forfun", code);
+		warehouseService.SampleStore(code,name,alter,reason,num,time);
 		attributes.addFlashAttribute("forfun1", name);
 		attributes.addFlashAttribute("forfun2", time);
 		attributes.addFlashAttribute("forfun3", num);

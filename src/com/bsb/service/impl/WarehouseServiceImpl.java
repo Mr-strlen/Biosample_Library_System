@@ -56,4 +56,9 @@ public class WarehouseServiceImpl implements WarehouseService{
 	public List<WarehouseSamplestate> FindState2(){
 		return warehouseMapper.FindState2();
 	}
+	
+	@Override
+	public Integer getAlterNum() {
+		return warehouseMapper.getAlterNum();
+	}
 }

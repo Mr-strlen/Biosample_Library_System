@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -70,7 +71,7 @@
 						<td> <c:out value="${node.sample_alter}"></c:out> </td>
 						<td> <c:out value="${node.reason}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td> <c:out value="${node.alter_date}"></c:out> </td>
+						<td> <c:out value="${fn:substring(node.alter_date,0,19)}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>

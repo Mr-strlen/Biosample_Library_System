@@ -21,5 +21,6 @@ public interface WarehouseMapper {
 	public void setWarehouseState(@Param("date")String date,@Param("area")String area, @Param("nums")int nums);
 	public List<WarehouseState> FindState();
 	public List<WarehouseSamplestate> FindState2();
+	public Integer getAlterNum();
 }
 

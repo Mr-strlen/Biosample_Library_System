@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -59,7 +60,7 @@
 					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
-					<td> <c:out value="${node.state_duration}"></c:out> </td>
+					<td> <c:out value="${fn:substring(node.state_duration,0,19)}"></c:out> </td>
 				</tr>
 	   		</c:forEach>
   		</table>
