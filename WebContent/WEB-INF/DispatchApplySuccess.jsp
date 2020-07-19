@@ -37,7 +37,7 @@
 
 <body>
 	<jsp:include page="navbar.jsp" flush="true"/>
-	<div class="container-fluid">
+	<div class="container theme-showcase">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
