@@ -56,9 +56,10 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">库位信息管理</li>
                 <li><a href="<%=basePath%>warehouse/areastate">库位状态</a></li>
+                <li><a href="<%=basePath%>warehouse/congestioncontrol">拥塞管理</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">仓库存储管理</li>
-                <li><a href="<%=basePath%>warehouse/ready">待存储样本查询</a></li>
+                <li><a href="<%=basePath%>warehouse/ready">待处理样本</a></li>
                 <li><a href="<%=basePath%>warehouse/store">样本存储</a></li>
                 <li><a href="<%=basePath%>warehouse/controlquery">存储信息查询</a></li>
               </ul>
