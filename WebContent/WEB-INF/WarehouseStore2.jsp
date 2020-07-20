@@ -95,7 +95,8 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">附加说明</span>
-  					<input type="text" class="form-control" name="note" value="${forfun3}" aria-describedby="basic-addon2" readonly>
+  					<input type="text" name="note" class="form-control" placeholder="填写附加说明" value="无" onfocus="if(value=='无'){value=''}"   
+                onblur="if(value==''){value='无'}">
   				</div>
 			</div>
 			<div class="form-group">

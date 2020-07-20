@@ -9,6 +9,7 @@ public class WarehouseControl {
 	private String Storage_conditions;
 	private String Storage_area;
 	private int Quantity;
+	private String Additional_notes;
 	
 	public String getSample_name() {
 		return Sample_name;
@@ -50,6 +51,15 @@ public class WarehouseControl {
 	public void setcheck_id(int _Quantity) {
 		Quantity = _Quantity;
 	}
+	
+	public String getAdditional_notes() {
+		return Additional_notes;
+	}
+	
+	public void setAdditional_notes(String _Additional_notes) {
+		Sample_name = _Additional_notes;
+	}
+	
 	
 }
 
