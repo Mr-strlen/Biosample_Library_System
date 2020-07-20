@@ -100,4 +100,12 @@
     	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
     </select>
     
+    <select id="congestioncontrol" resultMap="warehousestate">
+    	select * from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足";
+    </select>
+    
+    <select id="congestioncontrol2" resultMap="warehousesamplestate">
+    	select * from 2020rg_group12_warehousesamplestate where Warehouse_area= any(select Warehouse_area from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足");
+    </select>
+    
 </mapper>

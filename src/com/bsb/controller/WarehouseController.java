@@ -118,4 +118,18 @@ public class WarehouseController {
         mv.addObject("conditionstate",warehouseService.FindState2());	
         return mv;
     }
+	
+	@RequestMapping("/congestioncontrol")
+    public ModelAndView CongestionControl(){
+        ModelAndView mv = new ModelAndView("WarehouseCongestion_area");
+        mv.addObject("areastate",warehouseService.congestioncontrol());	
+        return mv;
+    }
+	
+	@RequestMapping("/congestioncontrol2")
+    public ModelAndView CongestionControl2(){
+        ModelAndView mv = new ModelAndView("WarehouseCongestion_detail");
+        mv.addObject("conditionstate",warehouseService.congestioncontrol2());	
+        return mv;
+    }
 }
