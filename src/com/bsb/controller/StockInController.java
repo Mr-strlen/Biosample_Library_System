@@ -56,14 +56,6 @@ public class StockInController {
     public ModelAndView showcheck(String id){
         ModelAndView mv = new ModelAndView("StockInCheck");
         mv.addObject("stockin_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
-//        String[] storage = {"1","2","3"};
-//        storage[0]=sampleinfoService.GetUnusedNumByType("1");
-//        storage[1]=sampleinfoService.GetUnusedNumByType("2");
-//        storage[2]=sampleinfoService.GetUnusedNumByType("3");
-//        mv.addObject("stockin_storagedetail",storage);
-//        for(String i:storage) {
-//        	System.out.println(i);
-//        }
         mv.addObject("areastate",warehouseService.FindState());
         return mv;
     }
@@ -85,18 +77,24 @@ public class StockInController {
 	
 	//申请记录提交
 	@RequestMapping("/stockin_recordsubmit")
-	public ModelAndView submitrecord( int application_id,  String sample_id, String sample_name, String type) {
-//		String position_id = sampleinfoService.GetUnusedPosition(type);
+	public ModelAndView submitrecord( int application_id,  String sample_id,int sample_quantity, String sample_name) {
 		int id = StockInService.GetNextRecordId();
-//		StockInService.Recordsubmit(id, application_id, sample_id, sample_name, position_id);
-		
+		StockInService.Recordsubmit(id, application_id, sample_quantity, sample_id, sample_name);
 		return(new ModelAndView("redirect:stockin_record"));
 	}
+	
+	//显示已通过未登记申请
+	@RequestMapping("/stockin_appnotfinished")
+    public ModelAndView GetNotFinishedApp(){
+		ModelAndView mv = new ModelAndView("StockInAppdetail");
+        mv.addObject("stockin_record",StockInService.GetNotFinishedApp());
+        return mv;
+    }
 	
 	//申请记录查询
 	@RequestMapping("/stockin_findrecord")
     public ModelAndView findrecord(String sample_id){
-		System.out.println(sample_id);
+		//System.out.println(sample_id);
 		ModelAndView mv = new ModelAndView("StockInRecord");
         mv.addObject("stockin_record",StockInService.ShowRecordbySample_id(sample_id));
         return mv;
