@@ -48,6 +48,7 @@ public class StockInController {
     public ModelAndView showrecord(){
         ModelAndView mv = new ModelAndView("StockInRecord");
         mv.addObject("stockin_record",StockInService.ShowRecord());
+        mv.addObject("appnotfinished",StockInService.GetNotFinishedApp());
         return mv;
     }
 	
@@ -63,14 +64,7 @@ public class StockInController {
 	//进行审核
 	@RequestMapping("/stockin_checksubmit")
 	public ModelAndView submitcheck(int id, String name, String reason, String result, String auditor) {
-		//System.out.println(id+" "+name+" "+result+" "+reason);
-		String[] names = name.split(",");
-		String[] results = result.split(",");
-		String[] reasons = reason.split(",");
-		String[] auditors = auditor.split(",");		
-		for(int i = 0; i < names.length; i++) {
-			StockInService.Appcheck(Integer.valueOf(id), names[i], results[i], reasons[i],auditors[i]);
-		}
+		StockInService.Appcheck(Integer.valueOf(id), name, result, reason, auditor);
 		return(new ModelAndView("redirect:stockin_checking"));
 	}
 	
@@ -86,12 +80,12 @@ public class StockInController {
 	//显示已通过未登记申请
 	@RequestMapping("/stockin_appnotfinished")
     public ModelAndView GetNotFinishedApp(){
-		ModelAndView mv = new ModelAndView("StockInAppdetail");
-        mv.addObject("stockin_record",StockInService.GetNotFinishedApp());
+		ModelAndView mv = new ModelAndView("StockInRecord");
+        mv.addObject("appnotfinished",StockInService.GetNotFinishedApp());
         return mv;
     }
 	
-	//申请记录查询
+	//入库记录查询
 	@RequestMapping("/stockin_findrecord")
     public ModelAndView findrecord(String sample_id){
 		//System.out.println(sample_id);
