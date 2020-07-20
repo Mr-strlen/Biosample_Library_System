@@ -8,6 +8,7 @@ public class StockInAppdetail {
 	private String suggestion;
 	private String result;
 	private String reason;
+	private String recordstate;
 		
 	public int getid() {
 		return id;
@@ -56,5 +57,12 @@ public class StockInAppdetail {
 	}
 	public void setreason(String _reason) {
 		reason = _reason;
+	}
+	
+	public String getrecordstate() {
+		return recordstate;
+	}
+	public void setrecordstate(String _recordstate) {
+		reason = _recordstate;
 	}
 }
