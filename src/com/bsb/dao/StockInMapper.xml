@@ -47,7 +47,7 @@
     <!-- 申请表审核 -->
     <update id="Appcheck">
         update 2020rg_group12_stockinapplication set check_result = #{result}, reject_reason = #{reason} where application_id = #{id} and sample_name = #{name};
-        update 2020rg_group12_stockinapplicationsummary set application_check_state=1, auditor='董玉博' where  application_id = #{id};      
+        update 2020rg_group12_stockinapplicationsummary set application_check_state=1, auditor=#{auditor} where  application_id = #{id};      
     </update>
     
    <!--定义record表的返回数据类型 -->
@@ -57,7 +57,7 @@
         <result property="application_id" column="application_id"/>
         <result property="sample_id" column="sample_id"/>
         <result property="sample_name" column="sample_name" />
-        <result property="position_id" column="position_id" />
+        <result property="stockin_state" column="stockin_state" />
     </resultMap>
     
     <!-- 显示入库记录表 -->
@@ -77,15 +77,14 @@
     
     <!-- 提交一次样本记录 -->
     <insert id="Recordsubmit">
-        insert into 2020rg_group12_stockinrecord (record_id,StockIn_date,application_id,sample_id,sample_name,position_id)
-  		values (#{id},now(),#{application_id},#{sample_id},#{sample_name},#{position_id});
+        insert into 2020rg_group12_stockinrecord (record_id,StockIn_date,application_id,sample_quantity,sample_id,sample_name,stockin_state)
+  		values (#{id},now(),#{application_id},#{sample_quantity},#{sample_id},#{sample_name},#{'未存储'});
   		
-  		update 2020rg_group12_sampleinfo info, 2020rg_group12_stockinapplycation app, 2020rg_group12_stockinapplycationsummary appsum 
+  		<!-- update 2020rg_group12_sampleinfo info, 2020rg_group12_stockinapplycation app, 2020rg_group12_stockinapplycationsummary appsum 
   		set info.sample_id=#{sample_id}, info.sample_name=#{sample_name}, 
   		info.sample_size=app.sample_size, info.source=appsum.applicant, info.StockIn_date=now(), info.auditor=appsum.auditor, 
   		info.storage_condition=app.storage_condition, info.state=1 
-  		where  info.position_id=#{position_id} and appsum.application_id=#{application_id} and app.sample_name=#{sample_name} and app.application_id=#{application_id};
-  		
+  		where  info.position_id=#{position_id} and appsum.application_id=#{application_id} and app.sample_name=#{sample_name} and app.application_id=#{application_id}; -->
     </insert>
     
 </mapper>

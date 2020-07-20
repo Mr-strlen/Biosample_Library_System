@@ -20,12 +20,14 @@ public interface StockInMapper {
 			@Param("applicant")String applicant,@Param("name")String name,@Param("size")String size,
 			@Param("request")String request);
 	public void Appcheck(@Param("id")int id, //申请表审核
-			@Param("name")String name, @Param("result")String result, @Param("reason")String reason);
+			@Param("name")String name, @Param("result")String result, @Param("reason")String reason,
+			@Param("auditor")String auditor);
 	//3.入库记录表
 	public List<StockInRecord> ShowRecord();//显示入库记录表
 	public List<StockInRecord> ShowRecordbySample_id(@Param("sample_id")String sample_id);//根据编码显示申请记录中具体样本
 	public int GetNextRecordId();//获取下一个入库记录号
 	public void Recordsubmit(@Param("id")int id,//提交一次样本记录
-			@Param("application_id")int application_id, @Param("sample_id") String sample_id,
-			@Param("sample_name")String sample_name, @Param("position_id")String position_id);
+			@Param("application_id")int application_id,@Param("sample_quantity")int sample_quantity, 
+			@Param("sample_id") String sample_id, @Param("sample_name")String sample_name, 
+			@Param("position_id")String position_id);
 }
