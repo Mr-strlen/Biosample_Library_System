@@ -28,8 +28,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time){
-		return warehouseMapper.SampleStore(code, name, alter, reason, num, time);
+	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,String operator,int num, String time){
+		return warehouseMapper.SampleStore(code, name, alter, reason, operator, num, time);
 	}
 	
 	@Override

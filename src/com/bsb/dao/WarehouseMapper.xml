@@ -7,6 +7,7 @@
         <result property="Sample_alter" column="sample_alter"/>
         <result property="Reason" column="reason"/>
         <result property="Quantity" column="quantity"/>
+        <result property="Operator" column="operator"/>
         <result property="Alter_date" column="alter_date" javaType="String" jdbcType="TIMESTAMP"/>
     </resultMap>
     
@@ -69,7 +70,7 @@
     </select>
     
     <select id="SampleStore">
-    	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{num},#{time});
+    	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Operator,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{operator},#{num},#{time});
 		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
     </select>
     

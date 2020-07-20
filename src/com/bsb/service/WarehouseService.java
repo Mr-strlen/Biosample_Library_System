@@ -13,7 +13,7 @@ public interface WarehouseService {
 	public List<WarehouseAlter> FindAlter();
 	public List<WarehouseAlter> FindAlterByName(String name);
 	public Integer getAlterNum();
-	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time);
+	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,String operator,int num, String time);
 	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area);
 	public List<WarehouseControl> FindControl();
 	public List<WarehouseControl> findControlByName(String name);
