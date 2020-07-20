@@ -45,8 +45,8 @@
 	  	<br></br>
 	  	<br/>
 		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
+		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">按照区域划分</a></li>
+		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">按照条件划分</a></li>
 		</ul>
 		<br></br>
 	  	<br/>
