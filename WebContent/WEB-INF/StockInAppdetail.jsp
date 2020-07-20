@@ -46,10 +46,10 @@
 					<th>申请单编号</th>
 					<th>样本名称</th>
 					<th>样本规格</th>
-					<th>技术部门入库意见</th>
+					<th>入库建议/备注</th>
 					<th>审核结果</th>
 					<th>驳回原因</th>
-					
+					<th>登记情况</th>
 				</tr>
 				<c:forEach items="${stockin_appdetail}" var="node">
 					<tr>
@@ -59,6 +59,7 @@
 						<td> <c:out value="${node.suggestion}"></c:out> </td>
 						<td> <c:out value="${node.result}"></c:out> </td>
 						<td> <c:out value="${node.reason}"></c:out> </td>
+						<td> <c:out value="${node.recordstate}"></c:out> </td>
 					</tr>
 	   			</c:forEach>
   			</table>
@@ -74,10 +75,10 @@
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script>
 	    $(".table tr td").each(function(){
-	    	if($(this).text() == ' 驳回 '){
+	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 未通过 '){
 	    		$(this).css("color", "red");
 	    	}
-	    	if($(this).text() == ' 通过 '){
+	    	if($(this).text() == ' 已存储 '||$(this).text() == ' 通过 '){
 	    		$(this).css("color", "green");
 	    	}
 	    });
