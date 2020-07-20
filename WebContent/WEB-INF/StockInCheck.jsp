@@ -105,6 +105,8 @@
 		
 		<!-- attention to fix -->
 		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		
+		<label>审核员：	<input style="width: 200px;" type="text" name="auditor" class="form-control" placeholder = "审核员姓名"></label>
+		<br></br>
         <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button>
         </form>
 	</div>
