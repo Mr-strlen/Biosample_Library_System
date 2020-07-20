@@ -111,7 +111,7 @@ public class WarehouseController {
     public ModelAndView creatNewStore2(String name, int num, String con, String area, String time, String note, RedirectAttributes attributes){
 		warehouseService.SampleStore2(name, num, con, area, time, note);
 		ModelAndView mv = new ModelAndView("index");
-		JOptionPane.showMessageDialog(null,"ï¿½æ´¢ï¿½É¹ï¿½ï¿½ï¿½");
+		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦");
         return mv;	
     }
 	
