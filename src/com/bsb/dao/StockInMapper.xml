@@ -30,6 +30,7 @@
         <result property="suggestion" column="stockIn_suggestion" />
         <result property="result" column="check_result" />
         <result property="reason" column="reject_reason" />
+        <result property="state" column="record_state" />
     </resultMap>
     
     <!-- 显示申请表信息 -->
@@ -66,13 +67,18 @@
     </select>
     
     <!-- 根据编码显示申请记录中具体样本 -->
-    <select id="ShowRecordbySample_id" resultMap="Recordmap">
+    <select id="ShowRecordbySample_id" resultMap="Appdetailmap">
     	select * from 2020rg_group12_stockinrecord where sample_id = #{sample_id}
     </select>
     
     <!-- 获取下一个记录号 -->
      <select id="GetNextRecordId" resultType="int">
     	select max(record_id)+1 from 2020rg_group12_stockinrecord
+    </select>
+    
+    <!-- 显示已通过未登记的申请 -->
+     <select id="GetNotFinishedApp" resultType="Recordmap">
+    	select * from 2020rg_group12_stockinapplication where check_result=#{'通过'} and record_state=#{Null}
     </select>
     
     <!-- 提交一次样本记录 -->

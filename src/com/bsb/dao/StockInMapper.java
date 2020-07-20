@@ -26,8 +26,8 @@ public interface StockInMapper {
 	public List<StockInRecord> ShowRecord();//显示入库记录表
 	public List<StockInRecord> ShowRecordbySample_id(@Param("sample_id")String sample_id);//根据编码显示申请记录中具体样本
 	public int GetNextRecordId();//获取下一个入库记录号
+	public List<StockInAppdetail> GetNotFinishedApp();//显示已通过未登记的申请
 	public void Recordsubmit(@Param("id")int id,//提交一次样本记录
 			@Param("application_id")int application_id,@Param("sample_quantity")int sample_quantity, 
-			@Param("sample_id") String sample_id, @Param("sample_name")String sample_name, 
-			@Param("position_id")String position_id);
+			@Param("sample_id") String sample_id, @Param("sample_name")String sample_name);
 }
