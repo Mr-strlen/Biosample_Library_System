@@ -1,14 +1,10 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>样本近期变动记录</title>
+    <title>仓库大小变动</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,53 +33,45 @@
     <![endif]-->
 </head>
 <body>
-	<!-- Fixed navbar -->
+<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
-	
-	<div class="container theme-showcase" role="main">
-		<!-- Default panel contents -->
-		<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
+    <div class="container theme-showcase" role="main">
+      <button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
 	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
-	  	</button>
-	  	<br></br>
-	  	<br/>
-  		<div id="tables" class="col-xs-10">
-  			<div class="panel panel-default">
+	  </button>
+	  <br></br>
+	  <br/>
+      <form action="<%=basePath%>warehouse/changewarehouse_submit" method="get">
+		<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">样本近期变动记录</div>
+  			<div class="panel-heading">更改仓库大小</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>
-					<th>变动编号</th>
-					<th>样本名称</th>
-					<th>变动方式</th>
-					<th>原因</th>
-					<th>数量</th>
-					<th>操作人员</th>
-					<th>变动时间</th>
+					<th>仓库</th>
+					<th>常温区变化数量</th>
+					<th>冷藏区变化数量</th>
+					<th>冷冻区变化数量</th>					
 				</tr>
-				<c:forEach items="${alter_namequery}" var="node">
 					<tr>
-						<td> <c:out value="${node.sample_code}"></c:out> </td>
-						<td> <c:out value="${node.sample_name}"></c:out> </td>
-						<td> <c:out value="${node.sample_alter}"></c:out> </td>
-						<td> <c:out value="${node.reason}"></c:out> </td>
-						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td> <c:out value="${node.operator}"></c:out> </td>
-						<td> <c:out value="${fn:substring(node.alter_date,0,19)}"></c:out> </td>
+						<td>
+						    <select name="warehouse" class="form-control">
+                               <option value ="动物组织库">动物组织库</option>
+                               <option value ="动物器官库">动物器官库</option>
+                               <option value ="植物组织库">植物组织库</option>
+                               <option value ="植物果实库">植物果实库</option>
+                               <option value ="精细样本库">精细样本库</option>
+                               <option value ="信息样本库">信息样本库</option> 
+                            </select>					     
+						 </td>
+						<td> <input type="text" class="form-control" name="normal" aria-describedby="basic-addon2"> </td>
+						<td> <input type="text" name="refrigerate" class="form-control" aria-describedby="basic-addon2"> </td>
+						<td> <input type="text" name="freeze" class="form-control" aria-describedby="basic-addon2"> </td>
 					</tr>
-	   			</c:forEach>
   			</table>
 		</div> 
-		
-		</div>
-	</div>
-	
-	
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
-    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<button style="display:block;margin:0 auto" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp;提交</button>
+        </form>
+    </div>
 </body>
 </html>

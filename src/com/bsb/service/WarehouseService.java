@@ -12,10 +12,17 @@ import com.bsb.model.WarehouseSamplestate;
 public interface WarehouseService {
 	public List<WarehouseAlter> FindAlter();
 	public List<WarehouseAlter> FindAlterByName(String name);
-	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time);
+	public Integer getAlterNum();
+	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,String operator,int num, String time);
 	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area);
 	public List<WarehouseControl> FindControl();
+	public List<WarehouseControl> findControlByName(String name);
+	public List<WarehouseControl> findControlByCondition(String condition);
+	public List<WarehouseControl> findControlByArea(String area);
+	public List<WarehouseControl> findControlByTime(String time);
 	public List<WarehouseState> FindState();
-	public void setWarehouseState(String date,String area, int nums);
-	public List<WarehouseSamplestate> FindState2();
+	public void setWarehousetotal(String warehouse,int normal,int refrigerate,int freeze);
+	public List<WarehouseSamplestate> FindState2();	
+	public List<WarehouseState> congestioncontrol();
+	public List<WarehouseSamplestate> congestioncontrol2();
 }

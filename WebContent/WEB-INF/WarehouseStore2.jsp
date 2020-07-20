@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -81,12 +82,12 @@
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">储存区域</span>
 					<select class="form-control"name="area" aria-describedby="basic-addon2">
-                       <option>A</option>
-                       <option>B</option>
-                       <option>C</option>
-                       <option>D</option>
-                       <option>E</option>
-                       <option>F</option>
+                       <option>动物组织库</option>
+                       <option>动物器官库</option>
+                       <option>植物组织库</option>
+                       <option>植物果实库</option>
+                       <option>精细样本库</option>
+                       <option>信息样本库</option>
                     </select>
   					 <!--<input type="text" class="form-control" name="area" aria-describedby="basic-addon2">-->
   				</div>

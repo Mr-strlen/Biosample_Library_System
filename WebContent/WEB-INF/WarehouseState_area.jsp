@@ -3,10 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +19,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>库位状态-区域划分</title>
+    <title>库存存储表</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,10 +42,17 @@
     <jsp:include page="navbar.jsp" flush="true"/>
 	
 	<div class="container theme-showcase" role="main">
+	    <button type="button" onclick="javascript:window.location.href='<%=basePath%>index'" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回主页
+	  	</button>
+	  	<br></br>
+	  	<br/>
 		<ul class="nav nav-pills">
 		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
 		  <li role="presentation"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
 		</ul>
+		<br></br>
+	  	<br/>
   		<div class="panel panel-default">
   		<!-- Default panel contents -->
   		<div class="panel-heading">库位状态表</div>
@@ -59,7 +69,7 @@
 					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
-					<td> <c:out value="${node.state_duration}"></c:out> </td>
+					<td> <c:out value="${fn:substring(node.state_duration,0,19)}"></c:out> </td>
 				</tr>
 	   		</c:forEach>
   		</table>
