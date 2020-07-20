@@ -24,13 +24,13 @@
     <!--定义stockinapplycation表的返回数据类型 -->
     <resultMap id="Appdetailmap" type="com.bsb.model.StockInAppdetail">
         <id property="id" column="application_id"/>
-        <result property="name" column="sample_name" />
+        <id property="name" column="sample_name" />
         <result property="size" column="sample_size"/>
         <result property="request" column="application_request"/>
-        <result property="suggestion" column="stockIn_suggestion" />
+        <result property="suggestion" column="stockin_suggestion" />
         <result property="result" column="check_result" />
         <result property="reason" column="reject_reason" />
-        <result property="state" column="record_state" />
+        <result property="recordstate" column="record_state" />
     </resultMap>
     
     <!-- 显示申请表信息 -->
@@ -54,11 +54,11 @@
    <!--定义record表的返回数据类型 -->
      <resultMap id="Recordmap" type="com.bsb.model.StockInRecord">
         <id property="id" column="record_id"/>
-        <result property="date" column="StockIn_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="date" column="stockin_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
         <result property="application_id" column="application_id"/>
         <result property="sample_id" column="sample_id"/>
-        <result property="sample_name" column="sample_name" />
-        <result property="stockin_state" column="stockin_state" />
+        <result property="sample_name" column="sample_name"/>
+        <result property="stockin_state" column="stockin_state"/>
     </resultMap>
     
     <!-- 显示入库记录表 -->
@@ -77,15 +77,16 @@
     </select>
     
     <!-- 显示已通过未登记的申请 -->
-     <select id="GetNotFinishedApp" resultType="Recordmap">
-    	select * from 2020rg_group12_stockinapplication where check_result=#{'通过'} and record_state=#{Null}
+     <select id="GetNotFinishedApp" resultMap="Appdetailmap">
+    	select * from 2020rg_group12_stockinapplication where check_result = '通过' and record_state is null
     </select>
     
     <!-- 提交一次样本记录 -->
     <insert id="Recordsubmit">
-        insert into 2020rg_group12_stockinrecord (record_id,StockIn_date,application_id,sample_quantity,sample_id,sample_name,stockin_state)
-  		values (#{id},now(),#{application_id},#{sample_quantity},#{sample_id},#{sample_name},#{'未存储'});
+        insert into 2020rg_group12_stockinrecord (record_id,stockin_date,application_id,sample_quantity,sample_id,sample_name,stockin_state)
+  		values (#{id},now(),#{application_id},#{sample_quantity},#{sample_id},#{sample_name},'未存储');
   		
+  		update 2020rg_group12_stockinapplication set record_state = '已登记' where application_id = #{application_id}
   		<!-- update 2020rg_group12_sampleinfo info, 2020rg_group12_stockinapplycation app, 2020rg_group12_stockinapplycationsummary appsum 
   		set info.sample_id=#{sample_id}, info.sample_name=#{sample_name}, 
   		info.sample_size=app.sample_size, info.source=appsum.applicant, info.StockIn_date=now(), info.auditor=appsum.auditor, 
