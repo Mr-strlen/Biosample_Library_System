@@ -19,9 +19,8 @@ public class DispatchController {
 	
 	@Autowired
 	private DispatchService dispatchService;
-	@Autowired
-//	private SampleInfoService sampleinfoService;
-	
+//	@Autowired
+//	private WarehouseService warehouseService;
 	//出库申请
 	@RequestMapping("/apply")
 	public ModelAndView getApply(){
@@ -185,16 +184,16 @@ public class DispatchController {
 		dispatchService.updateRecord(order, time, manager, "已完成");
 		
 		List<String> ls = dispatchService.getPosByOrder(application_order);
-		for(String pos : ls) {
-			  
-			String[] reason_poss = pos.split(",");
-			for(int i = 0; i < reason_poss.length; i++) {
-				// 总表中删除
-				String position = reason_poss[i];
-				System.out.println(position);
+//		for(String pos : ls) {
+//			  
+//			String[] reason_poss = pos.split(",");
+//			for(int i = 0; i < reason_poss.length; i++) {
+//				// 总表中删除
+//				String position = reason_poss[i];
+//				System.out.println(position);
 //				sampleinfoService.DeletRecordByPosition(position);
-			}
-		}
+//			}
+//		}
 		
 		return(new ModelAndView("redirect:record_opsum"));
 	}
