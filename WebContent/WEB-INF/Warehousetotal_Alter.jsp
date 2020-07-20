@@ -41,7 +41,7 @@
 	  </button>
 	  <br></br>
 	  <br/>
-      <form action="<%=basePath%>warehouse/areastate" method="get">
+      <form action="<%=basePath%>warehouse/changewarehouse_submit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
   			<div class="panel-heading">更改仓库大小</div>
@@ -49,9 +49,9 @@
   			<table class="table">
   				<tr>
 					<th>仓库</th>
-					<th>常温区数量</th>
-					<th>冷藏区数量</th>
-					<th>冷冻区数量</th>					
+					<th>常温区变化数量</th>
+					<th>冷藏区变化数量</th>
+					<th>冷冻区变化数量</th>					
 				</tr>
 					<tr>
 						<td>
@@ -64,14 +64,13 @@
                                <option value ="信息样本库">信息样本库</option> 
                             </select>					     
 						 </td>
-						<td> <input type="text" name="normal" class="form-control"> </td>
-						<td> <input type="text" name="refrigerate" class="form-control"> </td>
-						<td> <input type="text" name="freeze" class="form-control"> </td>
+						<td> <input type="text" class="form-control" name="normal" aria-describedby="basic-addon2"> </td>
+						<td> <input type="text" name="refrigerate" class="form-control" aria-describedby="basic-addon2"> </td>
+						<td> <input type="text" name="freeze" class="form-control" aria-describedby="basic-addon2"> </td>
 					</tr>
   			</table>
 		</div> 
-				
-        <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button>
+		<button style="display:block;margin:0 auto" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp;提交</button>
         </form>
     </div>
 </body>

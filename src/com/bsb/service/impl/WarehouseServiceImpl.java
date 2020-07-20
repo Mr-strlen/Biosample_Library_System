@@ -67,8 +67,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public void setWarehousetotal(){
-		warehouseMapper.setWarehousetotal();
+	public void setWarehousetotal(String warehouse,int normal,int refrigerate,int freeze){
+		warehouseMapper.setWarehousetotal(warehouse,normal,refrigerate,freeze);
 	}
 	
 	@Override

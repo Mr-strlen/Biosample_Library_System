@@ -79,8 +79,15 @@ public class WarehouseController {
     }
 	
 	@RequestMapping("/changewarehouse")
-    public ModelAndView changeWarehouse(String type){
+    public ModelAndView changeWarehouse(){
         ModelAndView mv = new ModelAndView("Warehousetotal_Alter");
+        return mv;
+    }
+	
+	@RequestMapping("/changewarehouse_submit")
+    public ModelAndView changeWarehouse_Submit(String warehouse,int normal,int refrigerate,int freeze){
+		warehouseService.setWarehousetotal(warehouse, normal, refrigerate, freeze);
+		ModelAndView mv = new ModelAndView("redirect:areastate");	
         return mv;
     }
 	

@@ -21,6 +21,6 @@ public interface WarehouseService {
 	public List<WarehouseControl> findControlByArea(String area);
 	public List<WarehouseControl> findControlByTime(String time);
 	public List<WarehouseState> FindState();
-	public void setWarehousetotal();
+	public void setWarehousetotal(String warehouse,int normal,int refrigerate,int freeze);
 	public List<WarehouseSamplestate> FindState2();	
 }
