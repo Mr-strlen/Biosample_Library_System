@@ -16,10 +16,11 @@ public interface StockInService {
 	//2.入库申请表详细
 	public List<StockInAppdetail> ShowAppdetail(int state);//显示申请表信息
 	public void Appsubmit(int id,String applicant,String name,String size, String request);//插入一次申请记录
-	public void Appcheck(int id, String name, String result, String reason);//申请表审核
+	public void Appcheck(int id, String name, String result, String reason, String auditor);//申请表审核
 	//3.入库记录表
 	public List<StockInRecord> ShowRecord();//显示入库记录表
 	public List<StockInRecord> ShowRecordbySample_id(String sample_id);//根据编码显示申请记录中具体样本
 	public int GetNextRecordId();//获取下一个入库记录号
-	public void Recordsubmit(int id,int application_id, String sample_id,String sample_name, String position_id);//提交一次样本记录
+	public void Recordsubmit(int id,int application_id,int sample_quantity,
+			String sample_id,String sample_name, String position_id);//提交一次样本记录
 }

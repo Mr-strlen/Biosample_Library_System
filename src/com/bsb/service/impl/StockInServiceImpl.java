@@ -46,8 +46,8 @@ public class StockInServiceImpl implements StockInService{
 	
 	//申请表审核
 	@Override
-	public void Appcheck(int id, String name, String result, String reason) {
-		 StockInMapper.Appcheck(id, name, result, reason);
+	public void Appcheck(int id, String name, String result, String reason,String auditor) {
+		 StockInMapper.Appcheck(id, name, result, reason, auditor);
 	}
 	
 	/*3.入库记录表*/
@@ -71,8 +71,8 @@ public class StockInServiceImpl implements StockInService{
 	
 	//提交一次样本记录
 	@Override
-	public void Recordsubmit(int id,int application_id, String sample_id, String sample_name, String position_id) {
-		 StockInMapper.Recordsubmit(id,  application_id, sample_id, sample_name, position_id);
+	public void Recordsubmit(int id,int application_id,int sample_quantity, String sample_id, String sample_name, String position_id) {
+		 StockInMapper.Recordsubmit(id,  application_id, sample_quantity, sample_id, sample_name, position_id);
 	}
 	
 }
