@@ -61,7 +61,7 @@
                 <li class="dropdown-header">仓库存储管理</li>
                 <li><a href="<%=basePath%>warehouse/ready">待处理样本</a></li>
                 <li><a href="<%=basePath%>warehouse/store">样本存储</a></li>
-                <li><a href="<%=basePath%>warehouse/controlquery">存储信息管理</a></li>
+                <li><a href="<%=basePath%>warehouse/controlquery">存储信息查询</a></li>
               </ul>
             </li>
             <li id="dd4" class="dropdown">
