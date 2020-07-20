@@ -2,7 +2,7 @@ package com.bsb.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -183,7 +183,7 @@ public class DispatchController {
 		
 		dispatchService.updateRecord(order, time, manager, "已完成");
 		
-		List<String> ls = dispatchService.getPosByOrder(application_order);
+//		List<String> ls = dispatchService.getPosByOrder(application_order);
 //		for(String pos : ls) {
 //			  
 //			String[] reason_poss = pos.split(",");
