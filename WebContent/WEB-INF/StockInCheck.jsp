@@ -67,14 +67,14 @@
 		<form action="<%=basePath%>stockin/stockin_checksubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">入库审核（提示：请先向技术部门请求入库参考意见再进行审核）</div>
+  			<div class="panel-heading">入库审核</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>
 					<th>申请单编号</th>
 					<th>样本名称</th>
 					<th>样本规格</th>
-					<th>技术部门入库意见</th>
+					<th>入库建议/备注</th>
 					<th>审核结果</th>
 					<th>驳回原因</th>
 					
@@ -87,7 +87,7 @@
 						 <input type="hidden" name="name" value="${node.name}">						     
 						 </td>
 						<td> <c:out value="${node.size}"></c:out> </td>
-						<td> <c:out value="${node.suggestion}"></c:out> </td>
+						<td> <c:out value="${node.request}"></c:out> </td>
 						<td> 							
 							<select name="result" class="form-control">
                                <option value ="通过">通过</option>
