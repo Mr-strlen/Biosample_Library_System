@@ -111,7 +111,7 @@ public class WarehouseController {
     public ModelAndView creatNewStore2(String name, int num, String con, String area, String time, String note, RedirectAttributes attributes){
 		warehouseService.SampleStore2(name, num, con, area, time, note);
 		ModelAndView mv = new ModelAndView("index");
-		JOptionPane.showMessageDialog(null,"存储成功");
+		JOptionPane.showMessageDialog(null,"存储成功!");
         return mv;	
     }
 	
