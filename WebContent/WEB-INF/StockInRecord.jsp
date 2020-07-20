@@ -46,19 +46,19 @@
   				<tr>					
 					<th>申请单编号</th>
 					<th>样本名称</th>
-					<th>样本编码</th>
-					<th>库存类型</th>															
+					<th>样本数量</th>	
+					<th>样本编码</th>														
 				</tr>
 					<tr>						
 						<td> <input type="text" name="application_id" class="form-control" > </td>						
 						<td> <input type="text" name="sample_name" class="form-control" > </td>
+						<td> <input type="text" name="sample_quantity" class="form-control" > </td>
 						<td> <input type="text" name="sample_id" class="form-control" > </td>
-						<td> 
-							<select name="type" class="form-control">
+							<!-- <select name="type" class="form-control">
 								<option value ="1">常温</option>
                                	<option value ="2">冷藏</option> 
                                	<option value ="3">冷冻</option> 
-							</select>
+							</select> -->
 						</td>											
 					</tr>
 	   			
@@ -88,8 +88,8 @@
 					<th>申请单编号</th>
 					<th>样本名称</th>
 					<th>样本编码</th>
-					<th>库存位置</th>
-					<th>申请详情</th>															
+					<th>需求/备注</th>
+					<th>是否已存储</th>										
 				</tr>
 				<c:forEach items="${warehouse_record}" var="node">
 					<tr>
@@ -98,16 +98,14 @@
 						<td> <c:out value="${node.application_id}"></c:out> </td>
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
 						<td> <c:out value="${node.sample_id}"></c:out> </td>
-						<td> <c:out value="${node.position_id}"></c:out> </td>
-						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>warehouse/warehouse_appdetail?id=${node.application_id}';">查看</button> </td>
-						
+						<td> <c:out value="${node.stockin_state}"></c:out> </td>
+						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>warehouse/warehouse_appdetail?id=${node.application_id}';">查看</button> </td>					
 					</tr>
 	   			</c:forEach>
   			</table>
 		</div>
-						
-	</div>
 		
+		<form>
 		<!-- attention to fix -->
 		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		
         <!-- <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button> -->
@@ -120,5 +118,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 未存储 '){
+	    		$(this).css("color", "red");
+	    	}
+	    	if($(this).text() == ' 已存储 '){
+	    		$(this).css("color", "green");
+	    	}
+	    });
+	    </script>
 </body>
 </html>
