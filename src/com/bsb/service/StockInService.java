@@ -21,6 +21,7 @@ public interface StockInService {
 	public List<StockInRecord> ShowRecord();//显示入库记录表
 	public List<StockInRecord> ShowRecordbySample_id(String sample_id);//根据编码显示申请记录中具体样本
 	public int GetNextRecordId();//获取下一个入库记录号
+	public List<StockInAppdetail> GetNotFinishedApp();//显示已通过未登记的申请
 	public void Recordsubmit(int id,int application_id,int sample_quantity,
-			String sample_id,String sample_name, String position_id);//提交一次样本记录
+			String sample_id,String sample_name);//提交一次样本记录
 }

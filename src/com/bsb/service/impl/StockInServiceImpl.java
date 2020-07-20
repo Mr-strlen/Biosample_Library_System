@@ -69,10 +69,16 @@ public class StockInServiceImpl implements StockInService{
 		return StockInMapper.GetNextRecordId();
 	}
 	
+	//显示已通过未登记的申请
+	@Override
+	public List<StockInAppdetail> GetNotFinishedApp(){
+		return StockInMapper.GetNotFinishedApp();
+	}
+	
 	//提交一次样本记录
 	@Override
-	public void Recordsubmit(int id,int application_id,int sample_quantity, String sample_id, String sample_name, String position_id) {
-		 StockInMapper.Recordsubmit(id,  application_id, sample_quantity, sample_id, sample_name, position_id);
+	public void Recordsubmit(int id,int application_id,int sample_quantity, String sample_id, String sample_name) {
+		 StockInMapper.Recordsubmit(id,  application_id, sample_quantity, sample_id, sample_name);
 	}
 	
 }
