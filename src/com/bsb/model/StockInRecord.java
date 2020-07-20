@@ -7,9 +7,10 @@ public class StockInRecord {
 	private int id;
 	private String date;
 	private int application_id;
+	private int sample_quantity;
 	private String sample_id;
 	private String sample_name;
-	private String position_id;
+	private String stockin_state;
 		
 	public int getid() {
 		return id;
@@ -33,6 +34,13 @@ public class StockInRecord {
 		application_id = _application_id;
 	}
 	
+	public int getsample_quantity() {
+		return sample_quantity;
+	}
+	public void setsample_quantity(int _sample_quantity) {
+		sample_quantity = _sample_quantity;
+	}
+	
 	public String getsample_id() {
 		return sample_id;
 	}
@@ -47,10 +55,10 @@ public class StockInRecord {
 		sample_name = _sample_name;
 	}
 	
-	public String getposition_id() {
-		return position_id;
+	public String getstockin_state() {
+		return stockin_state;
 	}
-	public void setposition_id(String _position_id) {
-		position_id = _position_id;
+	public void setstockin_state(String _stockin_state) {
+		stockin_state = _stockin_state;
 	}
 }
