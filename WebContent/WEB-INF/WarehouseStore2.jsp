@@ -93,6 +93,12 @@
   				</div>
 			</div>
 			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">附加说明</span>
+  					<input type="text" class="form-control" name="note" value="${forfun3}" aria-describedby="basic-addon2" readonly>
+  				</div>
+			</div>
+			<div class="form-group">
 				<span class="input-group-btn">
         			<button class="btn btn-success" type="submit">结束存储</button>
         			<button class="btn btn-default" type="reset">清空输入</button>

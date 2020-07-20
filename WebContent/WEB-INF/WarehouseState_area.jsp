@@ -75,5 +75,23 @@
   		</table>
 	    </div> 
 	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
+    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 充足 '){
+	    		$(this).css("color", "green");
+	    	}
+	    	if($(this).text() == ' 拥挤 '){
+	    		$(this).css("color", "orange");
+	    	}
+	    	if($(this).text() == ' 不足 '){
+	    		$(this).css("color", "red");
+	    	}
+	    });
+    </script>
 </body>
 </html>

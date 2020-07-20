@@ -86,6 +86,7 @@
 					<th>存储条件</th>
 					<th>存储区域</th>
 					<th>现存数量</th>
+					<th>附加说明</th>
 				</tr>
 				<c:forEach items="${controlquery}" var="node">
 					<tr>
@@ -94,6 +95,7 @@
 						<td> <c:out value="${node.storage_conditions}"></c:out> </td>
 						<td> <c:out value="${node.storage_area}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
+						<td> <c:out value="${node.additional_notes}"></c:out> </td>
 						<td>
 							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/alter_namequery?type=${node.sample_name}';" data-toggle="modal" data-target="#checkModal">
 	  						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查看变动信息
