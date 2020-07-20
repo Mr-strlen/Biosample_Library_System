@@ -70,14 +70,14 @@ public class StockInController {
 	
 	//进行审核
 	@RequestMapping("/stockin_checksubmit")
-	public ModelAndView submitcheck(int id, String name, String reason,  String result) {
-		System.out.println(id+" "+name+" "+result+" "+reason);
+	public ModelAndView submitcheck(int id, String name, String reason, String result, String auditor) {
+		//System.out.println(id+" "+name+" "+result+" "+reason);
 		String[] names = name.split(",");
 		String[] results = result.split(",");
 		String[] reasons = reason.split(",");
+		String[] auditors = auditor.split(",");		
 		for(int i = 0; i < names.length; i++) {
-			
-			StockInService.Appcheck(Integer.valueOf(id), names[i], results[i], reasons[i]);
+			StockInService.Appcheck(Integer.valueOf(id), names[i], results[i], reasons[i],auditors[i]);
 		}
 		return(new ModelAndView("redirect:stockin_checking"));
 	}
