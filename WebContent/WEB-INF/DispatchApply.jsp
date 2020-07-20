@@ -57,13 +57,13 @@
 				</tr>
 				<tr>
 					<td> 
-						<input style="width: 250px;" type="text" id = "type" name="type" class="form-control" placeholder = "样本名称（逗号分隔）">
+						<input style="width: 250px;" type="text" id = "type" name="type" class="form-control" placeholder = "样本名称">
 					</td>
 					<td>
-						<input style="width: 250px;" type="text" name="snum" class="form-control" placeholder = "样本数量（逗号分隔）">
+						<input style="width: 250px;" type="text" name="snum" class="form-control" placeholder = "样本数量">
 					</td>
 					<td> 
-						<input style="width: 250px;" type="text" name="condition" value = "默认" class="form-control" placeholder = "样本状态（逗号分隔）">
+						<input style="width: 250px;" type="text" name="condition" value = "默认" class="form-control" placeholder = "样本状态">
 					</td>
 					</tr>
   			</table>
