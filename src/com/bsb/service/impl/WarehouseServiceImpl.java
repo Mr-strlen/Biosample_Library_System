@@ -28,8 +28,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,int num, String time){
-		return warehouseMapper.SampleStore(code, name, alter, reason, num, time);
+	public List<WarehouseAlter> SampleStore(String code, String name,String alter,String reason,String operator,int num, String time){
+		return warehouseMapper.SampleStore(code, name, alter, reason, operator, num, time);
 	}
 	
 	@Override
@@ -38,13 +38,37 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 	
 	@Override
-	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area){
-		return warehouseMapper.SampleStore2(name, num, con, area);
+	public List<WarehouseControl> SampleStore2(String name,int num,String con,String area,String time,String note){
+		return warehouseMapper.SampleStore2(name, num, con, area,time, note);
 	}
 	
 	@Override
-	public void setWarehouseState(String date,String area, int nums){
-		warehouseMapper.setWarehouseState(date,area, nums);
+	public List<WarehouseControl> findControlByName(String name){
+		name = '%' + name + '%';
+		return warehouseMapper.findControlByName(name);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByCondition(String condition){
+		condition = '%' + condition + '%';
+		return warehouseMapper.findControlByCondition(condition);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByArea(String area){
+		area = '%' + area + '%';
+		return warehouseMapper.findControlByArea(area);
+	}
+	
+	@Override
+	public List<WarehouseControl> findControlByTime(String time){
+		time = '%' + time + '%';
+		return warehouseMapper.findControlByTime(time);
+	}
+	
+	@Override
+	public void setWarehousetotal(String warehouse,int normal,int refrigerate,int freeze){
+		warehouseMapper.setWarehousetotal(warehouse,normal,refrigerate,freeze);
 	}
 	
 	@Override
@@ -55,5 +79,20 @@ public class WarehouseServiceImpl implements WarehouseService{
 	@Override
 	public List<WarehouseSamplestate> FindState2(){
 		return warehouseMapper.FindState2();
+	}
+	
+	@Override
+	public Integer getAlterNum() {
+		return warehouseMapper.getAlterNum();
+	}
+	
+	@Override
+	public List<WarehouseState> congestioncontrol(){
+		return warehouseMapper.congestioncontrol();
+	}
+	
+	@Override
+	public List<WarehouseSamplestate> congestioncontrol2(){
+		return warehouseMapper.congestioncontrol2();
 	}
 }

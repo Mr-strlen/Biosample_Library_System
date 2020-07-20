@@ -9,6 +9,7 @@ public class WarehouseAlter {
 	private String Sample_alter;
 	private String Reason;
 	private int Quantity;
+	private String Operator;
 	private String Alter_date;
 	
 	public String getSample_code() {
@@ -41,6 +42,14 @@ public class WarehouseAlter {
 	
 	public void setReason(String _Reason) {
 		Reason = _Reason;
+	}
+	
+	public String getOperator() {
+		return Operator;
+	}
+	
+	public void setOperator(String _Operator) {
+		Reason = _Operator;
 	}
 	
 	public int getQuantity() {
