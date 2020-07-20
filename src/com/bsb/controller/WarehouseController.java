@@ -78,6 +78,12 @@ public class WarehouseController {
 		return mv;
     }
 	
+	@RequestMapping("/changewarehouse")
+    public ModelAndView changeWarehouse(String type){
+        ModelAndView mv = new ModelAndView("Warehousetotal_Alter");
+        return mv;
+    }
+	
 	@RequestMapping("/store2")
     public ModelAndView getStore2(){
         ModelAndView mv = new ModelAndView("WarehouseStore2");

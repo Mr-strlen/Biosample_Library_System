@@ -18,7 +18,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>库位状态-区域划分</title>
+    <title>库位状态-条件划分</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,6 +71,8 @@
 	   		</c:forEach>
   		</table>
 	    </div> 
+	    <button style="display:block;margin:0 auto" type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/changewarehouse';" data-toggle="modal" data-target="#checkModal">
+	            <span class="glyphicon glyphicon-cog"></span>&nbsp;修改仓库大小</button>
 	</div>
 </body>
 </html>
