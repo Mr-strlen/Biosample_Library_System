@@ -1,5 +1,3 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -18,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>库位状态-条件划分</title>
+    <title>生物样本库管理系统-入库申请</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,60 +33,59 @@
     <![endif]-->
 </head>
 <body>
-<!-- Fixed navbar -->
+	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
-	
-	<div class="container theme-showcase" role="main">
-	    <button type="button" onclick="javascript:window.location.href='<%=basePath%>index'" class="btn btn-default btn-sm float-right">
-	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回主页
-	  	</button>
-	  	<br></br>
-	  	<br/>
-		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">拥塞仓库</a></li>
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">拥塞仓库详细信息</a></li>
-		</ul>
-		<br></br>
-	  	<br/>
-  		<div class="panel panel-default">
-  		<!-- Default panel contents -->
-  		<div class="panel-heading">拥塞仓库详细说明</div>
-  		<!-- Table -->
-  		<table class="table">
-  			<tr>
-  			    <th>存储条件</th>
-  			    <th>所属仓库</th>
-				<th>剩余库存</th>
-				<th>总库存</th>
-			</tr>
-			<c:forEach items="${conditionstate}" var="node">
-				<tr>
-				    <td> <c:out value="${node.storage_conditions}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_total}"></c:out> </td>
+    
+    <div class="container theme-showcase" role="main">
+		<div class="panel panel-default" style="margin-top:20px;">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading">(提示：若一次申请多个样本入库，请在填写申请时填写您第一次看见的申请单号)</div>
+  			<!-- Table -->
+  			<table class="table">
+  				<tr>
+					<th>本次申请单号</th>																		
 				</tr>
-	   		</c:forEach>
-  		</table>
-	    </div> 
+				
+				<tr>
+					<td>${stockin_nextappid}</td>
+				</tr>
+  			</table>
+		</div>
+		
+		<form action="<%=basePath%>stockin//stockin_appsubmit" method="get">
+		<div class="panel panel-default">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading">入库申请</div>
+  			<!-- Table -->
+  			<table class="table">
+  				<tr>					
+					<th>申请单编号</th>
+					<th>样本名称</th>
+					<th>样本规格</th>
+					<th>申请单位</th>
+					<th>需求建议/注意事项</th>																
+				</tr>
+					<tr>						
+						<td> <input type="text" name="id" class="form-control" > </td>						
+						<td> <input type="text" name="name" class="form-control" > </td>
+						<td> <input type="text" name="size" class="form-control" > </td>	
+						<td> <input type="text" name="applicant" class="form-control" ></td>
+						<td> <input type="text" name="request" class="form-control" ></td>															
+					</tr>
+	   			
+  			</table>
+		</div> 
+		<button style="width:100px; display:block;margin:0 auto" class="btn btn-primary" type="submit">提交</button>
+		</form>
 	</div>
-	<!-- Bootstrap core JavaScript
+    
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script>
-	    $(".table tr td").each(function(){
-	    	if($(this).text() == ' 常温 '){
-	    		$(this).css("color", "red");
-	    	}
-	    	if($(this).text() == ' 冷藏 '){
-	    		$(this).css("color", "green");
-	    	}
-	    	if($(this).text() == ' 冷冻 '){
-	    		$(this).css("color", "blue");
-	    	}
-	    });
-    </script>
+    
 </body>
 </html>
+
+<!-- 可以连接到数据库  -->

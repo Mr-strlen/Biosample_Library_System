@@ -48,8 +48,8 @@
 	  	<br></br>
 	  	<br/>
 		<ul class="nav nav-pills">
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
-		  <li role="presentation"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
+		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/areastate">按照区域划分</a></li>
+		  <li role="presentation"><a href="<%=basePath%>warehouse/conditionstate">按照条件划分</a></li>
 		</ul>
 		<br></br>
 	  	<br/>
@@ -75,5 +75,23 @@
   		</table>
 	    </div> 
 	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
+    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 充足 '){
+	    		$(this).css("color", "green");
+	    	}
+	    	if($(this).text() == ' 拥挤 '){
+	    		$(this).css("color", "orange");
+	    	}
+	    	if($(this).text() == ' 不足 '){
+	    		$(this).css("color", "red");
+	    	}
+	    });
+    </script>
 </body>
 </html>

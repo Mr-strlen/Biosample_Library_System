@@ -45,8 +45,8 @@
 	  	<br></br>
 	  	<br/>
 		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">按照区域查询</a></li>
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">按照条件查询</a></li>
+		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">按照区域划分</a></li>
+		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">按照条件划分</a></li>
 		</ul>
 		<br></br>
 	  	<br/>
@@ -74,5 +74,23 @@
 	    <button style="display:block;margin:0 auto" type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/changewarehouse';" data-toggle="modal" data-target="#checkModal">
 	            <span class="glyphicon glyphicon-cog"></span>&nbsp;修改仓库大小</button>
 	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
+    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 常温 '){
+	    		$(this).css("color", "red");
+	    	}
+	    	if($(this).text() == ' 冷藏 '){
+	    		$(this).css("color", "green");
+	    	}
+	    	if($(this).text() == ' 冷冻 '){
+	    		$(this).css("color", "blue");
+	    	}
+	    });
+    </script>
 </body>
 </html>

@@ -93,6 +93,13 @@
   				</div>
 			</div>
 			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">附加说明</span>
+  					<input type="text" name="note" class="form-control" placeholder="填写附加说明" value="无" onfocus="if(value=='无'){value=''}"   
+                onblur="if(value==''){value='无'}">
+  				</div>
+			</div>
+			<div class="form-group">
 				<span class="input-group-btn">
         			<button class="btn btn-success" type="submit">结束存储</button>
         			<button class="btn btn-default" type="reset">清空输入</button>

@@ -1,14 +1,10 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <title>库存存储表</title>
+    <title>生物样本库管理系统-入库申请</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<%=basePath%>static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,61 +33,52 @@
     <![endif]-->
 </head>
 <body>
-<!-- Fixed navbar -->
+	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
-	
+
 	<div class="container theme-showcase" role="main">
-	    <button type="button" onclick="javascript:window.location.href='<%=basePath%>index'" class="btn btn-default btn-sm float-right">
-	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回主页
-	  	</button>
-	  	<br></br>
-	  	<br/>
-		<ul class="nav nav-pills">
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/congestioncontrol">拥塞仓库</a></li>
-		  <li role="presentation"><a href="<%=basePath%>warehouse/congestioncontrol2">拥塞仓库详细信息</a></li>
-		</ul>
-		<br></br>
-	  	<br/>
-  		<div class="panel panel-default">
-  		<!-- Default panel contents -->
-  		<div class="panel-heading">拥塞仓库表</div>
-  		<!-- Table -->
-  		<table class="table">
-  			<tr>
-				<th>存储区域</th>
-				<th>库存余量</th>
-				<th>库存状态</th>
-				<th>最近修改日期</th>
-			</tr>
-			<c:forEach items="${areastate}" var="node">
-				<tr>
-					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
-					<td> <c:out value="${fn:substring(node.state_duration,0,19)}"></c:out> </td>
+		<div class="panel panel-default">
+  			<!-- Default panel contents -->
+  			<div class="panel-heading">已审核申请</div>
+  			<!-- Table -->
+  			<table class="table">
+  				<tr>
+					<th>申请单编号</th>
+					<th>申请日期</th>
+					<th>申请单位</th>
+					<th>审核人</th>
+					<th>申请内容</th>
+					
 				</tr>
-	   		</c:forEach>
-  		</table>
-	    </div> 
+				<c:forEach items="${stockin_checked}" var="node">
+					<tr>
+						<td> <c:out value="${node.id}"></c:out> </td>
+						<td> <c:out value="${node.date}"></c:out> </td>
+						<td> <c:out value="${node.applicant}"></c:out> </td>
+						<td> <c:out value="${node.auditor}"></c:out> </td>
+						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_appdetail?id=${node.id}';">查看</button> </td>	     			         											
+					</tr>
+	   			</c:forEach>
+  			</table>
+		</div> 
+		<div class="panel-heading">申请单查询</div>
+		<form action="<%=basePath%>stockin/stockin_appdetail" method="get">
+		<div class="col-lg-6">
+    		<div class="input-group">
+      			<input type="text" name="id" class="form-control" placeholder="输入申请单号...">
+      			<span class="input-group-btn">
+        			<button class="btn btn-default" type="submit">查询</button>
+      			</span>
+    		</div><!-- /input-group -->
+  		</div><!-- /.col-lg-6 -->
+  		</form>
+		
 	</div>
+	
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script>
-	    $(".table tr td").each(function(){
-	    	if($(this).text() == ' 充足 '){
-	    		$(this).css("color", "green");
-	    	}
-	    	if($(this).text() == ' 拥挤 '){
-	    		$(this).css("color", "orange");
-	    	}
-	    	if($(this).text() == ' 不足 '){
-	    		$(this).css("color", "red");
-	    	}
-	    });
-    </script>
-    
 </body>
 </html>

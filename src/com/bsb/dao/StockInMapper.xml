@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.StockInMapper">
+    
+    <!--定义stockinapplycationsummy表的返回数据类型 -->
+    <resultMap id="Appsummap" type="com.bsb.model.StockInAppsum">
+        <id property="id" column="application_id"/>
+        <result property="date" column="application_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="applicant" column="applicant"/>
+        <result property="state" column="application_check_state"/>
+        <result property="auditor" column="auditor" />
+    </resultMap>
+    
+    <!-- 展示所有申请表 -->
+    <select id="ShowAppsum" parameterType="int" resultMap="Appsummap">
+    	select * from 2020rg_group12_stockinapplicationsummary where application_check_state = #{state}
+    </select>
+    
+    <!-- 获取下一个申请表单号 -->
+     <select id="GetNextAppId" resultType="int">
+    	select max(application_id)+1 from 2020rg_group12_stockinapplicationsummary
+    </select>
+    
+    <!--定义stockinapplycation表的返回数据类型 -->
+    <resultMap id="Appdetailmap" type="com.bsb.model.StockInAppdetail">
+        <id property="id" column="application_id"/>
+        <id property="name" column="sample_name" />
+        <result property="size" column="sample_size"/>
+        <result property="request" column="application_request"/>
+        <result property="suggestion" column="stockin_suggestion" />
+        <result property="result" column="check_result" />
+        <result property="reason" column="reject_reason" />
+        <result property="recordstate" column="record_state" />
+    </resultMap>
+    
+    <!-- 显示申请表信息 -->
+    <select id="ShowAppdetail" parameterType="int" resultMap="Appdetailmap">
+    	select * from 2020rg_group12_stockinapplication where application_id = #{id}
+    </select>
+    
+    <!-- 插入一次申请记录 -->
+    <insert id="Appsubmit">
+    	insert ignore into 2020rg_group12_stockinapplicationsummary(application_id,application_date,applicant) values(#{id},now(),#{applicant});
+    	insert into 2020rg_group12_stockinapplication(application_id,sample_name,sample_size,application_request) values (#{id},#{name},#{size},#{request});
+    
+    </insert>
+    
+    <!-- 申请表审核 -->
+    <update id="Appcheck">
+        update 2020rg_group12_stockinapplication set check_result = #{result}, reject_reason = #{reason} where application_id = #{id} and sample_name = #{name};
+        update 2020rg_group12_stockinapplicationsummary set application_check_state=1, auditor=#{auditor} where  application_id = #{id};      
+    </update>
+    
+   <!--定义record表的返回数据类型 -->
+     <resultMap id="Recordmap" type="com.bsb.model.StockInRecord">
+        <id property="id" column="record_id"/>
+        <result property="date" column="stockin_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="application_id" column="application_id"/>
+        <result property="sample_id" column="sample_id"/>
+        <result property="sample_name" column="sample_name"/>
+        <result property="stockin_state" column="stockin_state"/>
+    </resultMap>
+    
+    <!-- 显示入库记录表 -->
+    <select id="ShowRecord" resultMap="Recordmap">
+    	select * from 2020rg_group12_stockinrecord where record_id>0;
+    </select>
+    
+    <!-- 根据编码显示申请记录中具体样本 -->
+    <select id="ShowRecordbySample_id" resultMap="Appdetailmap">
+    	select * from 2020rg_group12_stockinrecord where sample_id = #{sample_id}
+    </select>
+    
+    <!-- 获取下一个记录号 -->
+     <select id="GetNextRecordId" resultType="int">
+    	select max(record_id)+1 from 2020rg_group12_stockinrecord
+    </select>
+    
+    <!-- 显示已通过未登记的申请 -->
+     <select id="GetNotFinishedApp" resultMap="Appdetailmap">
+    	select * from 2020rg_group12_stockinapplication where check_result = '通过' and record_state is null
+    </select>
+    
+    <!-- 提交一次样本记录 -->
+    <insert id="Recordsubmit">
+        insert into 2020rg_group12_stockinrecord (record_id,stockin_date,application_id,sample_quantity,sample_id,sample_name,stockin_state)
+  		values (#{id},now(),#{application_id},#{sample_quantity},#{sample_id},#{sample_name},'未存储');
+  		
+  		update 2020rg_group12_stockinapplication set record_state = '已登记' where application_id = #{application_id}
+  		<!-- update 2020rg_group12_sampleinfo info, 2020rg_group12_stockinapplycation app, 2020rg_group12_stockinapplycationsummary appsum 
+  		set info.sample_id=#{sample_id}, info.sample_name=#{sample_name}, 
+  		info.sample_size=app.sample_size, info.source=appsum.applicant, info.StockIn_date=now(), info.auditor=appsum.auditor, 
+  		info.storage_condition=app.storage_condition, info.state=1 
+  		where  info.position_id=#{position_id} and appsum.application_id=#{application_id} and app.sample_name=#{sample_name} and app.application_id=#{application_id}; -->
+    </insert>
+    
+</mapper>
