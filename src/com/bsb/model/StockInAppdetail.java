@@ -63,6 +63,6 @@ public class StockInAppdetail {
 		return recordstate;
 	}
 	public void setrecordstate(String _recordstate) {
-		reason = _recordstate;
+		recordstate = _recordstate;
 	}
 }
