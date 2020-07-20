@@ -85,4 +85,14 @@ public class WarehouseServiceImpl implements WarehouseService{
 	public Integer getAlterNum() {
 		return warehouseMapper.getAlterNum();
 	}
+	
+	@Override
+	public List<WarehouseState> congestioncontrol(){
+		return warehouseMapper.congestioncontrol();
+	}
+	
+	@Override
+	public List<WarehouseSamplestate> congestioncontrol2(){
+		return warehouseMapper.congestioncontrol2();
+	}
 }

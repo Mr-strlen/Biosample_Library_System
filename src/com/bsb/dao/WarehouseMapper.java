@@ -25,6 +25,8 @@ public interface WarehouseMapper {
 	public void setWarehousetotal(@Param("warehouse")String warehouse,@Param("normal")int normal,@Param("refrigerate")int refrigerate,@Param("freeze")int freeze);
 	public List<WarehouseState> FindState();
 	public List<WarehouseSamplestate> FindState2();
+	public List<WarehouseState> congestioncontrol();
+	public List<WarehouseSamplestate> congestioncontrol2();
 	public Integer getAlterNum();
 }
 

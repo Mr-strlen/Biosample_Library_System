@@ -23,4 +23,6 @@ public interface WarehouseService {
 	public List<WarehouseState> FindState();
 	public void setWarehousetotal(String warehouse,int normal,int refrigerate,int freeze);
 	public List<WarehouseSamplestate> FindState2();	
+	public List<WarehouseState> congestioncontrol();
+	public List<WarehouseSamplestate> congestioncontrol2();
 }
