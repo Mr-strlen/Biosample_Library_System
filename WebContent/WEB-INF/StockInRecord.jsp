@@ -110,7 +110,7 @@
 		
 		<!-- attention to fix -->
 		<input type="hidden" name="id" value="${stockin_appdetail[0].id}">		
-        <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button>
+        <!-- <button style="display:block;margin:0 auto" class="btn btn-default" type="submit">提交</button> -->
         </form>
 		
 	</div>
