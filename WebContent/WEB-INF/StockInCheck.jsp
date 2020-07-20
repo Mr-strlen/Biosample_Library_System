@@ -67,7 +67,7 @@
 		<form action="<%=basePath%>stockin/stockin_checksubmit" method="get">
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
-  			<div class="panel-heading">入库审核</div>
+  			<div class="panel-heading">入库审核（提示：请先向技术部门请求入库参考意见再进行审核）</div>
   			<!-- Table -->
   			<table class="table">
   				<tr>
