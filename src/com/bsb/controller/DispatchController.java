@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bsb.service.DispatchService;
 //import com.bsb.service.SampleInfoService;
+import com.bsb.service.WarehouseService;
 
 
 @Controller
@@ -19,8 +20,8 @@ public class DispatchController {
 	
 	@Autowired
 	private DispatchService dispatchService;
-//	@Autowired
-//	private WarehouseService warehouseService;
+	@Autowired
+	private WarehouseService warehouseService;
 	//出库申请
 	@RequestMapping("/apply")
 	public ModelAndView getApply(){
