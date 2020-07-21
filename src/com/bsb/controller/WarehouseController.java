@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bsb.service.DispatchService;
 import com.bsb.service.StockInService;
 import com.bsb.service.WarehouseService;
 import javax.swing.JOptionPane;
@@ -19,6 +20,8 @@ public class WarehouseController {
     private WarehouseService warehouseService;
 	@Autowired
     private StockInService StockInService;
+	@Autowired
+    private DispatchService dispatchService;
 
 	@RequestMapping("/alterquery")
     public ModelAndView AlterQuery(){
@@ -65,6 +68,7 @@ public class WarehouseController {
     public ModelAndView getReady(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseReady");
         mv.addObject("stockin_record",StockInService.ShowRecord());
+        mv.addObject("record_select",dispatchService.findAllRecord());
         return mv;
     }
 	

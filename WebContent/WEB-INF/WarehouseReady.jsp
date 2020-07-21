@@ -38,10 +38,10 @@
     
     <div class="container theme-showcase" role="main">
   		<!-- Default panel contents -->
+  		<form action="<%=basePath%>warehouse/readytohadle" method="get">
   		<div class="panel panel-default" style="margin-top:20px;">
   			<!-- Default panel contents -->
   			<div class="panel-heading">入库记录</div>
-  			<form style="margin-top:10px; margin-bottom:10px;" action="<%=basePath%>stockin/stockin_findrecord" method="get">
 			<div style="width:100%;" class="col-lg-6">
 	    		<!-- <div class="input-group">
 	      			<input type="text" name="sample_id" class="form-control" placeholder="输入样本编码...">
@@ -50,7 +50,6 @@
 	      			</span>
 	    		</div>/input-group -->
 	  		</div><!-- /.col-lg-6 -->
-	  		</form>
   			<!-- Table -->
   			<table class="table">
   				<tr>
@@ -74,7 +73,35 @@
 	   			</c:forEach>
   			</table>
 		</div>
-		</div>
+		
+ 		<div class="panel panel-default" style="margin-top:20px;">
+ 		<div class="panel-heading">查询出库记录信息</div>
+ 		<!-- Table -->
+ 		<table class="table">
+ 			<tr>
+				<th>出库单号</th>
+				<th>出库时间</th>
+				<th>出库员</th>
+				<th>订单状态</th>
+			</tr>
+			<c:forEach items="${record_select}" var="node">
+				<tr>
+					<td> <c:out value="${node.order}"></c:out> </td>
+					<td> <c:out value="${node.time}"></c:out> </td>
+					<td> <c:out value="${node.manager}"></c:out> </td>
+					<td> <c:out value="${node.state}"></c:out> </td>
+					<td>
+						<button type="button" class="btn btn-default btn-sm" onclick="javascript:window.location.href='<%=basePath%>dispatch/record_detail?id=${node.order}&type=${node.application_order}';" data-toggle="modal" data-target="#messageModal">
+  							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查看
+						</button>
+					</td>
+				</tr>
+   			</c:forEach>
+ 		</table>
+ 		</div> 
+ 		<button style="width:200px; display:block;margin:0 auto" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>&nbsp;只查看待处理样本</button>
+		</form>
+	   </div> 
 		
 		<%-- <form>
 		<!-- attention to fix -->
@@ -87,7 +114,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-     <script>
+    <script>
 	    $(".table tr td").each(function(){
 	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 未通过 '){
 	    		$(this).css("color", "red");
@@ -96,6 +123,16 @@
 	    		$(this).css("color", "green");
 	    	}
 	    });
-	    </script>
+	 </script>
+	 <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 待完成 '){
+	    		$(this).css("color", "red");
+	    	}
+	    	if($(this).text() == ' 已完成 '){
+	    		$(this).css("color", "green");
+	    	}
+	    });
+    </script>
 </body>
 </html>
