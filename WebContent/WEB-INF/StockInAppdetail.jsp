@@ -62,7 +62,7 @@
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td> <c:out value="${node.name}"></c:out> </td>
 						<td> <c:out value="${node.size}"></c:out> </td>
-						<td> <c:out value="${node.suggestion}"></c:out> </td>
+						<td> <c:out value="${node.request}"></c:out> </td>
 						<td> <c:out value="${node.result}"></c:out> </td>
 						<td> <c:out value="${node.reason}"></c:out> </td>
 						<td> <c:out value="${node.recordstate}"></c:out> </td>
@@ -81,7 +81,7 @@
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script>
 	    $(".table tr td").each(function(){
-	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 未通过 '){
+	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 驳回 '){
 	    		$(this).css("color", "red");
 	    	}
 	    	if($(this).text() == ' 已存储 '||$(this).text() == ' 通过 '){
