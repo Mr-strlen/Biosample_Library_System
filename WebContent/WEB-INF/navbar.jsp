@@ -48,7 +48,6 @@
                 <li class="dropdown-header">采购订单管理</li>
                 <li><a href="<%=basePath%>purchase/orders">订单记录</a></li>
                 <li><a href="<%=basePath%>purchase/orderbuy">订单采购</a></li>
-                <li><a href="<%=basePath%>purchase/orderreimburse">订单报销</a></li>
               </ul>
             </li>
             <li id="dd3" class="dropdown">
@@ -75,7 +74,7 @@
                 <li><a href="<%=basePath%>check/index">历次盘点总览</a></li>
                 <li><a href="<%=basePath%>check/findbyid?id=">盘点详情查询</a></li>
                 <li><a href="<%=basePath%>check/creat">开始盘点</a></li>
-                <li><a href="<%=basePath%>check/creat">跳转页面</a></li>
+                <li><a href="<%=basePath%>warehouse/areastate">库位状态查询</a></li>
               </ul>
             </li>
             <li id="dd4" class="dropdown">
