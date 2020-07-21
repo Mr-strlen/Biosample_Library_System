@@ -153,7 +153,7 @@ public class DispatchController {
 			
 			String application_order = order;
 			order = recordorder;
-			dispatchService.insertRecord(order, application_order, "待完成");
+			dispatchService.insertRecord(order, application_order, "待开始");
 		}
 		else {
 			dispatchService.appCheckFinal(order, "未通过", auditor);
@@ -166,7 +166,7 @@ public class DispatchController {
 	@RequestMapping("/record_opsum")
 	public ModelAndView getRecordOpSum(){
         ModelAndView mv = new ModelAndView("DispatchRecordOpSum");
-        mv.addObject("record_opsum",dispatchService.findRecordByState("待完成"));
+        mv.addObject("record_opsum",dispatchService.findRecordByState("待开始"));
         return mv;
     }
 	
@@ -188,7 +188,7 @@ public class DispatchController {
 		String order = dispatchService.getAppOrderByOrder(application_order);
 		//System.out.println(order+" "+ time+" "+manager+" "+application_order);
 		
-		dispatchService.updateRecord(order, time, manager, "已完成");
+		dispatchService.updateRecord(order, time, manager, "待完成");
 		
 //		List<String> ls = dispatchService.getPosByOrder(application_order);
 //		for(String pos : ls) {
