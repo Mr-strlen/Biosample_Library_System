@@ -105,10 +105,6 @@
     	select * from 2020rg_group12_dispatchrecord
     </select>
     
-    <select id="findRecordByState" resultMap="RecordMap">
-    	select * from 2020rg_group12_dispatchrecord where DispatchState='待完成'
-    </select>
-    
 	<!-- 
 	// 显示指定单号的出库申请
 	public List<DispatchRecord> findRecordByOrder(String order);
@@ -128,10 +124,7 @@
 	<select id="findRecordByManager" parameterType="String" resultMap="RecordMap">
     	select * from 2020rg_group12_dispatchrecord where DispatchManager like #{manager}
     </select>
-    <!-- 
-    // 订单状态
-	public List<DispatchRecord> findRecordByState(String state);
-    -->
+    
     <select id="findRecordByState" parameterType="String" resultMap="RecordMap">
     	select * from 2020rg_group12_dispatchrecord where DispatchState like #{state}
     </select>

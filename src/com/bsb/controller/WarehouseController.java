@@ -68,7 +68,7 @@ public class WarehouseController {
     public ModelAndView getReady(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseReady");
         mv.addObject("stockin_record",StockInService.ShowRecord());
-        mv.addObject("record_select",dispatchService.findRecordByState());
+        mv.addObject("record_select",dispatchService.findRecordByState("´ýÍê³É"));
         return mv;
     }
 	

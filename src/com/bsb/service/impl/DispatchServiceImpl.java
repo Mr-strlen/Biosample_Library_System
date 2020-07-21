@@ -96,10 +96,6 @@ public class DispatchServiceImpl implements DispatchService{
 		return dispatchMapper.findAllRecord();
 	}
 	
-	@Override
-	public List<DispatchRecord> findRecordByState(){
-		return dispatchMapper.findRecordByState();
-	}
 	// 鏄剧ず鎸囧畾鍗曞彿鐨勫嚭搴撶敵璇�
 	@Override
 	public List<DispatchRecord> findRecordByOrder(String order){

@@ -43,7 +43,6 @@ public interface DispatchMapper {
 	// 3.鏄剧ず鍑哄簱璁板綍
 	// 鏄剧ず鍏ㄩ儴鍑哄簱璁板綍
 	public List<DispatchRecord> findAllRecord();
-	public List<DispatchRecord> findRecordByState();
 	// 鏄剧ず鎸囧畾鍗曞彿鐨勫嚭搴撶敵璇�
 	public List<DispatchRecord> findRecordByOrder(String order);
 	// 鏃堕棿

@@ -10,7 +10,6 @@ public interface DispatchService {
 	// 1.鏄剧ず鍑哄簱鐢宠
 	// 鏄剧ず鍏ㄩ儴鍑哄簱鐢宠
 	public List<DispatchAppSum> findAllApp();
-	public List<DispatchRecord> findRecordByState();
 	// 鏄剧ず鎸囧畾鍗曞彿鐨勫嚭搴撶敵璇�
 	public List<DispatchAppSum> findAppByOrder(String order);
 	// 鐢宠鍗曚綅
