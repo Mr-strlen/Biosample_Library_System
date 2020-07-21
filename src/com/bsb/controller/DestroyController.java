@@ -21,17 +21,17 @@ public class DestroyController {
 	public ModelAndView DestroyRequest(String word, String type) {
 		if(word == "") {
 			ModelAndView mv = new ModelAndView("DestroyRequest");
-			mv.addObject("uncheckedDestroy", DestroyService.getUncheckedDestroyRequestTables());
-			mv.addObject("passedDestroy", DestroyService.getPassedDestroyRequestTables());
-			mv.addObject("unpassedDestroy", DestroyService.getUnpassedDestroyRequestTables());
+			mv.addObject("uncheckeddestroy", DestroyService.getUncheckedDestroyRequestTables());
+			mv.addObject("passeddestroy", DestroyService.getPassedDestroyRequestTables());
+			mv.addObject("unpasseddestroy", DestroyService.getUnpassedDestroyRequestTables());
 			mv.addObject("searchresult", DestroyService.getAllDestroyRequestTables());
 			return(mv);
 		}
 		else {
 			ModelAndView mv = new ModelAndView("DestroyRequest");
-			mv.addObject("uncheckedDestroy", DestroyService.getUncheckedDestroyRequestTables());
-			mv.addObject("passedDestroy", DestroyService.getPassedDestroyRequestTables());
-			mv.addObject("unpassedDestroy", DestroyService.getUnpassedDestroyRequestTables());
+			mv.addObject("uncheckeddestroy", DestroyService.getUncheckedDestroyRequestTables());
+			mv.addObject("passeddestroy", DestroyService.getPassedDestroyRequestTables());
+			mv.addObject("unpasseddestroy", DestroyService.getUnpassedDestroyRequestTables());
 			if(type == null) {
 				mv.addObject("searchresult", DestroyService.getAllDestroyRequestTables());
 				return mv;
@@ -95,17 +95,17 @@ public class DestroyController {
 	public ModelAndView DestroyOrder(String word, String type) {
 		if(word == "") {
 			ModelAndView mv = new ModelAndView("DestroyOrder");
-			mv.addObject("unstartDestroy", DestroyService.getUnstartDestroyOrderTables());
-			mv.addObject("startedDestroy", DestroyService.getStartedDestroyOrderTables());
+			mv.addObject("unstartdestroy", DestroyService.getUnstartDestroyOrderTables());
+			mv.addObject("starteddestroy", DestroyService.getStartedDestroyOrderTables());
 			mv.addObject("finishedDestroy", DestroyService.getFinishedDestroyOrderTables());
 			mv.addObject("searchresult", DestroyService.getAllDestroyOrderTables());
 			return(mv);
 		}
 		else {
 			ModelAndView mv = new ModelAndView("DestroyOrder");
-			mv.addObject("unstartDestroy", DestroyService.getUnstartDestroyOrderTables());
-			mv.addObject("startedDestroy", DestroyService.getStartedDestroyOrderTables());
-			mv.addObject("finishedDestroy", DestroyService.getFinishedDestroyOrderTables());
+			mv.addObject("unstartdestroy", DestroyService.getUnstartDestroyOrderTables());
+			mv.addObject("starteddestroy", DestroyService.getStartedDestroyOrderTables());
+			mv.addObject("finisheddestroy", DestroyService.getFinishedDestroyOrderTables());
 			if(type == null) {
 				mv.addObject("searchresult", DestroyService.getAllDestroyOrderTables());
 				return mv;
@@ -147,8 +147,8 @@ public class DestroyController {
 		else {
 			buyer = 'B' + buyer;
 			mv.addObject("buyer", buyer);
-			mv.addObject("unstartDestroy", DestroyService.getUnstartDestroyOrderTablesbyBuyer(buyer));
-			mv.addObject("startedDestroy", DestroyService.getStartedDestroyOrderTablesbyBuyer(buyer));
+			mv.addObject("unstartdestroy", DestroyService.getUnstartDestroyOrderTablesbyBuyer(buyer));
+			mv.addObject("starteddestroy", DestroyService.getStartedDestroyOrderTablesbyBuyer(buyer));
 		}
 		return mv;
 	}
@@ -193,9 +193,9 @@ public class DestroyController {
 	@RequestMapping("/orderreimburse")
 	public ModelAndView DestroyOrderReimburse() {
 		ModelAndView mv = new ModelAndView("DestroyOrderReimburse");
-		mv.addObject("unreimbursedDestroy", DestroyService.getUnreimbursedDestroyOrderTables());
-		mv.addObject("reimbursingDestroy", DestroyService.getReimbursingDestroyOrderTables());
-		mv.addObject("reimbursedDestroy", DestroyService.getReimbursedDestroyOrderTables());
+		mv.addObject("unreimburseddestroy", DestroyService.getUnreimbursedDestroyOrderTables());
+		mv.addObject("reimbursingdestroy", DestroyService.getReimbursingDestroyOrderTables());
+		mv.addObject("reimburseddestroy", DestroyService.getReimbursedDestroyOrderTables());
 		return mv;
 	}
 	
