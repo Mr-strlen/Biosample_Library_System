@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 //import java.util.List;
 
+import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -115,9 +116,14 @@ public class DispatchController {
     }
 	// 审核申请
 	@RequestMapping("/app_checkdetail")
-    public ModelAndView setCheckDetail(String type){
+    public ModelAndView setCheckDetail(String order){
         ModelAndView mv = new ModelAndView("DispatchAppCheckDetail");
-        mv.addObject("app_checkdetail",dispatchService.findAppDetailByOrder(type));
+        mv.addObject("app_checkdetail",dispatchService.findAppDetailByOrder(order));
+        String type = dispatchService.findAppDetailByOrder(order).get(0).getType();
+//        System.out.println("1111111111111111111");
+//        System.out.println(dispatchService.findAppDetailByOrder(order).get(0).getType());
+//        System.out.println("1111111111111111111");
+        mv.addObject("controlquery", warehouseService.findControlByName(type));
         return mv;
     }
 	// 申请审核提交

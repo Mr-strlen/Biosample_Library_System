@@ -35,7 +35,6 @@
 <body>
 	<!-- Fixed navbar -->
     <jsp:include page="navbar.jsp" flush="true"/>
-	
 	<div class="container theme-showcase" role="main">
 		<!-- Default panel contents -->
 		<div class="col-xs-2" id="myScrollspy">
@@ -63,7 +62,7 @@
 						<td> <c:out value="${node.time}"></c:out> </td>
 						<td> <c:out value="${node.result}"></c:out> </td>
 						<td>
-							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>dispatch/app_checkdetail?type=${node.order}';" data-toggle="modal" data-target="#checkModal">
+							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>dispatch/app_checkdetail?order=${node.order}';" data-toggle="modal" data-target="#checkModal">
 	  						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;审核
 							</button>
 						</td>
