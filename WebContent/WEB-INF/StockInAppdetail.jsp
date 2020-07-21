@@ -81,10 +81,10 @@
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script>
 	    $(".table tr td").each(function(){
-	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 驳回 '){
+	    	if($(this).text() == ' 未存储 '||$(this).text() == ' 驳回 '||$(this).text() == ' 未登记 '){
 	    		$(this).css("color", "red");
 	    	}
-	    	if($(this).text() == ' 已存储 '||$(this).text() == ' 通过 '){
+	    	if($(this).text() == ' 已存储 '||$(this).text() == ' 通过 '||$(this).text() == ' 已登记 '){
 	    		$(this).css("color", "green");
 	    	}
 	    });
