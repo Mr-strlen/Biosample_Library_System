@@ -73,5 +73,7 @@
 		<button style="display:block;margin:0 auto" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-ok"></span>&nbsp;提交</button>
         </form>
     </div>
+    <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
+    <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
