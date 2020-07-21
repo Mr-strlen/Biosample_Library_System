@@ -74,7 +74,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">盘点描述</span>
-  					<input type="text" class="form-control" name="check_dp" placeholder="第几次盘点" aria-describedby="basic-addon2">
+  					<input type="text" class="form-control" name="check_dp" placeholder="盘点详细信息" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
