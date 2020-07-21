@@ -125,11 +125,11 @@
 						<td> <c:out value="${node.storage_area}"></c:out> </td>
 						<td> <c:out value="${node.quantity}"></c:out> </td>
 						<td> <c:out value="${node.additional_notes}"></c:out> </td>
-						<td>
+<%-- 						<td>
 							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/alter_namequery?type=${node.sample_name}';" data-toggle="modal" data-target="#checkModal">
 	  						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查看变动信息
 							</button>
-						</td>
+						</td> --%>
 					</tr>
 	   			</c:forEach>
   			</table>
