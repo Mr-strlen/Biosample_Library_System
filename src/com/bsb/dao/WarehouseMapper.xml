@@ -72,8 +72,8 @@
     
     <select id="SampleStore">
     	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Operator,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{operator},#{num},#{time})
-    	update 2020rg_group12_stockinrecord set stockin_state='已存储' where sample_name=#{name};
-    	update 2020rg_group12_dispatchrecord set DispatchState='已完成' where sample_name=#{name};
+    	update 2020rg_group12_stockinrecord set stockin_state="已存储" where sample_name=#{name}
+    	update 2020rg_group12_dispatchrecord set DispatchState="已完成" where DispatchOrder= any(select DispatchApplicationOrder_de from DispatchAppDetail where DispatchSampleType=#{name})
 		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
     </select>
     
