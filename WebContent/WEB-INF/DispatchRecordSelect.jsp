@@ -52,7 +52,7 @@
   			<form style="width:100%; margin-top:10px; margin-bottom:10px;" action="<%=basePath%>dispatch/record_select" method="get">
 					<div style="width:100%;" class="col-lg-6">
 		    			<div style="width:100%;" class="input-group">
-		      				<input id="wordinput" type="text" name="word" class="form-control" placeholder="Search for ...">
+		      				<input id="wordinput" type="text" name="word" value="D" class="form-control" placeholder="Search for ...">
 		      				<input type="hidden" name="type" id="type" value="1">
 		      				<div class="input-group-btn">
 		        				<button id="searchbutton" class="btn btn-default" type="submit">出库单号查询</button>	
