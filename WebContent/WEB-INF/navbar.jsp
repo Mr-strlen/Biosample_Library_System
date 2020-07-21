@@ -65,13 +65,14 @@
               </ul>
             </li>
             <li id="dd4" class="dropdown">
-              <a href="<%=basePath%>tech" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">样本处置 <span class="caret"></span></a>
+              <a href="<%=basePath%>destroy" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">样本处置 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="<%=basePath%>destroy/request#table-1" id="appid">样本销毁申请</a></li>
-                <li><a href="<%=basePath%>destroy/request#table-1" id="appid">待审核申请</a></li>
-                <li><a href="<%=basePath%>destroy/request#table-1" id="appid">已通过申请</a></li>
-                <li><a href="<%=basePath%>destroy/request#table-1" id="appid">未通过申请</a></li>
-               	<li><a href="<%=basePath%>destroy/request#table-1" id="appid">订单记录</a></li>
+               <li><a href="<%=basePath%>destroy/request#table-1">样本销毁申请</a></li>
+                <li><a href="<%=basePath%>destroy/request#table-2">待审核申请</a></li>
+                <li><a href="<%=basePath%>destroy/request#table-3">已通过申请</a></li>
+                <li><a href="<%=basePath%>destroy/request#table-4">未通过申请</a></li>
+               	<li><a href="<%=basePath%>destroy/orders">样本销毁记录</a></li>
+               	<li><a href="<%=basePath%>destroy/orderbuy">销毁执行</a></li>
               </ul>
             </li>
           </ul>
