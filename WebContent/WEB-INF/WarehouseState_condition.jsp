@@ -73,6 +73,10 @@
 	    </div> 
 	    <button style="display:block;margin:0 auto" type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/changewarehouse';" data-toggle="modal" data-target="#checkModal">
 	            <span class="glyphicon glyphicon-cog"></span>&nbsp;修改仓库大小</button>
+	    <br />
+	  	<br />
+	  	<br />
+	  	<br />
 	</div>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
