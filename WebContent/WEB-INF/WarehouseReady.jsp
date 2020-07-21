@@ -105,6 +105,10 @@
  		</div> 
  		<button style="width:200px; display:block;margin:0 auto" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>&nbsp;只查看待处理样本</button>
 		</form>
+		<br />
+	  	<br />
+	  	<br />
+	  	<br />
 	   </div> 
 		
 		<%-- <form>
