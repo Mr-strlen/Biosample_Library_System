@@ -8,7 +8,8 @@
     `信息查询`<br>
     `样本采购`<br>
     `样本处置`<br>
-具体执行流程图如下
+具体执行流程图如下<br>
+![image](https://github.com/Mr-strlen/Biosample_Library_System/tree/master/images/二级流程图.png)
 
 系统使用eclipse+web组件作为开发ide，JRE 1.8，tomcat 8.5，使用基本SSM框架
 ## 系统执行效果展示
