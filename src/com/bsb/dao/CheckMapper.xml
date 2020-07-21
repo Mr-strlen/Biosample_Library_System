@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.CheckMapper">
+    <resultMap id="checkmap" type="com.bsb.model.CheckTable">
+        <id property="check_id" column="check_id"/>
+        <result property="check_warehouse" column="check_warehouse"/>
+        <result property="check_creator" column="check_creator"/>
+        <result property="check_acceptor" column="check_acceptor"/>
+        <result property="check_create_time" column="check_create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="check_accept_time" column="check_accept_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="check_description" column="check_description"/>
+        <result property="check_state" column="check_state"/>
+    </resultMap>
+    
+    <resultMap id="checksamplemap" type="com.bsb.model.CheckSampleTable">
+        <id property="cs_id" column="cs_id"/>
+        <result property="sample_id" column="sample_id"/>
+        <result property="position_id" column="position_id"/>
+        <result property="check_id" column="check_id"/>
+    </resultMap>
+    
+    <select id="findCheck" resultMap="checkmap">select * from 2020rg_group12_check;</select>
+    <select id="findAllCheckSample" resultMap="checksamplemap">select * from 2020rg_group12_checkshow;</select>
+    <select id="findSamplebyid" parameterType="int" resultMap="checksamplemap">select * from 2020rg_group12_checkshow where check_id = #{id};</select>
+    <select id="creatCheck">INSERT INTO 2020rg_group12_check (check_id,check_warehouse,check_creator,check_create_time,check_description)
+		VALUES (#{id},#{wh},#{ct},#{ctt},#{dp});
+		UPDATE 2020rg_group12_check SET 2020rg_group12_check.check_state=0 WHERE 2020rg_group12_check.check_create_time=#{ctt};</select>
+    <select id="creatSample">INSERT INTO 2020rg_group12_checkshow (sample_id,position_id,check_id)
+		VALUES (#{sid},#{pid},#{cid});</select>
+    <select id="findSampleStatebyPosition" resultType="String">select state from 2020rg_group12_sampleinfo where position_id=#{pid};</select>
+    <select id="findSampleIdbyPosition" resultType="String">select sample_id from 2020rg_group12_sampleinfo where position_id=#{pid};</select>
+    <update id="setSampleState">update 2020rg_group12_checkshow set 2020rg_group12_checkshow.state=#{dp} where 2020rg_group12_checkshow.position_id=#{pid};</update>
+    <update id="setCheckState">update 2020rg_group12_check set check_accept_time=Now(),check_state=1 where check_id=#{cid};</update>
+</mapper>
