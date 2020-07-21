@@ -51,6 +51,12 @@
 			<label for="basic-url">样本存储信息</label>
 			<div class="form-group">
 				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon2">变动编号</span>
+  					<input type="text" class="form-control" name="code" value="${forfun}" aria-describedby="basic-addon2" readonly>
+  				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">样本名称</span>
   					<input type="text" class="form-control" name="name" value="${forfun1}" aria-describedby="basic-addon2" readonly>
   				</div>

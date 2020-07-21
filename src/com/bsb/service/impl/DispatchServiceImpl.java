@@ -30,24 +30,24 @@ public class DispatchServiceImpl implements DispatchService{
 		return dispatchMapper.findAppByOrder(order);
 	}
 	
-	// 申请单位
+	// 鐢宠鍗曚綅
 	@Override
 	public List<DispatchAppSum> findAppByApplicant(String applicant){
 		applicant = '%' + applicant + '%';
 		return dispatchMapper.findAppByApplicant(applicant);
 	}
-	// 申请结果
+	// 鐢宠缁撴灉
 	@Override
 	public List<DispatchAppSum> findAppByResult(String result){
 		return dispatchMapper.findAppByResult(result);
 	}
-	// 时间
+	// 鏃堕棿
 	@Override
 	public List<DispatchAppSum> findAppByTime(String time){
 		time = '%' + time + '%';
 		return dispatchMapper.findAppByTime(time);
 	}
-	// 回填申请表结果
+	// 鍥炲～鐢宠琛ㄧ粨鏋�
 	@Override
 	public void appCheckFinal(String order, String result, String auditor) {
 		//sSystem.out.println(order+" "+result);
@@ -56,7 +56,7 @@ public class DispatchServiceImpl implements DispatchService{
 	public List<DispatchAppSum> findAppByAuditor(String auditor){
 		return dispatchMapper.findAppByAuditor(auditor);
 	}
-	// 获取当前订单数量用于订单编号
+	// 鑾峰彇褰撳墠璁㈠崟鏁伴噺鐢ㄤ簬璁㈠崟缂栧彿
 	@Override
 	public Integer getApplyNum() {
 		return dispatchMapper.getApplyNum();
@@ -65,73 +65,74 @@ public class DispatchServiceImpl implements DispatchService{
 	public void insertApplySum(String order, String applicant, String time, String result) {
 		dispatchMapper.insertApplySum(order, applicant, time, result);
 	}
-	// 出库样本(调用出库申请详情表)
+	// 鍑哄簱鏍锋湰(璋冪敤鍑哄簱鐢宠璇︽儏琛�)
 	// public List<DispatchAppSum> findAppBySample(String type);
 	
-	// 2.显示出库申请详情
+	// 2.鏄剧ず鍑哄簱鐢宠璇︽儏
 	@Override
 	public void insertApplyDe(String order, String type, int num, String condition, String result) {
 		dispatchMapper.insertApplyDe(order, type, num, condition, result);
 	}
-	// 显示指定单号出库申请详情
+	// 鏄剧ず鎸囧畾鍗曞彿鍑哄簱鐢宠璇︽儏
 	@Override
 	public List<DispatchAppDetail> findAppDetailByOrder(String order){
 		return dispatchMapper.findAppDetailByOrder(order);
 	}
-	// 填写详情表
+	// 濉啓璇︽儏琛�
 	@Override
 	public void appCheck(String order, String type, String result, String reason_pos) {
 		dispatchMapper.appCheck(order, type, result, reason_pos);
 	}
-	// 指定单显示出库位置详情
+	// 鎸囧畾鍗曟樉绀哄嚭搴撲綅缃鎯�
 	@Override
 	public List<String> getPosByOrder(String order){
 		return dispatchMapper.getPosByOrder(order);
 	}
 	
-	// 3.显示出库记录
-	// 显示全部出库记录
+	// 3.鏄剧ず鍑哄簱璁板綍
+	// 鏄剧ず鍏ㄩ儴鍑哄簱璁板綍
 	@Override
 	public List<DispatchRecord> findAllRecord(){
 		return dispatchMapper.findAllRecord();
 	}
-	// 显示指定单号的出库申请
+	
+	// 鏄剧ず鎸囧畾鍗曞彿鐨勫嚭搴撶敵璇�
 	@Override
 	public List<DispatchRecord> findRecordByOrder(String order){
 		order = '%' + order + '%';
 		return dispatchMapper.findRecordByOrder(order);
 	}
-	// 时间
+	// 鏃堕棿
 	@Override
 	public List<DispatchAppSum> findRecordByTime(String time){
 		time = '%' + time + '%';
 		return dispatchMapper.findRecordByTime(time);
 	}
-	// 出库人员
+	// 鍑哄簱浜哄憳
 	@Override
 	public List<DispatchRecord> findRecordByManager(String manager){
 		manager = '%' + manager + '%';
 		return dispatchMapper.findRecordByManager(manager);
 	}
-	// 订单状态
+	// 璁㈠崟鐘舵��
 	@Override
 	public List<DispatchRecord> findRecordByState(String state){
 		state = '%' + state + '%';
 		return dispatchMapper.findRecordByState(state);
 	}
-	// 获取当前订单数量用于订单编号
+	// 鑾峰彇褰撳墠璁㈠崟鏁伴噺鐢ㄤ簬璁㈠崟缂栧彿
 	public Integer getRecordNum() {
 		return dispatchMapper.getRecordNum();
 	}
-	// 获取出库申请单对应的出库单
+	// 鑾峰彇鍑哄簱鐢宠鍗曞搴旂殑鍑哄簱鍗�
 	public String getAppOrderByOrder(String application_order) {
 		return dispatchMapper.getAppOrderByOrder(application_order);
 	}
-	// 新增一条出库订单
+	// 鏂板涓�鏉″嚭搴撹鍗�
 	public void insertRecord(String order, String application_order, String state) {
 		dispatchMapper.insertRecord(order, application_order, state);
 	}
-	// 修改出库订单状态
+	// 淇敼鍑哄簱璁㈠崟鐘舵��
 	public void updateRecord(String order, String time, String manager, String state) {
 		dispatchMapper.updateRecord(order, time, manager, state);
 	}
