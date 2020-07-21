@@ -90,7 +90,6 @@
     <insert id="Recordsubmit">
         insert into 2020rg_group12_stockinrecord (record_id,stockin_date,application_id,sample_quantity,sample_id,sample_name,stockin_state)
   		values (#{id},now(),#{application_id},#{sample_quantity},#{sample_id},#{sample_name},'未存储');
-  		
   		update 2020rg_group12_stockinapplication set record_state = '已登记' where application_id = #{application_id}
   		<!-- update 2020rg_group12_sampleinfo info, 2020rg_group12_stockinapplycation app, 2020rg_group12_stockinapplycationsummary appsum 
   		set info.sample_id=#{sample_id}, info.sample_name=#{sample_name}, 
