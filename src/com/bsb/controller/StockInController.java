@@ -106,7 +106,7 @@ public class StockInController {
 	@RequestMapping("/stockin_appsubmit")
     public ModelAndView submitapp(int id, String applicant, String name,String size,String request){				
         StockInService.Appsubmit(id, applicant, name, size, request);
-        return(new ModelAndView("redirect:stockin_app"));
+        return(new ModelAndView("StockInApplySuccess"));
     }
 	
 }
