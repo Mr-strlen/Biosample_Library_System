@@ -45,8 +45,8 @@
 		<!-- Default panel contents -->
 		<div class="col-xs-2" id="myScrollspy">
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="70">
-              <li class="active"><a href="<%=basePath%>warehouse/controlquery">仓库控制表</a></li>
-              <li ><a href="<%=basePath%>warehouse/alterquery">仓库变动表</a></li>
+              <li class="active"><a href="<%=basePath%>warehouse/controlquery">仓库变动表</a></li>
+              <li ><a href="<%=basePath%>warehouse/alterquery">仓库控制表</a></li>
           </ul>
         </div>
 		  	
