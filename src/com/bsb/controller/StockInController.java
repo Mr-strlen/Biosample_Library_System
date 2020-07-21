@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bsb.service.StockInService;
-//import com.bsb.service.SampleInfoService;
 import com.bsb.service.WarehouseService;
 
 @Controller
@@ -14,8 +13,6 @@ import com.bsb.service.WarehouseService;
 public class StockInController {
 	@Autowired
     private StockInService StockInService;
-//	@Autowired
-//	private SampleInfoService sampleinfoService;
 	@Autowired
     private WarehouseService warehouseService;
 	
