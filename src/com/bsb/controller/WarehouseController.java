@@ -122,10 +122,15 @@ public class WarehouseController {
 	@RequestMapping("/store2_submit")
     public ModelAndView creatNewStore2(String name, int num, String con, String area, String time, String note, RedirectAttributes attributes){
 		warehouseService.SampleStore2(name, num, con, area, time, note);
-		ModelAndView mv = new ModelAndView("index");
-		JOptionPane.showMessageDialog(null,"´æ´¢³É¹¦!");
+		ModelAndView mv = new ModelAndView("redirect:store_success");
         return mv;	
     }
+	
+	@RequestMapping("/store_success")
+	public ModelAndView applysuccess()
+	{
+		return new ModelAndView("WarehouseStoreSuccess");
+	}
 	
 	@RequestMapping("/areastate")
     public ModelAndView AreaState(){
