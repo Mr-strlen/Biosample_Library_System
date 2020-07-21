@@ -38,6 +38,10 @@
     <jsp:include page="navbar.jsp" flush="true"/>
 
 	<div class="container theme-showcase" role="main">
+	<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
+	  	</button>
+	  	<br></br>
 	<%-- <form action="<%=basePath%>stockin/stockin_check" method="get"> --%>
   		<div class="panel panel-default">
   		<!-- Default panel contents -->
