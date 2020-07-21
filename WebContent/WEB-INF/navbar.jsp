@@ -48,7 +48,6 @@
                 <li class="dropdown-header">采购订单管理</li>
                 <li><a href="<%=basePath%>purchase/orders">订单记录</a></li>
                 <li><a href="<%=basePath%>purchase/orderbuy">订单采购</a></li>
-                <li><a href="<%=basePath%>purchase/orderreimburse">订单报销</a></li>
               </ul>
             </li>
             <li id="dd3" class="dropdown">
