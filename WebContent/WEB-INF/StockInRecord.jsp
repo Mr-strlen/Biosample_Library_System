@@ -116,7 +116,11 @@
 						<td> <c:out value="${node.sample_name}"></c:out> </td>
 						<td> <c:out value="${node.sample_id}"></c:out> </td>
 						<td> <c:out value="${node.stockin_state}"></c:out> </td>
-						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_appdetail?id=${node.application_id}';">查看</button> </td>					
+						<td> 
+						<button type="button" class="btn btn-primary btn-sm"  onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_appdetail?id=${node.application_id}';">
+  							<span class="glyphicon glyphicon-search"></span> 查看
+						</button>
+						</td>
 					</tr>
 	   			</c:forEach>
   			</table>
