@@ -75,7 +75,7 @@
 	   			
   			</table>
 		</div> 
-		<button style="width:100px; display:block;margin:0 auto" class="btn btn-primary" type="submit">提交</button>
+		<button style="width:100px; display:block;margin:0 auto" class="btn btn-primary"  type="submit">提交</button>
 		</form>
 	</div>
     

@@ -53,8 +53,13 @@
 						<td> <c:out value="${node.id}"></c:out> </td>
 						<td> <c:out value="${node.date}"></c:out> </td>
 						<td> <c:out value="${node.applicant}"></c:out> </td>
-						<td> <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_check?id=${node.id}';">开始审核</button> </td>
-						
+						<td> 
+						<%-- <button class="btn btn-default" type="button" onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_check?id=${node.id}';">开始审核
+							</button> --%>
+						<button type="button" class="btn btn-primary btn-sm"  onclick="javascript:window.location.href='<%=basePath%>stockin/stockin_check?id=${node.id}';">
+  							<span class="glyphicon glyphicon-search"></span> 开始审核
+						</button>
+						</td>
 					</tr>
 	   			</c:forEach>
   			</table>
@@ -65,13 +70,13 @@
     		<div class="input-group">
       			<input type="text" name="id" class="form-control" placeholder="输入申请单号...">
       			<span class="input-group-btn">
-        			<button class="btn btn-default" type="submit">查询</button>
+        			<button class="btn btn-default" type="submit">
+        				<span class="glyphicon glyphicon-ok"></span> 查询
+        			</button>
       			</span>
     		</div><!-- /input-group -->
   		</div><!-- /.col-lg-6 -->
   		</form>
-		
-		
 	</div>
 	
 	<!-- Bootstrap core JavaScript

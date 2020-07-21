@@ -37,6 +37,12 @@
     <jsp:include page="navbar.jsp" flush="true"/>
 
 	<div class="container theme-showcase" role="main">
+	
+	<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
+	  	</button>
+	  	<br></br>
+	  	
 		<div class="panel panel-default">
   			<!-- Default panel contents -->
   			<div class="panel-heading">申请内容</div>
