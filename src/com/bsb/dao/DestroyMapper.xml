@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.DestroyMapper">
+    <resultMap id="Destroyrequestmap" type="com.bsb.model.DestroyRequestTable">
+        <id property="id" column="PR_Id"/>
+        <result property="time" column="PR_Time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="user" column="PR_User"/>
+        <result property="state" column="PR_State"/>
+    </resultMap>
+    <select id="getAllDestroyRequestTables" resultMap="Destroyrequestmap">
+        select * from 2020rg_group12_destroyrequest order by PR_Time desc
+    </select>
+    <select id="getUncheckedDestroyRequestTables" resultMap="Destroyrequestmap">
+        select * from 2020rg_group12_destroyrequest where PR_State = 0  order by PR_Time desc
+    </select>
+    <select id="getPassedDestroyRequestTables" resultMap="Destroyrequestmap">
+        select * from 2020rg_group12_destroyrequest where PR_State = 1  order by PR_Time desc
+    </select>
+    <select id="getUnpassedDestroyRequestTables" resultMap="Destroyrequestmap">
+        select * from 2020rg_group12_destroyrequest where PR_State = -1  order by PR_Time desc
+    </select>
+    <select id="getDestroyRequestTablesbyId" parameterType="String" resultMap="Destroyrequestmap">
+    	select * from 2020rg_group12_destroyrequest where PR_Id like #{id}  order by PR_Time desc
+    </select>
+    <select id="getDestroyRequestTablesbyUser" parameterType="String" resultMap="Destroyrequestmap">
+    	select * from 2020rg_group12_destroyrequest where PR_User like #{user}  order by PR_Time desc
+    </select>
+    <select id="getDestroyRequestTablesbyTime" parameterType="String" resultMap="Destroyrequestmap">
+    	select * from 2020rg_group12_destroyrequest where PR_Time like #{time}  order by PR_Time desc
+    </select>
+    
+    <resultMap id="Destroyrequestcontentmap" type="com.bsb.model.DestroyRequestContent">
+        <id property="id" column="PRC_Id"/>
+        <result property="tableid" column="PR_Id"/>
+        <result property="name" column="PRC_Name"/>
+        <result property="number" column="PRC_Number"/>
+        <result property="notes" column="PRC_Notes"/>
+        <result property="state" column="PRC_State"/>
+        <result property="reason" column="PRC_Reason"/>
+    </resultMap>
+    <select id="getDestroyRequestContentbyTableId" parameterType="String" resultMap="Destroyrequestcontentmap">
+    	select * from 2020rg_group12_destroyrequestcontent where PR_Id = #{id}
+    </select>
+    <update id="setDestroyRequestContentCheckState">
+    	update 2020rg_group12_destroyrequestcontent set PRC_State = #{state}, PRC_Reason = #{reason} where PRC_Id = #{id}
+    </update>
+    <update id="setDestroyRequestCheckState">
+    	update 2020rg_group12_destroyrequest set PR_State = #{state} where PR_Id = #{id}
+    </update>
+    
+    <select id="getBuyerId" resultType="String">
+    	select PB_Id from 2020rg_group12_destroybuyer order by PB_Num asc limit 1
+    </select>
+    <update id="addBuyerNum" parameterType="String">
+    	update 2020rg_group12_destroybuyer set PB_Num = PB_Num + 1 where PB_Id = #{id}
+    </update>
+    
+    <resultMap id="Destroyordermap" type="com.bsb.model.DestroyOrderTable">
+        <id property="id" column="PO_Id"/>
+        <result property="time" column="PO_Time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="user" column="PO_User"/>
+        <result property="buyer" column="PO_Buyer"/>
+        <result property="state" column="PO_State"/>
+    </resultMap>
+    <insert id="createDestroyOrder">
+    	insert into 2020rg_group12_destroyorder(PO_Id, PO_User, PO_Buyer, PO_State) values(#{id}, #{user}, #{buyer}, 0)
+    </insert>
+    <insert id="createDestroyOrderContent">
+    	insert into 2020rg_group12_destroyordercontent(PO_Id, POC_Name, POC_Number, POC_State) values(#{id}, #{name}, #{number}, 0)
+    </insert>
+    <select id="getAllDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder order by PO_Time desc
+    </select>
+    <select id="getUnstartDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 0 order by PO_Time desc
+    </select>
+    <select id="getStartedDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 1 order by PO_Time desc
+    </select>
+    <select id="getFinishedDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 2 or PO_State = 3 or PO_State = 4 order by PO_Time desc
+    </select>
+    <select id="getUnreimbursedDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 2 order by PO_Time desc
+    </select>
+    <select id="getReimbursingDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 3 order by PO_Time desc
+    </select>
+    <select id="getReimbursedDestroyOrderTables" resultMap="Destroyordermap">
+        select * from 2020rg_group12_destroyorder where PO_State = 4 order by PO_Time desc
+    </select>
+    <select id="getDestroyOrderTablesbyId" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_Id like #{id} order by PO_Time desc
+    </select>
+    <select id="getDestroyOrderTablesbyUser" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_User like #{user} order by PO_Time desc
+    </select>
+    <select id="getDestroyOrderTablesbyBuyer" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_Buyer like #{buyer} order by PO_Time desc
+    </select>
+    <select id="getDestroyOrderTablesbyTime" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_Time like #{time} order by PO_Time desc
+    </select>
+    <select id="getUnstartDestroyOrderTablesbyBuyer" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_Buyer = #{buyer} and PO_State = 0 order by PO_Time desc
+    </select>
+    <select id="getStartedDestroyOrderTablesbyBuyer" parameterType="String" resultMap="Destroyordermap">
+    	select * from 2020rg_group12_destroyorder where PO_Buyer = #{buyer} and PO_State = 1 order by PO_Time desc
+    </select>
+    <select id="getBuyerbyTableId" parameterType="String" resultType="String">
+    	select PO_Buyer from 2020rg_group12_destroyorder where PO_Id = #{id}
+    </select>
+    
+    <resultMap id="Destroyordercontentmap" type="com.bsb.model.DestroyOrderContent">
+        <id property="id" column="POC_Id"/>
+        <result property="tableid" column="PO_Id"/>
+        <result property="name" column="POC_Name"/>
+        <result property="number" column="POC_Number"/>
+        <result property="price" column="POC_Price"/>
+        <result property="source" column="POC_Source"/>
+        <result property="time" column="POC_Time"/>
+        <result property="state" column="POC_State"/>
+    </resultMap>
+    <select id="getDestroyOrderContentbyTableId" parameterType="String" resultMap="Destroyordercontentmap">
+    	select * from 2020rg_group12_destroyordercontent where PO_Id = #{id}
+    </select>
+    <update id="setDestroyOrderStateStart">
+    	update 2020rg_group12_destroyorder set PO_State = 1 where PO_Id = #{id};
+    	update 2020rg_group12_destroyordercontent set POC_State = 1 where PO_Id = #{id};
+    </update>
+    <update id="setDestroyOrderContentFinished">
+    	update 2020rg_group12_destroyordercontent set POC_Price = #{price}, POC_Source = #{source}, POC_Time = Now(), POC_State = 2 where POC_Id = #{id}
+    </update>
+    <update id="setDestroyOrderState">
+    	update 2020rg_group12_destroyorder set PO_State = #{state} where PO_Id = #{id}
+    </update>
+    
+</mapper>
