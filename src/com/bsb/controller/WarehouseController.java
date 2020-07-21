@@ -76,7 +76,7 @@ public class WarehouseController {
     public ModelAndView ReadytoHandle(){
         ModelAndView mv = new ModelAndView("WarehouseReady");
         mv.addObject("stockin_record",StockInService.ShowReadyRecord());
-        mv.addObject("record_select",dispatchService.findRecordByState("´ıÍê³É"));
+        mv.addObject("record_select",dispatchService.findRecordByState("å¾…å®Œæˆ"));
         return mv;
     }
 	
