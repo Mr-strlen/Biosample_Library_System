@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bsb.service.DispatchService;
+import com.bsb.service.WarehouseService;
 //import com.bsb.service.SampleInfoService;
 
 
@@ -19,8 +20,8 @@ public class DispatchController {
 	
 	@Autowired
 	private DispatchService dispatchService;
-//	@Autowired
-//	private WarehouseService warehouseService;
+	@Autowired
+	private WarehouseService warehouseService;
 	//出库申请
 	@RequestMapping("/apply")
 	public ModelAndView getApply(){
@@ -117,6 +118,7 @@ public class DispatchController {
     public ModelAndView setCheckDetail(String type){
         ModelAndView mv = new ModelAndView("DispatchAppCheckDetail");
         mv.addObject("app_checkdetail",dispatchService.findAppDetailByOrder(type));
+        mv.addObject("controlquery",warehouseService.FindControl());
         return mv;
     }
 	// 申请审核提交
