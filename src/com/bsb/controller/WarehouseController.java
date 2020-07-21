@@ -68,7 +68,7 @@ public class WarehouseController {
     public ModelAndView getReady(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseReady");
         mv.addObject("stockin_record",StockInService.ShowRecord());
-        mv.addObject("record_select",dispatchService.findRecordByState("待完成"));
+        mv.addObject("record_select",dispatchService.findAllRecord());
         return mv;
     }
 	
@@ -76,7 +76,7 @@ public class WarehouseController {
     public ModelAndView ReadytoHandle(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseReady");
         mv.addObject("stockin_record",StockInService.ShowReadyRecord());
-        mv.addObject("record_select",dispatchService.findRecordByState());
+        mv.addObject("record_select",dispatchService.findRecordByState("待完成"));
         return mv;
     }
 	

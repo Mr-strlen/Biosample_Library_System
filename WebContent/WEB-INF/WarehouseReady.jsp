@@ -38,6 +38,10 @@
     
     <div class="container theme-showcase" role="main">
   		<!-- Default panel contents -->
+  		<!-- Default panel contents -->
+		<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
+	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
+	  	</button>
   		<form action="<%=basePath%>warehouse/readytohandle" method="get">
   		<div class="panel panel-default" style="margin-top:20px;">
   			<!-- Default panel contents -->
