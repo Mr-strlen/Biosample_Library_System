@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bsb.dao.WarehouseMapper">
+    <resultMap id="warehousealter" type="com.bsb.model.WarehouseAlter">
+        <id property="Sample_code" column="sample_code"/>
+        <result property="Sample_name" column="sample_name"/>
+        <result property="Sample_alter" column="sample_alter"/>
+        <result property="Reason" column="reason"/>
+        <result property="Quantity" column="quantity"/>
+        <result property="Operator" column="operator"/>
+        <result property="Alter_date" column="alter_date" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <resultMap id="warehousecontrol" type="com.bsb.model.WarehouseControl">
+        <id property="Sample_name" column="sample_name"/>
+        <result property="Warehousing_date" column="warehousing_date" javaType="String" jdbcType="TIMESTAMP"/>
+        <result property="Storage_conditions" column="storage_conditions"/>
+        <result property="Storage_area" column="storage_area"/>
+        <result property="Quantity" column="quantity"/>
+        <result property="Additional_notes" column="additional_notes"/>
+    </resultMap>
+    
+    <resultMap id="warehousestate" type="com.bsb.model.WarehouseState">
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_state" column="warehouse_state"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
+        <result property="State_duration" column="state_duration" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <resultMap id="warehousesamplestate" type="com.bsb.model.WarehouseSamplestate">
+        <id property="Storage_conditions" column="storage_conditions"/>
+        <id property="Warehouse_area" column="warehouse_area"/>
+        <result property="Warehouse_total" column="warehouse_total"/>
+        <result property="Warehouse_balance" column="warehouse_balance"/>
+    </resultMap>
+    
+    <select id="FindAlter" resultMap="warehousealter">
+    	select * from 2020rg_group12_warehousealter;
+    </select>
+    
+    <select id="FindAlterByName" parameterType="String" resultMap="warehousealter">
+    	select * from 2020rg_group12_warehousealter where Sample_name=#{name};
+    </select>
+    
+    <select id="FindControl" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol;
+    </select>
+    
+    <select id="findControlByName" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Sample_name like #{name};
+    </select>
+    
+    <select id="findControlByCondition" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Storage_conditions like #{condition};
+    </select>
+    
+    <select id="findControlByArea" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Storage_area like #{area};
+    </select>
+    
+    <select id="findControlByTime" parameterType="String" resultMap="warehousecontrol">
+    	select * from 2020rg_group12_warehousecontrol where Warehousing_date like #{time};
+    </select>
+    
+    <select id="FindState" resultMap="warehousestate">
+    	select * from 2020rg_group12_warehousestate;
+    </select>
+    
+     <select id="FindState2" resultMap="warehousesamplestate">
+    	select * from 2020rg_group12_warehousesamplestate;
+    </select>
+    
+    <select id="SampleStore">
+    	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Operator,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{operator},#{num},#{time});
+    	update 2020rg_group12_stockinrecord set stockin_state="已存储"  where sample_name= #{name};
+        update 2020rg_group12_dispatchrecord set DispatchState="已完成"  where DispatchApplicationOrder_de = any(select DispatchApplicationOrder_de from 2020rg_group12_dispatchappdetail where DispatchSampleType=#{name});
+		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
+    </select>
+    
+    <select id="SampleStore2">
+    	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area}, Additional_notes=#{note} where Sample_name=#{name};
+    	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area};
+    	update 2020rg_group12_warehousestate set Warehouse_state="充足" where Warehouse_balance<![CDATA[ > ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="拥挤" where Warehouse_balance<![CDATA[ >= ]]>5 and Warehouse_balance<![CDATA[ <= ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area} and Storage_conditions=#{con};
+    </select>
+    
+    <select id="getAlterNum" resultType="Integer">
+    	select count(*) from 2020rg_group12_warehousealter
+    </select>
+    
+    <select id="setWarehousetotal">
+    	update 2020rg_group12_warehousesamplestate set Warehouse_total=Warehouse_total+#{normal} where Warehouse_area=#{warehouse} and Storage_conditions="常温";
+    	update 2020rg_group12_warehousesamplestate set Warehouse_total=Warehouse_total+#{refrigerate} where Warehouse_area=#{warehouse} and Storage_conditions="冷藏";
+    	update 2020rg_group12_warehousesamplestate set Warehouse_total=Warehouse_total+#{freeze} where Warehouse_area=#{warehouse} and Storage_conditions="冷冻";
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance+#{normal} where Warehouse_area=#{warehouse} and Storage_conditions="常温";
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance+#{refrigerate} where Warehouse_area=#{warehouse} and Storage_conditions="冷藏";
+    	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance+#{freeze} where Warehouse_area=#{warehouse} and Storage_conditions="冷冻";
+    	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance+#{normal}+#{refrigerate}+#{freeze} where Warehouse_area=#{warehouse};
+    	update 2020rg_group12_warehousestate set Warehouse_state="充足" where Warehouse_balance<![CDATA[ > ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="拥挤" where Warehouse_balance<![CDATA[ >= ]]>5 and Warehouse_balance<![CDATA[ <= ]]>20;
+    	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
+    </select>
+    
+    <select id="congestioncontrol" resultMap="warehousestate">
+    	select * from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足";
+    </select>
+    
+    <select id="congestioncontrol2" resultMap="warehousesamplestate">
+    	select * from 2020rg_group12_warehousesamplestate where Warehouse_area= any(select Warehouse_area from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足");
+    </select>
+    
+</mapper>
