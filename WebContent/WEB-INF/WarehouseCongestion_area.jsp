@@ -67,8 +67,8 @@
 			<c:forEach items="${areastate}" var="node">
 				<tr>
 					<td> <c:out value="${node.warehouse_area}"></c:out> </td>
-					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
 					<td> <c:out value="${node.warehouse_balance}"></c:out> </td>
+					<td> <c:out value="${node.warehouse_state}"></c:out> </td>
 					<td> <c:out value="${fn:substring(node.state_duration,0,19)}"></c:out> </td>
 				</tr>
 	   		</c:forEach>
