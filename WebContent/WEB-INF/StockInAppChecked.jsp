@@ -78,7 +78,10 @@
     		</div><!-- /input-group -->
   		</div><!-- /.col-lg-6 -->
   		</form>
-		
+		<br />
+	    <br />
+	    <br />
+	    <br />
 	</div>
 	
 	<!-- Bootstrap core JavaScript
