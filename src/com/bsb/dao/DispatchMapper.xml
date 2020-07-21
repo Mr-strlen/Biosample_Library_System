@@ -104,6 +104,11 @@
 	<select id="findAllRecord" resultMap="RecordMap">
     	select * from 2020rg_group12_dispatchrecord
     </select>
+    
+    <select id="findRecordByState" resultMap="RecordMap">
+    	select * from 2020rg_group12_dispatchrecord where DispatchState='待完成'
+    </select>
+    
 	<!-- 
 	// 显示指定单号的出库申请
 	public List<DispatchRecord> findRecordByOrder(String order);
