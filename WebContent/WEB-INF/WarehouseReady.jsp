@@ -38,7 +38,7 @@
     
     <div class="container theme-showcase" role="main">
   		<!-- Default panel contents -->
-  		<form action="<%=basePath%>warehouse/readytohadle" method="get">
+  		<form action="<%=basePath%>warehouse/readytohandle" method="get">
   		<div class="panel panel-default" style="margin-top:20px;">
   			<!-- Default panel contents -->
   			<div class="panel-heading">入库记录</div>

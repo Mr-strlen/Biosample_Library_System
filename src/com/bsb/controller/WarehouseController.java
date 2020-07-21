@@ -72,6 +72,14 @@ public class WarehouseController {
         return mv;
     }
 	
+	@RequestMapping("/readytohandle")
+    public ModelAndView ReadytoHandle(RedirectAttributes attributes){
+        ModelAndView mv = new ModelAndView("WarehouseReady");
+        mv.addObject("stockin_record",StockInService.ShowRecord());
+        mv.addObject("record_select",dispatchService.findAllRecord());
+        return mv;
+    }
+	
 	@RequestMapping("/store")
     public ModelAndView getStore(RedirectAttributes attributes){
         ModelAndView mv = new ModelAndView("WarehouseStore");

@@ -16,6 +16,7 @@ public interface StockInService {
 	public void Appcheck(int id, String name, String result, String reason, String auditor);//鐢宠琛ㄥ鏍�
 	//3.鍏ュ簱璁板綍琛�
 	public List<StockInRecord> ShowRecord();//鏄剧ず鍏ュ簱璁板綍琛�
+	public List<StockInRecord> ShowReadyRecord();
 	public List<StockInRecord> ShowRecordbySample_id(String sample_id);//鏍规嵁缂栫爜鏄剧ず鐢宠璁板綍涓叿浣撴牱鏈�
 	public int GetNextRecordId();//鑾峰彇涓嬩竴涓叆搴撹褰曞彿
 	public List<StockInAppdetail> GetNotFinishedApp();//鏄剧ず宸查�氳繃鏈櫥璁扮殑鐢宠
