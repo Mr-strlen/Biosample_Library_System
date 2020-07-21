@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,7 +40,6 @@
 		<button type="button" onclick="history.back(-1)" class="btn btn-default btn-sm float-right">
 	  		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;返回
 	  	</button>
-	  	
 	  	<br></br>
 	  	<br/>
 		<form action="<%=basePath%>dispatch/app_checksubmit" method="get" class="form-inline">
@@ -101,44 +99,6 @@
         </form>
 		
 	</div>
-	
-	<div id="tables" class="container theme-showcase">
-		   
-		    <br></br>
-	  	    <br/>
-  			<div class="panel panel-default">
-  			<!-- Default panel contents -->
-  			<div class="panel-heading">仓库存储表</div>
-  			<!-- Table -->
-  			<table class="table">
-  				<tr>
-					<th>样本名称</th>
-					<th>最近变动日期</th>
-					<th>存储条件</th>
-					<th>存储区域</th>
-					<th>现存数量</th>
-					<th>附加说明</th>
-				</tr>
-				<c:forEach items="${controlquery}" var="node">
-					<tr>
-						<td> <c:out value="${node.sample_name}"></c:out> </td>
-						<td> <c:out value="${fn:substring(node.warehousing_date,0,19)}"></c:out> </td>
-						<td> <c:out value="${node.storage_conditions}"></c:out> </td>
-						<td> <c:out value="${node.storage_area}"></c:out> </td>
-						<td> <c:out value="${node.quantity}"></c:out> </td>
-						<td> <c:out value="${node.additional_notes}"></c:out> </td>
-						<td>
-							<button type="button" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='<%=basePath%>warehouse/alter_namequery?type=${node.sample_name}';" data-toggle="modal" data-target="#checkModal">
-	  						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;查看变动信息
-							</button>
-						</td>
-					</tr>
-	   			</c:forEach>
-  			</table>
-		</div> 
-		
-		</div>
-		
 	<script type="text/javascript">
 	function change()
 	{
