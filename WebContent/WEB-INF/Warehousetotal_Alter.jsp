@@ -64,9 +64,9 @@
                                <option value ="信息样本库">信息样本库</option> 
                             </select>					     
 						 </td>
-						<td> <input type="text" class="form-control" name="normal" aria-describedby="basic-addon2"> </td>
-						<td> <input type="text" name="refrigerate" class="form-control" aria-describedby="basic-addon2"> </td>
-						<td> <input type="text" name="freeze" class="form-control" aria-describedby="basic-addon2"> </td>
+						<td> <input type="number" class="form-control" name="normal" aria-describedby="basic-addon2"> </td>
+						<td> <input type="number" name="refrigerate" class="form-control" aria-describedby="basic-addon2"> </td>
+						<td> <input type="number" name="freeze" class="form-control" aria-describedby="basic-addon2"> </td>
 					</tr>
   			</table>
 		</div> 

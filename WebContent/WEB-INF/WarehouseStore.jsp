@@ -74,7 +74,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">数量</span>
-  					<input type="text" class="form-control" name="num" aria-describedby="basic-addon2">
+  					<input type="number" class="form-control" name="num" aria-describedby="basic-addon2">
   				</div>
 			</div>
 			<div class="form-group">
