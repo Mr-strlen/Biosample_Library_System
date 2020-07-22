@@ -70,7 +70,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">变化数量</span>
-  					<input type="text" class="form-control" name="num" value="${forfun3}" aria-describedby="basic-addon2" readonly>
+  					<input type="number" class="form-control" name="num" value="${forfun3}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
