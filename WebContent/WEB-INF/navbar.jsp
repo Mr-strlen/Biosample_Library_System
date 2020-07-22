@@ -71,7 +71,7 @@
                 <li><a href="<%=basePath%>sampleinfo/statistics">信息统计</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">样本盘点</li>
-                <li><a href="<%=basePath%>check/index">历次盘点总览</a></li>
+                <li><a href="<%=basePath%>check/index">盘点总览</a></li>
                 <li><a href="<%=basePath%>check/findbyid?id=">盘点详情查询</a></li>
                 <li><a href="<%=basePath%>check/creat">开始盘点</a></li>
                 <li><a href="<%=basePath%>warehouse/areastate">查看库位状态</a></li>
