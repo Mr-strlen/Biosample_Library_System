@@ -68,7 +68,7 @@
 		<form action="<%=basePath%>stockin/stockin_appdetail" method="get">
 		<div class="col-lg-6">
     		<div class="input-group">
-      			<input type="text" name="id" class="form-control" placeholder="输入申请单号...">
+      			<input type="number" name="id" class="form-control" placeholder="输入申请单号...">
       			<span class="input-group-btn">
         			<button class="btn btn-default" type="submit">
         				<span class="glyphicon glyphicon-ok"></span> 查询
@@ -84,5 +84,18 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<%=basePath%>static/js/jquery-3.4.1.min.js"></script>
     <script src="<%=basePath%>static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+	    $(".table tr td").each(function(){
+	    	if($(this).text() == ' 充足 '){
+	    		$(this).css("color", "green");
+	    	}
+	    	if($(this).text() == ' 拥挤 '){
+	    		$(this).css("color", "orange");
+	    	}
+	    	if($(this).text() == ' 不足 '){
+	    		$(this).css("color", "red");
+	    	}
+	    });
+    </script>
 </body>
 </html>

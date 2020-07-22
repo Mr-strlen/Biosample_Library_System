@@ -77,7 +77,7 @@
 					<tr>						
 						<td> <input type="text" name="application_id" class="form-control" > </td>						
 						<td> <input type="text" name="sample_name" class="form-control" > </td>
-						<td> <input type="text" name="sample_quantity" class="form-control" > </td>
+						<td> <input type="number" name="sample_quantity" class="form-control" > </td>
 						<td> <input type="text" name="sample_id" class="form-control" > </td>										
 					</tr>	   			
   			</table>

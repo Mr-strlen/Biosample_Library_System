@@ -68,7 +68,7 @@
 					<tr>						
 						<td> <input type="text" name="id" class="form-control" > </td>						
 						<td> <input type="text" name="name" class="form-control" > </td>
-						<td> <input type="text" name="size" class="form-control" > </td>	
+						<td> <input type="number" name="size" class="form-control" > </td>	
 						<td> <input type="text" name="applicant" class="form-control" ></td>
 						<td> <input type="text" name="request" class="form-control" ></td>															
 					</tr>

@@ -36,7 +36,12 @@ public class StockInController {
 	@RequestMapping("/stockin_appdetail")
     public ModelAndView showappdetail(String id){
         ModelAndView mv = new ModelAndView("StockInAppdetail");
-        mv.addObject("stockin_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
+        if(id == "") {
+        	mv.addObject("stockin_appdetail",StockInService.ShowAppdetail(Integer.valueOf("0")));
+        }
+		else {
+			mv.addObject("stockin_appdetail",StockInService.ShowAppdetail(Integer.valueOf(id)));
+		}
         return mv;
     }
 	
@@ -87,7 +92,12 @@ public class StockInController {
     public ModelAndView findrecord(String sample_id){
 		//System.out.println(sample_id);
 		ModelAndView mv = new ModelAndView("StockInRecord");
-        mv.addObject("stockin_record",StockInService.ShowRecordbySample_id(sample_id));
+		if(sample_id == "") {
+        	mv.addObject("stockin_record",StockInService.ShowRecord());
+        }
+		else {
+			mv.addObject("stockin_record",StockInService.ShowRecordbySample_id(sample_id));
+		}
         return mv;
     }
 	
