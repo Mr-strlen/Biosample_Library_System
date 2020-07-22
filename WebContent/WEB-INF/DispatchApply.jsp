@@ -60,7 +60,7 @@
 						<input style="width: 250px;" type="text" id = "type" name="type" class="form-control" placeholder = "样本名称">
 					</td>
 					<td>
-						<input style="width: 250px;" type="number" name="snum" class="form-control" placeholder = "样本数量">
+						<input style="width: 250px;" type="number" min="1" name="snum" class="form-control" placeholder = "样本数量">
 					</td>
 					<td> 
 						<input style="width: 250px;" type="text" name="condition" value = "默认" class="form-control" placeholder = "样本状态">
