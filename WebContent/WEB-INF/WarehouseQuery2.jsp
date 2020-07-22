@@ -120,16 +120,16 @@
         	var text = $(this).text();
         	var type = document.getElementById("type");
         	document.getElementById("searchbutton").innerHTML = text;
-        	if(text == "样本名称查询"){
+        	if(text == "样本名称查找"){
         		type.value = "1";
         	}
-        	else if(text == "存储条件查询"){
+        	else if(text == "存储条件查找"){
         		type.value = "2";
         	}
-        	else if(text == "存储区域查询"){
+        	else if(text == "存储区域查找"){
         		type.value = "3";
         	}
-        	else if(text == "存储日期查询"){
+        	else if(text == "存储日期查找"){
         		type.value = "4";
         	}
         });
