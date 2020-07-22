@@ -45,8 +45,8 @@
 	  	<br></br>
 	  	<br/>
 		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="<%=basePath%>warehouse/areastate">拥塞仓库</a></li>
-		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/conditionstate">拥塞仓库详细信息</a></li>
+		  <li role="presentation"><a href="<%=basePath%>warehouse/congestioncontrol">拥塞仓库</a></li>
+		  <li role="presentation" class="active"><a href="<%=basePath%>warehouse/congestioncontrol2">拥塞仓库详细信息</a></li>
 		</ul>
 		<br></br>
 	  	<br/>
