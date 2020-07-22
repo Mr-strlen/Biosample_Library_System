@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/com/bsb/dao/DispatchMapper.java=UTF-8
+encoding//src/com/bsb/dao/StockInMapper.java=UTF-8
+encoding//src/com/bsb/service/DispatchService.java=UTF-8
+encoding//src/com/bsb/service/StockInService.java=UTF-8
+encoding//src/com/bsb/service/impl/DispatchServiceImpl.java=UTF-8
+encoding//src/com/bsb/service/impl/StockInServiceImpl.java=UTF-8
