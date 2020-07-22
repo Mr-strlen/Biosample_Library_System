@@ -57,16 +57,16 @@
 		      				<input type="text" name="word" class="form-control" placeholder="Please enter keywords ...">
 		      				<input type="hidden" name="type" id="type" value="1">
 		      				<div class="input-group-btn">
-		        				<button id="searchbutton" class="btn btn-default" type="submit">样本名称查询</button>	
+		        				<button id="searchbutton" class="btn btn-default" type="submit">样本名称查找</button>	
 		      					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			        				<span class="caret"></span>
 	    							<span class="sr-only">Toggle Dropdown</span>
 	  							</button>
 	  							<ul class="dropdown-menu">
-	    							<li><a href="#table-5">样本名称查询</a></li>
-	    							<li><a href="#table-5">存储条件查询</a></li>
-	    							<li><a href="#table-5">存储区域查询</a></li>
-	    							<li><a href="#table-5">存储日期查询</a></li>
+	    							<li><a href="#table-5">样本名称查找</a></li>
+	    							<li><a href="#table-5">存储条件查找</a></li>
+	    							<li><a href="#table-5">存储区域查找</a></li>
+	    							<li><a href="#table-5">存储日期查找</a></li>
 	  							</ul>
 		      				</div>
 		    			</div><!-- /input-group -->
