@@ -64,7 +64,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon" id="basic-addon2">入库日期</span>
-  					<input type="text" class="form-control" name="date" value="${forfun2}" aria-describedby="basic-addon2" readonly>
+  					<input type="text" class="form-control" name="time" value="${forfun2}" aria-describedby="basic-addon2" readonly>
   				</div>
 			</div>
 			<div class="form-group">
