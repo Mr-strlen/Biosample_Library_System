@@ -33,43 +33,52 @@
         <result property="Warehouse_total" column="warehouse_total"/>
         <result property="Warehouse_balance" column="warehouse_balance"/>
     </resultMap>
-    
+    <!-- 库存变动表 -->
     <select id="FindAlter" resultMap="warehousealter">
     	select * from 2020rg_group12_warehousealter;
     </select>
     
+    <!-- 通过名字查询库存变动表 -->
     <select id="FindAlterByName" parameterType="String" resultMap="warehousealter">
     	select * from 2020rg_group12_warehousealter where Sample_name=#{name};
     </select>
     
+    <!-- 库存控制表 -->
     <select id="FindControl" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol;
     </select>
     
+    <!-- 通过名字查询库存控制表 -->
     <select id="findControlByName" parameterType="String" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol where Sample_name like #{name};
     </select>
     
+     <!-- 通过存储条件查询库存控制表 -->
     <select id="findControlByCondition" parameterType="String" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol where Storage_conditions like #{condition};
     </select>
     
+     <!-- 通过存储区域查询库存控制表 -->
     <select id="findControlByArea" parameterType="String" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol where Storage_area like #{area};
     </select>
     
+     <!-- 通过时间查询库存控制表 -->
     <select id="findControlByTime" parameterType="String" resultMap="warehousecontrol">
     	select * from 2020rg_group12_warehousecontrol where Warehousing_date like #{time};
     </select>
     
+     <!-- 查询按照区域划分的库位状态表 -->
     <select id="FindState" resultMap="warehousestate">
     	select * from 2020rg_group12_warehousestate;
     </select>
     
+    <!-- 查询按照条件划分的库位状态表 -->
      <select id="FindState2" resultMap="warehousesamplestate">
     	select * from 2020rg_group12_warehousesamplestate;
     </select>
     
+    <!-- 插入库存变动表信息 -->
     <select id="SampleStore">
     	insert into 2020rg_group12_warehousealter (Sample_code,Sample_name,Sample_alter,Reason,Operator,Quantity,Alter_date) values (#{code},#{name},#{alter},#{reason},#{operator},#{num},#{time});
     	update 2020rg_group12_stockinrecord set stockin_state="已存储"  where sample_name= #{name};
@@ -77,6 +86,7 @@
 		insert into 2020rg_group12_warehousecontrol (Sample_name,Warehousing_date,Quantity) values (#{name},#{time},#{num}) ON DUPLICATE KEY UPDATE Warehousing_date=#{time},Quantity=Quantity+#{num}
     </select>
     
+    <!-- 插入库存控制表信息 -->
     <select id="SampleStore2">
     	update 2020rg_group12_warehousecontrol set Storage_conditions= #{con}, Storage_area=#{area}, Additional_notes=#{note} where Sample_name=#{name};
     	update 2020rg_group12_warehousestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area};
@@ -87,10 +97,12 @@
     	update 2020rg_group12_warehousesamplestate set Warehouse_balance=Warehouse_balance-#{num} where Warehouse_area=#{area} and Storage_conditions=#{con};
     </select>
     
+    <!-- 获取变动编号 -->
     <select id="getAlterNum" resultType="Integer">
     	select count(*) from 2020rg_group12_warehousealter
     </select>
     
+    <!-- 更改仓库大小 -->
     <select id="setWarehousetotal">
     	update 2020rg_group12_warehousesamplestate set Warehouse_total=Warehouse_total+#{normal} where Warehouse_area=#{warehouse} and Storage_conditions="常温";
     	update 2020rg_group12_warehousesamplestate set Warehouse_total=Warehouse_total+#{refrigerate} where Warehouse_area=#{warehouse} and Storage_conditions="冷藏";
@@ -104,10 +116,12 @@
     	update 2020rg_group12_warehousestate set Warehouse_state="不足" where Warehouse_balance<![CDATA[ < ]]>5;
     </select>
     
+    <!-- 获取处于拥塞的按照区域划分的库位状态表 -->
     <select id="congestioncontrol" resultMap="warehousestate">
     	select * from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足";
     </select>
     
+    <!-- 获取处于拥塞的按照条件划分的库位状态表 -->
     <select id="congestioncontrol2" resultMap="warehousesamplestate">
     	select * from 2020rg_group12_warehousesamplestate where Warehouse_area= any(select Warehouse_area from 2020rg_group12_warehousestate where Warehouse_state="拥挤" or Warehouse_state="不足");
     </select>
